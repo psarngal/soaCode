@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SOAConfigPlan xmlns:jca="http://platform.integration.oracle/blocks/adapter/fw/metadata"
+               xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+               xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy"
+               xmlns:edl="http://schemas.oracle.com/events/edl" xmlns="http://schemas.oracle.com/soa/configplan">
+  <composite name="MISIMDOMNotifySPM">
+    <import>
+      <searchReplace>
+        <search/>
+        <replace/>
+      </searchReplace>
+    </import>
+    <service name="DequeueOrderDetailsForSPM">
+      <binding type="jca"/>
+    </service>
+    <property name="productVersion">
+      <replace>12.1.3.0.0</replace>
+    </property>
+    <component name="SPMProcessBPEL">
+      <property name="bpel.config.oneWayDeliveryPolicy">
+        <replace>async.persist</replace>
+      </property>
+      <property name="bpel.preference.QueryURL">
+        <replace>https://spmav.oraclecorp.com/spm/ws/dal/Project</replace>
+      </property>
+    </component>
+    <reference name="SPMGenericWS">
+      <binding type="ws">
+        <attribute name="port">
+          <replace>http://xmlns.oracle.com/pcbpel/adapter/http/SPM/MISIMDOMNotifySPM/SPMGenericWS#wsdl.endpoint(SPMGenericWS/Request_Response_pt)</replace>
+        </attribute>
+        <attribute name="location">
+          <replace>SPMGenericWS.wsdl</replace>
+        </attribute>
+        <property name="oracle.webservices.auth.username">
+          <replace>spm-test-integ_us@oracle.com</replace>
+        </property>
+        <property name="oracle.webservices.auth.password">
+          <replace>SPMD0Ma!N</replace>
+        </property>
+        <property name="http.verb">
+          <replace>POST</replace>
+        </property>
+        <property name="endpointURI">
+          <replace>https://spmav.oraclecorp.com/spm/ws/com.oracle.oal.spm.SpmGenericWS</replace>
+        </property>
+        <property name="http.payload">
+          <replace>xml</replace>
+        </property>
+        <property name="oracle.webservices.httpConnTimeout">
+          <replace>10000</replace>
+        </property>
+        <property name="oracle.webservices.httpReadTimeout">
+          <replace>30000</replace>
+        </property>
+      </binding>
+    </reference>
+    <reference name="SPMGetContractLines">
+      <binding type="ws">
+        <attribute name="port">
+          <replace>http://xmlns.oracle.com/pcbpel/adapter/http/SPM/MISIMDOMNotifySPM/SPMGetContractLines#wsdl.endpoint(SPMGetContractLines/Request_Response_pt)</replace>
+        </attribute>
+        <attribute name="location">
+          <replace>SPMGetContractLines.wsdl</replace>
+        </attribute>
+        <property name="oracle.webservices.auth.username">
+          <replace>spm-test-integ_us@oracle.com</replace>
+        </property>
+        <property name="oracle.webservices.auth.password">
+          <replace>SPMD0Ma!N</replace>
+        </property>
+        <property name="http.verb">
+          <replace>GET</replace>
+        </property>
+        <property name="endpointURI">
+          <replace>https://spmav.oraclecorp.com/spm/ws/dal/Project</replace>
+        </property>
+        <property name="http.payload">
+          <replace>url-encoded</replace>
+        </property>
+        <property name="oracle.webservices.httpConnTimeout">
+          <replace>10000</replace>
+        </property>
+        <property name="oracle.webservices.httpReadTimeout">
+          <replace>30000</replace>
+        </property>
+      </binding>
+    </reference>
+    <reference name="SPMInFlightWS">
+      <binding type="ws">
+        <attribute name="port">
+          <replace>http://xmlns.oracle.com/pcbpel/adapter/http/SPM/MISIMDOMNotifySPM/SPMInFlightWS#wsdl.endpoint(SPMInFlightWS/Request_Response_pt)</replace>
+        </attribute>
+        <attribute name="location">
+          <replace>SPMInFlightWS.wsdl</replace>
+        </attribute>
+        <property name="oracle.webservices.auth.username">
+          <replace>spm-test-integ_us@oracle.com</replace>
+        </property>
+        <property name="oracle.webservices.auth.password">
+          <replace>SPMD0Ma!N</replace>
+        </property>
+        <property name="http.verb">
+          <replace>POST</replace>
+        </property>
+        <property name="endpointURI">
+          <replace>https://spmav.oraclecorp.com/spm/ws/com.oracle.oal.spm.InFlightWS</replace>
+        </property>
+        <property name="http.payload">
+          <replace>xml</replace>
+        </property>
+        <property name="oracle.webservices.httpConnTimeout">
+          <replace>10000</replace>
+        </property>
+        <property name="oracle.webservices.httpReadTimeout">
+          <replace>30000</replace>
+        </property>
+      </binding>
+    </reference>
+    <reference name="UpdateGSI">
+      <binding type="jca"/>
+    </reference>
+    <reference name="CRMOptyService">
+      <binding type="ws">
+        <attribute name="port">
+          <replace>http://xmlns.oracle.com/apps/sales/opptyMgmt/opportunities/opportunityService/#wsdl.endpoint(OpportunityService/OpportunityServiceSoapHttpPort)</replace>
+        </attribute>
+        <attribute name="location">
+          <replace>oramds:/apps/MISCRMSharedArchive/OpportunityService/OpportunityService.wsdl</replace>
+        </attribute>
+        <property name="csf-key">
+          <replace>CRM-IMD</replace>
+        </property>
+        <property name="weblogic.wsee.wsat.transaction.flowOption">
+          <replace>WSDLDriven</replace>
+        </property>
+        <property name="oracle.webservices.httpConnTimeout">
+          <replace>10000</replace>
+        </property>
+        <property name="oracle.webservices.httpReadTimeout">
+          <replace>30000</replace>
+        </property>
+      </binding>
+      <callback>
+        <binding type="ws">
+          <attribute name="port">
+            <replace>http://xmlns.oracle.com/apps/sales/opptyMgmt/opportunities/opportunityService/#wsdl.endpoint(OpportunityService/OpportunityServiceResponse_pt)</replace>
+          </attribute>
+        </binding>
+      </callback>
+    </reference>
+    <reference name="GSICustomerOSR">
+      <binding type="jca"/>
+    </reference>
+    <reference name="PostPromoOrdersSPM">
+      <!--Add search and replace rules for the binding properties-->
+      <binding type="rest">
+        <attribute name="location">
+          <replace>https://spmav.oraclecorp.com</replace>
+        </attribute>
+        <property name="http.connTimeout">
+          <replace>10000</replace>
+        </property>
+        <property name="http.readTimeout">
+          <replace>30000</replace>
+        </property>
+        <property name="reorderJsonAsPerXmlSchema">
+          <replace>true</replace>
+        </property>
+      </binding>
+    </reference>
+  </composite>
+  <wsdlAndSchema name="DequeueOrderDetailsForSPM.wsdl|DequeueOrderDetailsForSPM_aq.jca|GSICustomerOSR.wsdl|GSICustomerOSR_db.jca|SPMGenericWS.wsdl|SPMGetContractLines.wsdl|UpdateGSI.wsdl|UpdateGSI_db.jca|xsd/APPS_WF_EVENT_T.xsd|xsd/GSICustomerOSR_sp.xsd|xsd/OM_SPM.xsd|xsd/SPMSubscription.xsd|xsd/UpdateGSI_sp.xsd|xsd/SPMGetContractLines">
+    <searchReplace>
+      <search/>
+      <replace/>
+    </searchReplace>
+  </wsdlAndSchema>
+</SOAConfigPlan>

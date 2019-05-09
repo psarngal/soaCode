@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ob="http://www.openbravo.com" targetNamespace="http://www.openbravo.com" elementFormDefault="qualified">
+   <xs:element name="Openbravo">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="Project" maxOccurs="unbounded" minOccurs="0">
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="id"/>
+                     <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="searchKey"/>
+                     <xs:element name="oBCNTRContractType">
+                        <xs:complexType>
+                           <xs:simpleContent>
+                              <xs:extension base="xs:string">
+                                 <xs:attribute name="id" type="xs:string"/>
+                                 <xs:attribute name="entity-name" type="xs:string"/>
+                                 <xs:attribute name="identifier" type="xs:string"/>
+                              </xs:extension>
+                           </xs:simpleContent>
+                        </xs:complexType>
+                     </xs:element>
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

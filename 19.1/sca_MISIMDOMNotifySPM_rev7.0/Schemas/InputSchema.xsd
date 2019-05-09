@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/InputSchema" xmlns:tns="http://www.example.org/InputSchema" elementFormDefault="qualified">
+   <xsd:element name="Input_Parameters">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="P_TRXN_REF" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_APPLICATION" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_COMPONENT" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_SUB_COMPONENT" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_TIMESTAMP" type="dateTime" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_PRIORITY_LEVEL" type="decimal" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_LOG_TYPE" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_LOG_MESSAGE" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_STATUS" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_COMMENTS" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_URL" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_ASSIGNED_TO" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_CONTEXT_KEY1" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_CONTEXT_VALUE1" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_CONTEXT_KEY2" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_CONTEXT_VALUE2" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_CONTEXT_KEY3" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_CONTEXT_VALUE3" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_CONTEXT_KEY4" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_CONTEXT_VALUE4" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_CONTEXT_KEY5" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_CONTEXT_VALUE5" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_CONTEXT_KEY6" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_CONTEXT_VALUE6" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_CONTEXT_KEY7" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_CONTEXT_VALUE7" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_CONTEXT_KEY8" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_CONTEXT_VALUE8" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_CONTEXT_KEY9" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_CONTEXT_VALUE9" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_CONTEXT_KEY10" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_CONTEXT_VALUE10" type="string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="P_ATTACHMENT" type="string" minOccurs="0" maxOccurs="1"/>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+</schema>

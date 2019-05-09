@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/GetCRMSalesAccount"
+           xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/top/GetCRMSalesAccount" elementFormDefault="qualified"
+           attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="HzPartiesCollection" type="HzPartiesCollection"/>
+    <xs:complexType name="HzPartiesCollection">
+        <xs:sequence>
+            <xs:element name="HzParties" type="HzParties" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="HzParties">
+        <xs:sequence>
+            <xs:element name="partyId" type="xs:long"/>
+            <xs:element name="attribute24" minOccurs="0" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="150"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="hzPartyId" type="HzCustAccounts" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="HzCustAccounts">
+        <xs:sequence>
+            <xs:element name="accountNumber">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="GetCRMSalesAccountSelect_p_account_numberInputParameters"
+                type="GetCRMSalesAccountSelect_p_account_number"/>
+    <xs:complexType name="GetCRMSalesAccountSelect_p_account_number">
+        <xs:sequence>
+            <xs:element name="p_account_number" type="xs:string" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<adapter-config name="GSICustomerOSR" adapter="db" wsdlLocation="GSICustomerOSR.wsdl"
+                xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+    <connection-factory location="eis/DB/SOAGSIXAMISBPEL" UIConnectionName="GSIAV" adapterRef=""/>
+    <endpoint-interaction portType="GSICustomerOSR_ptt" operation="GSICustomerOSR">
+        <interaction-spec className="oracle.tip.adapter.db.DBStoredProcedureInteractionSpec">
+            <property name="SchemaName" value="APPS"/>
+            <property name="PackageName" value="MISIMD_HZ_SPM_INBOUND"/>
+            <property name="ProcedureName" value="CREATE_OSR"/>
+            <property name="GetActiveUnitOfWork" value="false"/>
+        </interaction-spec>
+    </endpoint-interaction>
+</adapter-config>

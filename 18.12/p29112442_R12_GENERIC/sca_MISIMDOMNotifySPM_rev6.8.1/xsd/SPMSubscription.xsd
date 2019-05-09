@@ -1,0 +1,924 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://xmlns.oracle.com/oih/oracle_integration_message"
+            targetNamespace="http://xmlns.oracle.com/oih/oracle_integration_message"
+            xmlns:ns1="http://www.oracle.com/spm" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.oracle.com/spm" schemaLocation="OM_SPM.xsd"/>
+    <xsd:element name="ORACLE_INTEGRATION_MESSAGE">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element type="xsd:string" minOccurs="0" maxOccurs="1" name="DOCUMENT_NAME"/>
+                <xsd:element type="xsd:integer" minOccurs="0" maxOccurs="1" name="DOCUMENT_NUMBER"/>
+                <xsd:element type="xsd:string" minOccurs="0" maxOccurs="1" name="DOCUMENT_TYPE"/>
+                <xsd:element type="xsd:string" minOccurs="0" maxOccurs="1" name="FROM_SYSTEM"/>
+                <xsd:element type="xsd:string" minOccurs="0" maxOccurs="1" name="TO_SYSTEM"/>
+                <xsd:element type="xsd:string" minOccurs="0" maxOccurs="1" name="SRC"/>
+                <xsd:element type="xsd:string" minOccurs="0" maxOccurs="1" name="DEST"/>
+                <xsd:element name="PAYLOAD">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="InFlightRequest">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="Subscription">
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="subscriptionId" type="xsd:string"/>
+                                                    <xsd:element name="salesOrderId" type="xsd:string"/>
+                                                    <xsd:element name="salesOrderNum" type="xsd:string"/>
+                                                    <xsd:element name="orderLineServiceStartDate" type="xsd:string"/>
+                                                    <xsd:element name="orderLineStatus" type="xsd:string"/>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="InFlightResponse">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="ReturnStatus">
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="message" type="xsd:string"/>
+                                                    <xsd:element name="status" type="xsd:string"/>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element name="Subscription">
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="subscriptionId" type="xsd:string"/>
+                                                    <xsd:element name="salesOrderId" type="xsd:string"/>
+                                                    <xsd:element name="salesOrderNum" type="xsd:string"/>
+                                                    <xsd:element name="orderLineServiceStartDate" type="xsd:string"/>
+                                                    <xsd:element name="orderLineStatus" type="xsd:string"/>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="SPM">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="Subscription">
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="Name" type="xsd:string"/>
+                                                    <xsd:element name="SearchKey" type="xsd:string"/>
+                                                    <xsd:element name="Description" type="xsd:string"/>
+                                                    <xsd:element name="Organization">
+                                                        <xsd:complexType>
+                                                            <xsd:sequence>
+                                                                <xsd:element name="SearchKey" type="xsd:integer"/>
+                                                            </xsd:sequence>
+                                                        </xsd:complexType>
+                                                    </xsd:element>
+                                                    <xsd:element name="SubscriptionType" minOccurs="0">
+                                                        <xsd:complexType>
+                                                            <xsd:sequence>
+                                                                <xsd:element name="ID" type="xsd:string"/>
+                                                                <xsd:element name="Name" type="xsd:string"/>
+                                                                <xsd:element name="IsSalesContract" type="xsd:string"/>
+                                                                <xsd:element name="IsServiceContract"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="Classfication" type="xsd:string"/>
+                                                            </xsd:sequence>
+                                                        </xsd:complexType>
+                                                    </xsd:element>
+                                                    <xsd:element name="Sold2Customer" type="tns:CustType"/>
+                                                    <xsd:element name="Sold2Contact" type="tns:ContactType"/>
+                                                    <xsd:element name="Bill2Customer" type="tns:CustType"/>
+                                                    <xsd:element name="Bill2Address" type="tns:AddressType"/>
+                                                    <xsd:element name="BillingContact" type="tns:ContactType"/>
+                                                    <xsd:element name="Service2Customer" type="tns:CustType"/>
+                                                    <xsd:element name="Service2Address" type="tns:AddressType"/>
+                                                    <xsd:element name="Service2Contact" type="tns:ContactType"/>
+                                                    <xsd:element name="EndUserCustomer" type="tns:CustType"/>
+                                                    <xsd:element name="EndUserAddress" type="tns:AddressType"/>
+                                                    <xsd:element name="EndUserContact" type="tns:ContactType"/>
+                                                    <xsd:element name="EndUserPONumber" type="xsd:string"/>
+                                                    <xsd:element name="EndUserPOExpiryDate" type="xsd:string"/>
+                                                    <xsd:element name="EndUserCCTokenRef" type="xsd:string"/>
+                                                    <xsd:element name="EndUserCCExpiryDate" type="xsd:string"/>
+                                                    <xsd:element name="SalesRepresentative">
+                                                        <xsd:complexType>
+                                                            <xsd:sequence>
+                                                                <xsd:element name="Name" type="xsd:string"/>
+                                                                <xsd:element name="Org">
+                                                                    <xsd:complexType>
+                                                                        <xsd:sequence>
+                                                                            <xsd:element name="SearchKey"
+                                                                                         type="xsd:integer"/>
+                                                                        </xsd:sequence>
+                                                                    </xsd:complexType>
+                                                                </xsd:element>
+                                                                <xsd:element name="FirstName" type="xsd:string"/>
+                                                                <xsd:element name="LastName" type="xsd:string"/>
+                                                                <xsd:element name="Email" type="xsd:string"/>
+                                                                <xsd:element name="Phone" type="xsd:string"/>
+                                                                <xsd:element name="AlternativePhone" type="xsd:string"/>
+                                                                <xsd:element name="Position" type="xsd:string"/>
+                                                                <xsd:element name="Comments" type="xsd:string"/>
+                                                                <xsd:element name="TCAPartyId" type="xsd:integer"/>
+                                                                <xsd:element name="TCACustAccRoleId"
+                                                                             type="xsd:integer"/>
+                                                                <xsd:element name="TCACustAccSiteId"
+                                                                             type="xsd:integer"/>
+                                                                <xsd:element name="IsChainCustomer" type="xsd:string"/>
+                                                                <xsd:element name="IsPublicSector" type="xsd:string"/>
+                                                                <xsd:element name="CustomerChainType"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="BusinessPartner">
+                                                                    <xsd:complexType>
+                                                                        <xsd:sequence>
+                                                                            <xsd:element name="Org">
+                                                                                <xsd:complexType>
+                                                                                    <xsd:sequence>
+                                                                                        <xsd:element name="SearchKey"
+                                                                                                     type="xsd:integer"/>
+                                                                                    </xsd:sequence>
+                                                                                </xsd:complexType>
+                                                                            </xsd:element>
+                                                                            <xsd:element name="JTFSalesRepId"
+                                                                                         type="xsd:integer"/>
+                                                                            <xsd:element name="SearchKey"
+                                                                                         type="xsd:integer"/>
+                                                                            <xsd:element name="Name" type="xsd:string"/>
+                                                                            <xsd:element name="TCAPartyNumber"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="PersonId"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="IsSalesRepresentative"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="IsCustomer"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="BusinessPartnerCategory">
+                                                                                <xsd:complexType>
+                                                                                    <xsd:sequence>
+                                                                                        <xsd:element name="SearchKey"
+                                                                                                     type="xsd:string"/>
+                                                                                        <xsd:element name="Name"
+                                                                                                     type="xsd:string"/>
+                                                                                        <xsd:element name="Description"/>
+                                                                                    </xsd:sequence>
+                                                                                </xsd:complexType>
+                                                                            </xsd:element>
+                                                                        </xsd:sequence>
+                                                                    </xsd:complexType>
+                                                                </xsd:element>
+                                                            </xsd:sequence>
+                                                        </xsd:complexType>
+                                                    </xsd:element>
+                                                    <xsd:element name="AgreementDate" type="xsd:string"/>
+                                                    <xsd:element name="StartDate" type="xsd:string"/>
+                                                    <xsd:element name="Duration" type="xsd:integer"/>
+                                                    <xsd:element name="DurationUnit" type="xsd:string"/>
+                                                    <xsd:element name="SubscriptionSchedule">
+                                                        <xsd:complexType>
+                                                            <xsd:sequence>
+                                                                <xsd:element name="Name" type="xsd:string"/>
+                                                            </xsd:sequence>
+                                                        </xsd:complexType>
+                                                    </xsd:element>
+                                                    <xsd:element name="IsAutomaticRenewal" type="xsd:string"/>
+                                                    <xsd:element name="OverageBillingTerm" type="xsd:string"/>
+                                                    <xsd:element name="IsTermination4Convenience" type="xsd:string"/>
+                                                    <xsd:element name="PriceList">
+                                                        <xsd:complexType>
+                                                            <xsd:sequence>
+                                                                <xsd:element name="Name" type="xsd:string"/>
+                                                                <xsd:element name="Currency">
+                                                                    <xsd:complexType>
+                                                                        <xsd:sequence>
+                                                                            <xsd:element name="ISOCode"
+                                                                                         type="xsd:string"/>
+                                                                        </xsd:sequence>
+                                                                    </xsd:complexType>
+                                                                </xsd:element>
+                                                            </xsd:sequence>
+                                                        </xsd:complexType>
+                                                    </xsd:element>
+                                                    <xsd:element name="Currency">
+                                                        <xsd:complexType>
+                                                            <xsd:sequence>
+                                                                <xsd:element name="ISOCode" type="xsd:string"/>
+                                                            </xsd:sequence>
+                                                        </xsd:complexType>
+                                                    </xsd:element>
+                                                    <xsd:element name="PaymentTerms">
+                                                        <xsd:complexType>
+                                                            <xsd:sequence>
+                                                                <xsd:element name="SearchKey" type="xsd:integer"/>
+                                                                <xsd:element name="Name" type="xsd:string"/>
+                                                                <xsd:element name="PaymentTermsDaysDue"
+                                                                             type="xsd:integer"/>
+                                                            </xsd:sequence>
+                                                        </xsd:complexType>
+                                                    </xsd:element>
+                                                    <xsd:element name="PaymentMethod">
+                                                        <xsd:complexType>
+                                                            <xsd:sequence>
+                                                                <xsd:element name="Name" type="xsd:string"/>
+                                                            </xsd:sequence>
+                                                        </xsd:complexType>
+                                                    </xsd:element>
+                                                    <xsd:element name="IsAllowOverage" type="xsd:string"/>
+                                                    <xsd:element name="TCV" type="xsd:string"/>
+                                                    <xsd:element name="ACV" type="xsd:string"/>
+                                                    <xsd:element name="ARR" type="xsd:string"/>
+                                                    <xsd:element name="CSI" type="xsd:integer"/>
+                                                    <xsd:element name="OPCAccNumber" type="xsd:string"/>
+                                                    <xsd:element name="ProjectCategory" type="xsd:string"/>
+                                                    <xsd:element name="Status" type="xsd:string"/>
+                                                    <xsd:element name="IsPublicSector" type="xsd:string"/>
+                                                    <xsd:element name="CostCenter" type="xsd:string"/>
+                                                    <xsd:element name="CostCenterDescription" type="xsd:string"/>
+                                                    <xsd:element name="SupersededProject">
+                                                        <xsd:complexType>
+                                                            <xsd:sequence>
+                                                                <xsd:element name="SearchKey" type="xsd:string"/>
+                                                            </xsd:sequence>
+                                                        </xsd:complexType>
+                                                    </xsd:element>
+                                                    <xsd:element name="RelatedGrpPlanIdf" type="xsd:string"/>
+                                                    <xsd:element name="PlanClassification" type="xsd:string"/>
+                                                    <xsd:element name="SubscribedService">
+                                                        <xsd:complexType>
+                                                            <xsd:sequence>
+                                                                <xsd:element name="Organization">
+                                                                    <xsd:complexType>
+                                                                        <xsd:sequence>
+                                                                            <xsd:element name="Name" type="xsd:string"/>
+                                                                        </xsd:sequence>
+                                                                    </xsd:complexType>
+                                                                </xsd:element>
+                                                                <xsd:element name="Product">
+                                                                    <xsd:complexType>
+                                                                        <xsd:sequence>
+                                                                            <xsd:element name="Name" type="xsd:string"/>
+                                                                            <xsd:element name="SearchKey"
+                                                                                         type="xsd:string"/>
+                                                                        </xsd:sequence>
+                                                                    </xsd:complexType>
+                                                                </xsd:element>
+                                                                <xsd:element name="StartDate" type="xsd:string"/>
+                                                                <xsd:element name="EndDate" type="xsd:string"/>
+                                                                <xsd:element name="PricePeriod" type="xsd:string"/>
+                                                                <xsd:element name="Quantity" type="xsd:string"/>
+                                                                <xsd:element name="CommittedQuantity"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="NetUnitPrice" type="xsd:float"/>
+                                                                <xsd:element name="IsAllowance" type="xsd:string"/>
+                                                                <xsd:element name="IsSplitAllowance" type="xsd:string"/>
+                                                                <xsd:element name="IntentToPay" type="xsd:string"/>
+                                                                <xsd:element name="DeploymentName" type="xsd:string"/>
+                                                                <xsd:element name="DeploymentType" type="xsd:string"/>
+                                                                <xsd:element name="PricingModel" type="xsd:string"/>
+                                                                <xsd:element name="AssociatedRevenueSubscriptionMap"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="PartnerCreditValue"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="CommitScheduleId" type="xsd:string"/>
+                                                                <xsd:element name="QuoteNumber" type="xsd:string"/>
+                                                                <xsd:element name="CompRepsList" type="xsd:string"/>
+                                                                <xsd:element name="ProvisioningSource"
+                                                                             type="tns:ProvisioningSourceType"/>
+                                                                <xsd:element name="ProvSequenceNumber"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="CloudPoTerm" type="xsd:string"/>
+                                                                <xsd:element name="CloudPoTermUom" type="xsd:string"/>
+                                                                <xsd:element name="CloudBackDatedContract"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="CloudStoreSsoUsername"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="CloudRefSubscription"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="CustomersCrmChoice"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="AdminFirstName" type="xsd:string"/>
+                                                                <xsd:element name="AdminLastName" type="xsd:string"/>
+                                                                <xsd:element name="CustomerCode" type="xsd:string"/>
+                                                                <xsd:element name="LanguagePack" type="xsd:string"/>
+                                                                <xsd:element name="TaleoConsultingMethod"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="AutoCloseForProv" type="xsd:string"/>
+                                                                <xsd:element name="ChannelOption" type="xsd:string"/>
+                                                                <xsd:element name="Partner" type="xsd:string"/>
+                                                                <xsd:element name="RavelloToken" type="xsd:string"/>
+                                                                <xsd:element name="PilotType" type="xsd:string"/>
+                                                                <xsd:element name="FixedEndDate" type="xsd:string"/>
+                                                                <xsd:element name="NcerZone" type="xsd:string"/>
+                                                                <xsd:element name="NcerType" type="xsd:string"/>
+                                                                <xsd:element name="spmProvisioningSpecialHandling"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="LineOfBusiness" type="xsd:string"/>
+                                                                <xsd:element name="TexturaTokenID" type="xsd:string"/>
+                                                                <xsd:element name="ApiaryToken" type="xsd:string"/>
+                                                                <xsd:element name="CustomerReadinessDate"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="DedicatedComputeCapacity"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="EstimatedProvDate"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="StartDateType" type="xsd:string"/>
+                                                                <xsd:element name="CostCenterId" type="xsd:string"/>
+                                                                <xsd:element name="CostCenterName" type="xsd:string"/>
+                                                                <xsd:element name="AgreementId" type="xsd:string"/>
+                                                                <xsd:element name="ProgramType" type="xsd:string"/>
+                                                                <xsd:element name="AgreementName" type="xsd:string"/>
+                                                                <xsd:element name="SalesScenario" type="xsd:string"/>
+                                                                <xsd:element name="PromotionTypeVal" type="xsd:string"/>
+                                                                <xsd:element name="AgreementEndDate" type="xsd:string"/>
+                                                                <xsd:element name="ULA2PaaS" type="xsd:string"/>
+                                                                <xsd:element name="ULAOrder" type="xsd:string"/>
+                                                                <xsd:element name="Credit4RepurposedSupport"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="OriginalSubIDs" type="xsd:string"/>
+                                                                <xsd:element name="SyncStartDateOCC" type="xsd:string"/>
+                                                                <xsd:element name="ConversionDate" type="xsd:string"/>
+                                                                <xsd:element name="ConversionType" type="xsd:string"/>
+                                                                <xsd:element name="ConversionRate" type="xsd:string"/>
+                                                                <xsd:element name="IsVariableCommitment"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="COSOrderLineId" type="xsd:string"/>
+                                                                <xsd:element name="CustomerOrderRef" type="xsd:string"/>
+                                                                <xsd:element name="IsSelfServiceProvisioning"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="ConfigId" type="xsd:string"/>
+                                                                <xsd:element name="EnforcedRateCardPricingModel"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="PONumber" type="xsd:string"/>
+                                                                <xsd:element name="SplitQty" type="xsd:int"/>
+                                                                <xsd:element name="SplitUOM" type="xsd:int"/>
+                                                                <xsd:element name="TCLV" type="xsd:integer"/>
+                                                                <xsd:element name="IsTier" type="xsd:string"/>
+                                                                <xsd:element name="Cap2Pricelist" type="xsd:string"/>
+                                                                <xsd:element name="OveragePolicy" type="xsd:string"/>
+                                                                <xsd:element name="OveragePrice" type="xsd:float"/>
+                                                                <xsd:element name="OperationType" type="xsd:string"/>
+                                                                <xsd:element name="IsDonotGenInvLines"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="POExpiryDate" type="xsd:string"/>
+                                                                <xsd:element name="CCTokenRef" type="xsd:integer"/>
+                                                                <xsd:element name="TrxnExtensionId" type="xsd:integer"/>
+                                                                <xsd:element name="CCExpiryDate" type="xsd:string"/>
+                                                                <xsd:element name="SalesChannel" type="xsd:string"/>
+                                                                <xsd:element name="OrderSource"
+                                                                             type="tns:KeyValuePair"/>
+                                                                <xsd:element name="TrxnExtensionId" type="xsd:integer"/>
+                                                                <xsd:element name="InstrumentAssgnmntId"
+                                                                             type="xsd:integer"/>
+                                                                <xsd:element name="InstrumentId" type="xsd:integer"/>
+                                                                <xsd:element name="IsT4C" type="xsd:integer"/>
+                                                                <xsd:element name="T4CDate" type="xsd:integer"/>
+                                                                <xsd:element name="IsEligible2Renew" type="xsd:string"/>
+                                                                <xsd:element name="RenewalStatus" type="xsd:string"/>
+                                                                <xsd:element name="RenewedLine">
+                                                                    <xsd:complexType>
+                                                                        <xsd:sequence>
+                                                                            <xsd:element name="ID" type="xsd:string"/>
+                                                                        </xsd:sequence>
+                                                                    </xsd:complexType>
+                                                                </xsd:element>
+                                                                <xsd:element name="TranslatedDescription"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="Bill2Customer" type="tns:CustType"/>
+                                                                <xsd:element name="IsOneTimeConfig" type="xsd:string"/>
+                                                                <xsd:element name="ACV" type="xsd:string"/>
+                                                                <xsd:element name="ARR" type="xsd:string"/>
+                                                                <xsd:element name="LastInvoiceDate" type="xsd:string"/>
+                                                                <xsd:element name="OrderHeaderId" type="xsd:integer"/>
+                                                                <xsd:element name="OrderNumber" type="xsd:integer"/>
+                                                                <xsd:element name="OrderLineId" type="xsd:integer"/>
+                                                                <xsd:element name="BaseOrderLineId" type="xsd:integer"/>
+                                                                <xsd:element name="OrderLineNumber" type="xsd:integer"/>
+                                                                <xsd:element name="Bill2SiteUseId" type="xsd:integer"/>
+                                                                <xsd:element name="Ship2SiteUseId" type="xsd:integer"/>
+                                                                <xsd:element name="Ship2ContactId" type="xsd:integer"/>
+                                                                <xsd:element name="Bill2ContactId" type="xsd:integer"/>
+                                                                <xsd:element name="RateCardId" type="xsd:integer"/>
+                                                                <xsd:element name="SalesAccNumber" type="xsd:integer"/>
+                                                                <xsd:element name="SubscriptionId" type="xsd:integer"/>
+                                                                <xsd:element name="OPCAccNumber" type="xsd:string"/>
+                                                                <xsd:element name="DataCentre" type="xsd:string"/>
+                                                                <xsd:element name="DiscretionaryDiscountPercentage"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="DiscountCategory" type="xsd:string"/>
+                                                                <xsd:element name="OverageDiscountPercentage"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="DataCenterRegion">
+                                                                    <xsd:complexType>
+                                                                        <xsd:sequence>
+                                                                            <xsd:element name="Value"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="Meaning"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="Lookup">
+                                                                                <xsd:complexType>
+                                                                                    <xsd:sequence>
+                                                                                        <xsd:element name="Type"
+                                                                                                     type="xsd:string"/>
+                                                                                    </xsd:sequence>
+                                                                                </xsd:complexType>
+                                                                            </xsd:element>
+                                                                        </xsd:sequence>
+                                                                    </xsd:complexType>
+                                                                </xsd:element>
+                                                                <xsd:element name="ProvisioningDate" type="xsd:date"/>
+                                                                <xsd:element name="AdminEmail" type="xsd:string"/>
+                                                                <xsd:element name="IsTopLevel" type="xsd:string"/>
+                                                                <xsd:element name="HasEntitlements" type="xsd:string"/>
+                                                                <xsd:element name="OpportunityNumber"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="HasPromotion" type="xsd:string"/>
+                                                                <xsd:element name="IsRebalance" type="xsd:string"/>
+                                                                <xsd:element name="FulfillmentSet" type="xsd:string"/>
+                                                                <xsd:element name="ReplacementReason"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="SupersedeNotes" type="xsd:string"/>
+                                                                <xsd:element name="ReplaceSubscriptionId"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="SupersededSet" type="xsd:string"/>
+                                                                <xsd:element name="OrderType" type="xsd:string"/>
+                                                                <xsd:element name="IsBurstingEnabled"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="BuyerEmail" type="xsd:string"/>
+                                                                <xsd:element name="ParentLineId" type="xsd:string"/>
+                                                                <xsd:element name="IsUnified" type="xsd:string"/>
+                                                                <xsd:element name="UnifiedRevenueQuota"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="UnifiedRevenueAmount"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="Renewal" type="xsd:string"/>
+                                                                <xsd:element name="Upsell" type="xsd:string"/>
+                                                                <xsd:element name="Cross-Sell" type="xsd:string"/>
+                                                                <xsd:element name="Downsell" type="xsd:string"/>
+                                                                <xsd:element name="CloudAccountID" type="xsd:string"/>
+                                                                <xsd:element name="CloudAccountName" type="xsd:string"/>
+                                                                <xsd:element name="AssociateSubId" type="xsd:string"/>
+                                                                <xsd:element name="OriginalPromoAmt" type="xsd:string"/>
+                                                                <xsd:element name="PromoOrderRefLineId"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="PromotionType" type="xsd:string"/>
+                                                                <xsd:element name="IsCreditEnabled" type="xsd:string"/>
+                                                                <xsd:element name="CreditPercentage" type="xsd:string"/>
+                                                                <xsd:element name="OverageBillTo" type="xsd:string"/>
+                                                                <xsd:element name="PartnerTransactionType"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="SubscriptionDiscountPercentage"
+                                                                             type="xsd:string"/>
+                                                                <xsd:element name="PayAsYouGoPolicy" type="xsd:string"/>
+                                                                <xsd:element name="Bill2Address"
+                                                                             type="tns:AddressType"/>
+                                                                <xsd:element name="BillingContact"
+                                                                             type="tns:ContactType"/>
+                                                                <xsd:element name="Service2Address"
+                                                                             type="tns:AddressType"/>
+                                                                <xsd:element name="Service2Contact"
+                                                                             type="tns:ContactType"/>
+                                                                <xsd:element name="Reseller" type="tns:CustType"/>
+                                                                <xsd:element name="ResellerAddress"
+                                                                             type="tns:AddressType"/>
+                                                                <xsd:element name="ResellerContact"
+                                                                             type="tns:ContactType"/>
+                                                                <xsd:element name="Entitlement" maxOccurs="unbounded">
+                                                                    <xsd:complexType>
+                                                                        <xsd:sequence>
+                                                                            <xsd:element name="Subscription">
+                                                                                <xsd:complexType>
+                                                                                    <xsd:sequence>
+                                                                                        <xsd:element name="Name"
+                                                                                                     type="xsd:string"/>
+                                                                                        <xsd:element name="SearchKey"
+                                                                                                     type="xsd:string"/>
+                                                                                    </xsd:sequence>
+                                                                                </xsd:complexType>
+                                                                            </xsd:element>
+                                                                            <xsd:element name="LineNo"
+                                                                                         type="xsd:integer"/>
+                                                                            <xsd:element name="LicenseMetric"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="QuantityConstraint"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="QuantityMultiplier"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="FirstPurchase"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="ServicePart"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="ServicePartDescription"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="Quantity"
+                                                                                         type="xsd:integer"/>
+                                                                            <xsd:element name="ParentPartNumber"
+                                                                                         type="xsd:integer"/>
+                                                                            <xsd:element name="ParentPartDescription"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="ParentInventoryItemID"
+                                                                                         type="xsd:integer"/>
+                                                                            <xsd:element name="ChildPartNumber"
+                                                                                         type="xsd:integer"/>
+                                                                            <xsd:element name="ChildPartDescription"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="ChildInventoryItemID"
+                                                                                         type="xsd:integer"/>
+                                                                            <xsd:element name="PhoneCountryCode"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="PhoneNumber"
+                                                                                         type="xsd:string"/>
+                                                                        </xsd:sequence>
+                                                                    </xsd:complexType>
+                                                                </xsd:element>
+                                                                <xsd:element name="SalesCredit" maxOccurs="unbounded">
+                                                                    <xsd:complexType>
+                                                                        <xsd:sequence>
+                                                                            <xsd:element name="SalesRep">
+                                                                                <xsd:complexType>
+                                                                                    <xsd:sequence>
+                                                                                        <xsd:element name="Name"
+                                                                                                     type="xsd:string"/>
+                                                                                        <xsd:element name="Org">
+                                                                                            <xsd:complexType>
+                                                                                                <xsd:sequence>
+                                                                                                    <xsd:element name="SearchKey"
+                                                                                                                 type="xsd:integer"/>
+                                                                                                </xsd:sequence>
+                                                                                            </xsd:complexType>
+                                                                                        </xsd:element>
+                                                                                        <xsd:element name="Email"
+                                                                                                     type="xsd:string"/>
+                                                                                        <xsd:element name="BusinessPartner">
+                                                                                            <xsd:complexType>
+                                                                                                <xsd:sequence>
+                                                                                                    <xsd:element name="Org">
+                                                                                                        <xsd:complexType>
+                                                                                                            <xsd:sequence>
+                                                                                                                <xsd:element name="SearchKey"
+                                                                                                                             type="xsd:integer"/>
+                                                                                                            </xsd:sequence>
+                                                                                                        </xsd:complexType>
+                                                                                                    </xsd:element>
+                                                                                                    <xsd:element name="JTFSalesRepId"
+                                                                                                                 type="xsd:integer"/>
+                                                                                                    <xsd:element name="SearchKey"
+                                                                                                                 type="xsd:string"/>
+                                                                                                    <xsd:element name="Name"
+                                                                                                                 type="xsd:string"/>
+                                                                                                    <xsd:element name="TCAPartyId"
+                                                                                                                 type="xsd:integer"/>
+                                                                                                    <xsd:element name="TCAPartyNumber"
+                                                                                                                 type="xsd:string"/>
+                                                                                                    <xsd:element name="TcaCustAccountId"
+                                                                                                                 type="xsd:integer"/>
+                                                                                                    <xsd:element name="PersonId"
+                                                                                                                 type="xsd:integer"/>
+                                                                                                    <xsd:element name="IsSalesRepresentative"
+                                                                                                                 type="xsd:string"/>
+                                                                                                    <xsd:element name="IsCustomer"
+                                                                                                                 type="xsd:string"/>
+                                                                                                    <xsd:element name="BusinessPartnerCategory">
+                                                                                                        <xsd:complexType>
+                                                                                                            <xsd:sequence>
+                                                                                                                <xsd:element name="SearchKey"
+                                                                                                                             type="xsd:string"/>
+                                                                                                                <xsd:element name="Name"
+                                                                                                                             type="xsd:string"/>
+                                                                                                                <xsd:element name="Description"
+                                                                                                                             type="xsd:string"/>
+                                                                                                            </xsd:sequence>
+                                                                                                        </xsd:complexType>
+                                                                                                    </xsd:element>
+                                                                                                </xsd:sequence>
+                                                                                            </xsd:complexType>
+                                                                                        </xsd:element>
+                                                                                        <xsd:element name="Contact">
+                                                                                            <xsd:complexType>
+                                                                                                <xsd:sequence>
+                                                                                                    <xsd:element name="Name"
+                                                                                                                 type="xsd:string"/>
+                                                                                                    <xsd:element name="FirstName"
+                                                                                                                 type="xsd:string"/>
+                                                                                                    <xsd:element name="LastName"/>
+                                                                                                    <xsd:element name="Email"
+                                                                                                                 type="xsd:string"/>
+                                                                                                    <xsd:element name="Phone"/>
+                                                                                                    <xsd:element name="AlternativePhone"/>
+                                                                                                    <xsd:element name="Position"/>
+                                                                                                    <xsd:element name="Comments"/>
+                                                                                                    <xsd:element name="TCAPartyId"/>
+                                                                                                    <xsd:element name="TCACustAccRoleId"/>
+                                                                                                    <xsd:element name="TCACustAccSiteId"/>
+                                                                                                    <xsd:element name="IsChainCustomer"
+                                                                                                                 type="xsd:string"/>
+                                                                                                    <xsd:element name="IsPublicSector"
+                                                                                                                 type="xsd:string"/>
+                                                                                                </xsd:sequence>
+                                                                                            </xsd:complexType>
+                                                                                        </xsd:element>
+                                                                                    </xsd:sequence>
+                                                                                </xsd:complexType>
+                                                                            </xsd:element>
+                                                                            <xsd:element name="Subscription">
+                                                                                <xsd:complexType>
+                                                                                    <xsd:sequence>
+                                                                                        <xsd:element name="Name"
+                                                                                                     type="xsd:string"/>
+                                                                                        <xsd:element name="SearchKey"
+                                                                                                     type="xsd:string"/>
+                                                                                    </xsd:sequence>
+                                                                                </xsd:complexType>
+                                                                            </xsd:element>
+                                                                            <xsd:element name="SalesCreditType"
+                                                                                         type="xsd:integer"/>
+                                                                            <xsd:element name="Percent"
+                                                                                         type="xsd:integer"/>
+                                                                        </xsd:sequence>
+                                                                    </xsd:complexType>
+                                                                </xsd:element>
+                                                                <xsd:element name="BOMComponent" maxOccurs="unbounded">
+                                                                    <xsd:complexType>
+                                                                        <xsd:sequence>
+                                                                            <xsd:element name="Product">
+                                                                                <xsd:complexType>
+                                                                                    <xsd:sequence>
+                                                                                        <xsd:element name="Name"
+                                                                                                     type="xsd:string"/>
+                                                                                        <xsd:element name="SearchKey"
+                                                                                                     type="xsd:string"/>
+                                                                                    </xsd:sequence>
+                                                                                </xsd:complexType>
+                                                                            </xsd:element>
+                                                                            <xsd:element name="StartDate"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="EndDate"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="Subscription">
+                                                                                <xsd:complexType>
+                                                                                    <xsd:sequence>
+                                                                                        <xsd:element name="Name"
+                                                                                                     type="xsd:string"/>
+                                                                                        <xsd:element name="SearchKey"
+                                                                                                     type="xsd:string"/>
+                                                                                    </xsd:sequence>
+                                                                                </xsd:complexType>
+                                                                            </xsd:element>
+                                                                            <xsd:element name="PricePeriod"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="Quantity"
+                                                                                         type="xsd:integer"/>
+                                                                            <xsd:element name="NetUnitPrice"
+                                                                                         type="xsd:float"/>
+                                                                            <xsd:element name="IsAllowance"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="IsSplitAllowance"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="TCLV"/>
+                                                                            <xsd:element name="IsTier"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="Cap2Pricelist"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="OveragePolicy"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="IsDonotGenInvLines"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="RateCardId"
+                                                                                         type="xsd:integer"/>
+                                                                            <xsd:element name="IsTopLevel"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="NetUnitPriceUOM"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="OveragePolicy"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="OveragePrice"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="OveragePriceUOM"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="IptProductTier"
+                                                                                         type="tns:IptProductTierType"
+                                                                                         minOccurs="1"/>
+                                                                            <xsd:element name="DiscretionaryDiscountPercentage"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="DiscountCategory"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="OverageDiscountPercentage"
+                                                                                         type="xsd:string"/>
+                                                                        </xsd:sequence>
+                                                                    </xsd:complexType>
+                                                                </xsd:element>
+                                                                <xsd:element name="OptionalTier" maxOccurs="unbounded">
+                                                                    <xsd:complexType>
+                                                                        <xsd:sequence>
+                                                                            <xsd:element name="StartDate"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="EndDate"
+                                                                                         type="xsd:string"/>
+                                                                            <xsd:element name="Quantity"
+                                                                                         type="xsd:integer"/>
+                                                                            <xsd:element name="UnitPrice"
+                                                                                         type="xsd:float"/>
+                                                                            <xsd:element name="OveragePrice"
+                                                                                         type="xsd:float"/>
+                                                                            <xsd:element name="OveragePolicy"
+                                                                                         type="xsd:string"/>
+                                                                        </xsd:sequence>
+                                                                    </xsd:complexType>
+                                                                </xsd:element>
+                                                            </xsd:sequence>
+                                                        </xsd:complexType>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="ATTACHMENT" type="ns1:MISIMD_SPM_SUBSCRIPTION_Type"/>
+                <xsd:element name="RESPONSE">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Error" type="xsd:string"/>
+                            <xsd:element name="Entity">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="Name" type="xsd:string"/>
+                                        <xsd:element name="BusinessEntity" type="xsd:string"/>
+                                        <xsd:element name="Id" type="xsd:string"/>
+                                        <xsd:element name="Value" type="xsd:string"/>
+                                        <xsd:element name="Operation" type="xsd:string"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="IptProductTierType">
+        <xsd:sequence>
+            <xsd:element name="MaxQuantity" maxOccurs="1" type="xsd:int"/>
+            <xsd:element name="UnitPrice" maxOccurs="1" type="xsd:float"/>
+            <xsd:element name="Description" minOccurs="0" nillable="true" type="xsd:string"/>
+            <xsd:element name="OveragePrice" maxOccurs="1" type="xsd:float"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="LookupType">
+        <xsd:sequence>
+            <xsd:element name="Lookup">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="Type" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Value" type="xsd:string"/>
+            <xsd:element name="Meaning" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="CustType">
+        <xsd:sequence>
+            <xsd:element name="Org">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="SearchKey" type="xsd:integer"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="TcaCustAccountId" type="xsd:integer"/>
+            <xsd:element name="SearchKey" type="xsd:integer"/>
+            <xsd:element name="Name" type="xsd:string"/>
+            <xsd:element name="CustomerPhoneticName" type="xsd:string"/>
+            <xsd:element name="BusinessPartnerCategory">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="SearchKey" type="xsd:string"/>
+                        <xsd:element name="Name" type="xsd:string"/>
+                        <xsd:element name="Description"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="TCAPartyId" type="xsd:integer"/>
+            <xsd:element name="TCAPartyNumber" type="xsd:integer"/>
+            <xsd:element name="PersonId"/>
+            <xsd:element name="JTFSalesRepId"/>
+            <xsd:element name="FinancialAccount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="Name" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="AddressType">
+        <xsd:sequence>
+            <xsd:element name="BusinessPartner">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="TcaCustAccountId" type="xsd:integer"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Org">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="SearchKey" type="xsd:integer"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="TCACustAccntSiteId" type="xsd:integer"/>
+            <xsd:element name="PartySiteNumber" type="xsd:string"/>
+            <xsd:element name="Name" type="xsd:string"/>
+            <xsd:element name="Phone" type="xsd:string"/>
+            <xsd:element name="IsInvoice2Address" type="xsd:string"/>
+            <xsd:element name="GeographyLocation">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="TcaLocationId" type="xsd:integer"/>
+                        <xsd:element name="AddressLine1" type="xsd:string"/>
+                        <xsd:element name="AddressLine2" type="xsd:string"/>
+                        <xsd:element name="PostalCode" type="xsd:string"/>
+                        <xsd:element name="CityName" type="xsd:string"/>
+                        <xsd:element name="Region">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="Name" type="xsd:string"/>
+                                    <xsd:element name="Country">
+                                        <xsd:complexType>
+                                            <xsd:sequence>
+                                                <xsd:element name="Code" type="xsd:string"/>
+                                            </xsd:sequence>
+                                        </xsd:complexType>
+                                    </xsd:element>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="Country">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="Code" type="xsd:string"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Bill2SiteUseId" type="xsd:integer"/>
+            <xsd:element name="Service2SiteUseId" type="xsd:integer"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ContactType">
+        <xsd:sequence>
+            <xsd:element name="TCACustAccRoleId" type="xsd:integer"/>
+            <xsd:element name="BusinessPartner">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="TcaCustAccountId" type="xsd:integer"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Name" type="xsd:string"/>
+            <xsd:element name="Org">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="SearchKey" type="xsd:integer"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="FirstName" type="xsd:string"/>
+            <xsd:element name="LastName" type="xsd:string"/>
+            <xsd:element name="Email" type="xsd:string"/>
+            <xsd:element name="Phone" type="xsd:integer"/>
+            <xsd:element name="AlternativePhone"/>
+            <xsd:element name="Position"/>
+            <xsd:element name="Comments"/>
+            <xsd:element name="TCAPartyId" type="xsd:integer"/>
+            <xsd:element name="TCACustAccSiteId" type="xsd:integer"/>
+            <xsd:element name="IsChainCustomer" type="xsd:string"/>
+            <xsd:element name="IsPublicSector" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="KeyValuePair">
+        <xsd:sequence>
+            <xsd:element type="xsd:string" minOccurs="1" maxOccurs="1" name="SearchKey"/>
+            <xsd:element type="xsd:string" minOccurs="1" maxOccurs="1" name="Name"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ProvisioningSourceType">
+        <xsd:sequence>
+            <xsd:element name="SourceHeader">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element type="xsd:string" name="Value"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element type="xsd:string" name="Value"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

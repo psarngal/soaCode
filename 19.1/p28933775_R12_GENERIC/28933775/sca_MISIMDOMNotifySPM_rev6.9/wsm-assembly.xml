@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<orawsp:wsm-assembly xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy">
+   <sca11:policySet xmlns:sca11="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="policySet" appliesTo="SCA-REFERENCE()" attachTo="REFERENCE('CRMOptyService') and PORT('OpportunityServiceSoapHttpPort')" orawsp:highId="1" xml:id="SCA-REFERENCE__REFERENCE__CRMOptyService___and_PORT__OpportunityServiceSoapHttpPort__">
+      <wsp:PolicyReference xmlns:wsp="http://www.w3.org/ns/ws-policy" DigestAlgorithm="http://www.w3.org/ns/ws-policy/Sha1Exc" URI="oracle/wss11_username_token_with_message_protection_client_policy" orawsp:status="enabled" orawsp:id="1"/>
+   </sca11:policySet>
+   <sca11:policySet xmlns:sca11="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="policySet" appliesTo="SCA-REFERENCE()" attachTo="REFERENCE('SPMGenericWS') and PORT('Request_Response_pt')" orawsp:highId="1" xml:id="SCA-REFERENCE__REFERENCE__SPMGenericWS___and_PORT__Request_Response_pt__">
+      <wsp:PolicyReference xmlns:wsp="http://www.w3.org/ns/ws-policy" DigestAlgorithm="http://www.w3.org/ns/ws-policy/Sha1Exc" URI="oracle/wss_username_token_client_policy" orawsp:status="enabled" orawsp:id="1"/>
+   </sca11:policySet>
+   <sca11:policySet xmlns:sca11="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="policySet" appliesTo="SCA-REFERENCE()" attachTo="REFERENCE('SPMGetContractLines') and PORT('Request_Response_pt')" orawsp:highId="1" xml:id="SCA-REFERENCE__REFERENCE__SPMGetContractLines___and_PORT__Request_Response_pt__">
+      <wsp:PolicyReference xmlns:wsp="http://www.w3.org/ns/ws-policy" DigestAlgorithm="http://www.w3.org/ns/ws-policy/Sha1Exc" URI="oracle/wss_username_token_client_policy" orawsp:status="enabled" orawsp:id="1"/>
+   </sca11:policySet>
+   <sca11:policySet xmlns:sca11="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="policySet" appliesTo="SCA-REST-REFERENCE()" attachTo="REFERENCE('InvokeSPMRestGoFastWS')" orawsp:highId="1" xml:id="SCA-REST-REFERENCE__REFERENCE__InvokeSPMRestGoFastWS__">
+      <wsp:PolicyReference xmlns:wsp="http://www.w3.org/ns/ws-policy" DigestAlgorithm="http://www.w3.org/ns/ws-policy/Sha1Exc" URI="oracle/wss_http_token_client_policy" orawsp:status="enabled" orawsp:id="1">
+         <orawsp:OverrideProperty xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy" orawsp:name="csf-key" orawsp:value="OIH-SPM"/>
+      </wsp:PolicyReference>
+   </sca11:policySet>
+   <sca11:policySet xmlns:sca11="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="policySet" appliesTo="SCA-REST-REFERENCE()" attachTo="REFERENCE('InvokeSPMRestWS')" orawsp:highId="1" xml:id="SCA-REST-REFERENCE__REFERENCE__InvokeSPMRestWS__">
+      <wsp:PolicyReference xmlns:wsp="http://www.w3.org/ns/ws-policy" DigestAlgorithm="http://www.w3.org/ns/ws-policy/Sha1Exc" URI="oracle/wss_http_token_client_policy" orawsp:status="enabled" orawsp:id="1">
+         <orawsp:OverrideProperty xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy" orawsp:name="csf-key" orawsp:value="OIH-SPM"/>
+      </wsp:PolicyReference>
+   </sca11:policySet>
+   <sca11:policySet xmlns:sca11="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="policySet"
+                    appliesTo="SCA-REST-SERVICE()" attachTo="SERVICE('ReceiveSPMInterfaceResp')" orawsp:highId="1"
+                    xml:id="SCA-REST-SERVICE__SERVICE__ReceiveSPMInterfaceResp__">
+      <wsp:PolicyReference xmlns:wsp="http://www.w3.org/ns/ws-policy"
+                           DigestAlgorithm="http://www.w3.org/ns/ws-policy/Sha1Exc"
+                           URI="oracle/wss_http_token_service_policy" orawsp:status="enabled" orawsp:id="1"/>
+   </sca11:policySet>
+</orawsp:wsm-assembly>

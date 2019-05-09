@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://www.oracle.com/spm"
+             xmlns:tns="http://xmlns.oracle.com/oih/oracle_integration_message"
+             xmlns="http://wadl.dev.java.net/2009/02">
+    <doc title="InvokeSPMRestGoFastWS">RestReference</doc>
+    <grammars>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://xmlns.oracle.com/oih/oracle_integration_message"
+                        schemaLocation="../xsd/SPMSubscription.xsd"/>
+        </xsd:schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema"
+                targetNamespace="http://xmlns.oracle.com/SPMPaaS/MISIMDOMNotifySPM/InvokeSPMRestGoFastWS"
+                elementFormDefault="qualified">
+            <element name="empty">
+                <complexType/>
+            </element>
+        </schema>
+    </grammars>
+    <resources>
+        <resource path="/spm/ws/com.oracle.oal.spm.ProvisioningPayloadWS">
+            <method name="POST" soa:wsdlOperation="PostOrders">
+                <request>
+                    <param name="sentToProvisioning" style="query" soa:expression="Y" default="Y" type="xsd:string">
+                        <doc title="sentToProvisioning">sentToProvisioning</doc>
+                    </param>
+                    <param name="planCreation" style="query" soa:expression="Y" default="Y" type="xsd:string">
+                        <doc title="planCreation">planCreation</doc>
+                    </param>
+                    <representation mediaType="application/xml" element="cns:ORACLE_INTEGRATION_MESSAGE"
+                                    xmlns:cns="http://xmlns.oracle.com/oih/oracle_integration_message"/>
+                </request>
+                <response status="200">
+                    <representation mediaType="application/xml" element="cns:ORACLE_INTEGRATION_MESSAGE"
+                                    xmlns:cns="http://xmlns.oracle.com/oih/oracle_integration_message"/>
+                </response>
+            </method>
+        </resource>
+        <resource path="/oalapp/service/jms/resources/message/BPELTOSPMQ?v=1.0&amp;app=OIH&amp;jsonOff=Y">
+            <method name="POST" soa:wsdlOperation="PostOrderToSPMPaaS">
+                <request>
+                    <representation mediaType="application/xml" element="cns:ORACLE_INTEGRATION_MESSAGE"
+                                    xmlns:cns="http://xmlns.oracle.com/oih/oracle_integration_message"/>
+                </request>
+                <response status="200"/>
+            </method>
+        </resource>
+    </resources>
+</application>

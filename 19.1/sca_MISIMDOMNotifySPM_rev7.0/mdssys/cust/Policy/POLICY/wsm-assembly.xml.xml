@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<mds:customization version="12.2.1_20170820.0914" xmlns:mds="http://xmlns.oracle.com/mds" motype_local_name="wsm-assembly" motype_nsuri="http://schemas.oracle.com/ws/2006/01/policy">
+   <mds:modify element="(xmlns(orawsp=http://schemas.oracle.com/ws/2006/01/policy))/orawsp:wsm-assembly">
+      <mds:attribute name="orawsp:mode" namespace="http://schemas.oracle.com/ws/2006/01/policy" value="MERGED"/>
+   </mds:modify>
+</mds:customization>

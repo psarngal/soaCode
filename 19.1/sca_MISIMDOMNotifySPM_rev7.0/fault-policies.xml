@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faultPolicies xmlns="http://schemas.oracle.com/bpel/faultpolicy">
+   <faultPolicy version="2.0.1" id="FaultPolicyOMSPMBridge" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.oracle.com/bpel/faultpolicy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <Conditions>
+         <faultName xmlns:bpelx="http://schemas.oracle.com/bpel/extension" name="bpelx:remoteFault">
+            <condition>
+               <action ref="ora-retry"/>
+            </condition>
+         </faultName>
+         <faultName xmlns:bpelx="http://schemas.oracle.com/bpel/extension" name="bpelx:bindingFault">
+            <condition>
+               <action ref="ora-retry"/>
+            </condition>
+         </faultName>
+         <faultName xmlns:bpelx="http://schemas.oracle.com/bpel/extension" name="bpelx:runtimeFault">
+            <condition>
+               <action ref="ora-retry"/>
+            </condition>
+         </faultName>
+         <faultName>
+            <condition>
+               <action ref="ora-retry"/>
+            </condition>
+         </faultName>
+      </Conditions>
+      <Actions>
+         <Action id="ora-retry">
+            <retry>
+               <retryCount>4</retryCount>
+               <retryInterval>600</retryInterval>
+               <retryFailureAction ref="BPELJavaSPMWSAction"/>
+            </retry>
+         </Action>
+         <Action id="ora-rethrow-fault">
+            <rethrowFault/>
+         </Action>
+         <Action id="ora-human-intervention">
+            <humanIntervention/>
+         </Action>
+         <Action id="ora-terminate">
+            <abort/>
+         </Action>
+         <Action id="BPELJavaSPMWSAction">
+            <javaAction className="com.oracle.missem.faultmgmt.FaultHandling" defaultAction="ora-human-intervention" propertySet="retrySPMWSProperties">
+               <returnValue value="FAILURE" ref="ora-human-intervention"/>
+               <returnValue value="SUCCESS" ref="ora-human-intervention"/>
+            </javaAction>
+         </Action>
+         <Action id="BPELJavaGSIDBAction">
+            <javaAction className="com.oracle.missem.faultmgmt.FaultHandling" defaultAction="ora-human-intervention" propertySet="retryGSIDBProperties">
+               <returnValue value="FAILURE" ref="ora-human-intervention"/>
+               <returnValue value="SUCCESS" ref="ora-human-intervention"/>
+            </javaAction>
+         </Action>
+      </Actions>
+      <Properties>
+         <propertySet name="retryGSIDBProperties">
+            <property name="DBName">SOASPM</property>
+            <property name="GMonitorSOAEventNamespace">http://schemas.oracle.com/events/edl/coreMonitorEvent</property>
+            <property name="GMonitorSOAEventName">oraclecorp.sem.core.monitor</property>
+            <property name="GMonitorSOAEventPayloadVariable">GMonitorMsg</property>
+         </propertySet>
+         <propertySet name="retrySPMWSProperties">
+            <property name="DBName">WEBSPM</property>
+            <property name="GMonitorSOAEventNamespace">http://schemas.oracle.com/events/edl/coreMonitorEvent</property>
+            <property name="GMonitorSOAEventName">oraclecorp.sem.core.monitor</property>
+            <property name="GMonitorSOAEventPayloadVariable">GMonitorMsg</property>
+         </propertySet>
+      </Properties>
+   </faultPolicy>
+   <faultPolicy id="FaultPolicySPMRestWS">
+      <Conditions>
+         <faultName name="bpelx:remoteFault" xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+            <condition>
+               <action ref="default-retry"/>
+            </condition>
+         </faultName>
+      </Conditions>
+      <Alerts/>
+      <Actions>
+         <Action id="default-termination">
+            <abort/>
+         </Action>
+         <Action id="default-human">
+            <humanIntervention/>
+         </Action>
+         <Action id="default-java">
+            <javaAction className="oracle.integration.platform.faultpolicy.IFaultRecoveryJavaClass" defaultAction="default-termination"/>
+         </Action>
+         <Action id="default-replay">
+            <replayScope/>
+         </Action>
+         <Action id="default-rethrow">
+            <rethrowFault/>
+         </Action>
+         <Action id="default-retry">
+            <retry>
+               <retryCount>4</retryCount>
+               <retryInterval>30</retryInterval>
+               <retryFailureAction ref="default-human"/>
+            </retry>
+         </Action>
+      </Actions>
+   </faultPolicy>
+</faultPolicies>

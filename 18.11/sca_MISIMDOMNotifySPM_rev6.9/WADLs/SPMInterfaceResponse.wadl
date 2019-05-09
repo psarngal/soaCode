@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://www.oracle.com/spm" xmlns:imp1="http://xmlns.oracle.com/oih/oracle_integration_message" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="SPMInterfaceResponse">RestService</doc>
+   <grammars>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/jms/SPM/MISIMDOMNotifySPM/SPMActiveMQResp" xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:pc="http://xmlns.oracle.com/pcbpel/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:imp1="http://xmlns.oracle.com/oih/oracle_integration_message">
+         <import namespace="http://xmlns.oracle.com/oih/oracle_integration_message" schemaLocation="../xsd/SPMSubscription.xsd"/>
+      </schema>
+   </grammars>
+   <resources>
+      <resource path="/response/v1">
+         <method name="POST" soa:wsdlOperation="Consume_Message">
+            <request>
+               <representation mediaType="application/xml" element="cns:ORACLE_INTEGRATION_MESSAGE" xmlns:cns="http://xmlns.oracle.com/oih/oracle_integration_message"/>
+            </request>
+            <response status="200"/>
+         </method>
+      </resource>
+   </resources>
+</application>

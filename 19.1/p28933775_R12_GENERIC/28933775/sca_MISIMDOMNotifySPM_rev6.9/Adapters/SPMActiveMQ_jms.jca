@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<adapter-config name="SPMActiveMQ" adapter="jms" wsdlLocation="../SPMActiveMQ.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+   <connection-factory UIJmsProvider="THIRDPARTY" location="eis/activemq/SPMOutboundQ"/>
+   <endpoint-interaction portType="Produce_Message_ptt" operation="Produce_Message">
+      <interaction-spec className="oracle.tip.adapter.jms.outbound.JmsProduceInteractionSpec">
+         <property name="TimeToLive" value="0"/>
+         <property name="PayloadType" value="TextMessage"/>
+         <property name="DeliveryMode" value="Persistent"/>
+         <property name="DestinationName" value="OMTOSPMREQQ"/>
+         <property name="Priority" value="1"/>
+      </interaction-spec>
+   </endpoint-interaction>
+</adapter-config>

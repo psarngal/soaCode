@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions name="DequeueOrderDetailsForSPM"
+                  targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/AQ/SPM/MISIMDOMNotifySPM/DequeueOrderDetailsForSPM"
+                  xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:ns1="http://www.oracle.com/spm/generic/"
+                  xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/AQ/SPM/MISIMDOMNotifySPM/DequeueOrderDetailsForSPM"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:obj1="http://xmlns.oracle.com/xdb/APPS"
+                  xmlns:pc="http://xmlns.oracle.com/pcbpel/" xmlns:msg_out="http://www.oracle.com/spm"
+                  xmlns:ph="http://xmlns.oracle.com/pcbpel/adapter/aq/headers/payloadheaders/"
+                  xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/">
+    <plt:partnerLinkType name="Dequeue_plt">
+        <plt:role name="Dequeue_role">
+            <plt:portType name="tns:Dequeue_ptt"/>
+        </plt:role>
+    </plt:partnerLinkType>
+    <wsdl:types>
+        <schema attributeFormDefault="qualified" elementFormDefault="qualified"
+                targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/aq/headers/payloadheaders/"
+                xmlns="http://www.w3.org/2001/XMLSchema" xmlns:obj1="http://xmlns.oracle.com/xdb/APPS">
+            <import namespace="http://xmlns.oracle.com/xdb/APPS" schemaLocation="xsd/APPS_WF_EVENT_T.xsd"/>
+            <complexType name="HeaderCType">
+                <sequence>
+                    <element name="PayloadHeader" type="obj1:WF_EVENT_T"/>
+                </sequence>
+            </complexType>
+            <element name="Header" type="ph:HeaderCType"/>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://www.oracle.com/spm" schemaLocation="xsd/OM_SPM.xsd"/>
+        </schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://xmlns.oracle.com/oih/oracle_integration_message"
+                        schemaLocation="xsd/SPMSubscription.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="MISIMD_SPM_SUBSCRIPTION_msg">
+        <wsdl:part name="MISIMD_SPM_SUBSCRIPTION" element="msg_out:MISIMD_SPM_SUBSCRIPTION"/>
+    </wsdl:message>
+    <wsdl:message name="Header_msg">
+        <wsdl:part name="Header" element="ph:Header"/>
+    </wsdl:message>
+    <wsdl:portType name="Dequeue_ptt">
+        <wsdl:operation name="Dequeue">
+            <wsdl:input message="tns:MISIMD_SPM_SUBSCRIPTION_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

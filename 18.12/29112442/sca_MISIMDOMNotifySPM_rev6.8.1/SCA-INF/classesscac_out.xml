@@ -1,0 +1,333 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Faults>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/ns:composite/ns:reference[@name='SPMGetContractLines']</loc>
+      <line>146</line>
+      <col>86</col>
+      <file>C:\JDeveloper\mywork\18.12\MISIMDOMNotifySPM\SOA\composite.xml</file>
+      <name>C:\JDeveloper\mywork\18.12\MISIMDOMNotifySPM\SOA\composite.xml</name>
+      <fix/>
+      <msg>Failed to Find Binding "SPMGetContractLines":"{http://xmlns.oracle.com/pcbpel/adapter/http/SPM/MISIMDOMNotifySPM/SPMGetContractLines}Request_Response_pt" in WSDL Manager</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/ns:composite/ns:reference[@name='SPMGenericWS']</loc>
+      <line>93</line>
+      <col>72</col>
+      <file>C:\JDeveloper\mywork\18.12\MISIMDOMNotifySPM\SOA\composite.xml</file>
+      <name>C:\JDeveloper\mywork\18.12\MISIMDOMNotifySPM\SOA\composite.xml</name>
+      <fix/>
+      <msg>Failed to Find Binding "SPMGenericWS":"{http://xmlns.oracle.com/pcbpel/adapter/http/SPM/MISIMDOMNotifySPM/SPMGenericWS}Request_Response_pt" in WSDL Manager</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/ns:composite/ns:reference[@name='SPMInFlightWS']</loc>
+      <line>159</line>
+      <col>74</col>
+      <file>C:\JDeveloper\mywork\18.12\MISIMDOMNotifySPM\SOA\composite.xml</file>
+      <name>C:\JDeveloper\mywork\18.12\MISIMDOMNotifySPM\SOA\composite.xml</name>
+      <fix/>
+      <msg>Failed to Find Binding "SPMInFlightWS":"{http://xmlns.oracle.com/pcbpel/adapter/http/SPM/MISIMDOMNotifySPM/SPMInFlightWS}Request_Response_pt" in WSDL Manager</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/faultHandlers/catch/sequence/while/sequence/assign/copy[3]</loc>
+      <line>118</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/faultHandlers/catchAll/scope/sequence/while/sequence/assign/copy[3]</loc>
+      <line>198</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/assign[2]/copy[3]</loc>
+      <line>265</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.oracle.com/spm}MISIMD_SPM_SUBSCRIPTION anonymous type" is not compatible with &lt;to> value type "{http://www.oracle.com/spm}MISIMD_SPM_SUBSCRIPTION anonymous type"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope/sequence/switch/case/sequence/assign/copy[4]</loc>
+      <line>360</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope/sequence/switch/case/sequence/assign/copy[5]</loc>
+      <line>364</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope[2]/sequence/switch/case/sequence/assign/copy[4]</loc>
+      <line>417</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope[2]/sequence/switch/case/sequence/assign/copy[5]</loc>
+      <line>421</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope[3]/sequence/switch/case/sequence/assign/copy[4]</loc>
+      <line>474</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope[3]/sequence/switch/case/sequence/assign/copy[5]</loc>
+      <line>478</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope[4]/sequence/switch/case/sequence/assign/copy[4]</loc>
+      <line>531</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope[4]/sequence/switch/case/sequence/assign/copy[5]</loc>
+      <line>535</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope[5]/sequence/switch/case/sequence/assign/copy[4]</loc>
+      <line>588</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope[5]/sequence/switch/case/sequence/assign/copy[5]</loc>
+      <line>592</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope[6]/sequence/switch/case/sequence/assign/copy[4]</loc>
+      <line>645</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope[6]/sequence/switch/case/sequence/assign/copy[5]</loc>
+      <line>649</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope[7]/sequence/switch/case/sequence/assign/copy[4]</loc>
+      <line>702</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope[7]/sequence/switch/case/sequence/assign/copy[5]</loc>
+      <line>706</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope[8]/sequence/switch/case/sequence/assign/copy[4]</loc>
+      <line>759</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope[8]/sequence/switch/case/sequence/assign/copy[5]</loc>
+      <line>763</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope[9]/sequence/switch/case/sequence/assign/copy[4]</loc>
+      <line>816</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope[9]/sequence/switch/case/sequence/assign/copy[5]</loc>
+      <line>820</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope[10]/sequence/switch/case/sequence/assign/copy[4]</loc>
+      <line>873</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope[10]/sequence/switch/case/sequence/assign/copy[5]</loc>
+      <line>877</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope[11]/sequence/switch/case/sequence/assign/copy[4]</loc>
+      <line>930</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/switch/case/sequence/scope/sequence/scope[11]/sequence/switch/case/sequence/assign/copy[5]</loc>
+      <line>934</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/while/sequence/scope/sequence/switch/case/assign/copy[3]</loc>
+      <line>1019</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage/scope/sequence/while/sequence/scope/sequence/switch/otherwise/assign/copy[2]</loc>
+      <line>1051</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}string" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}decimal"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage[2]/sequence/scope/sequence/switch/case[2]/sequence/scope/sequence/switch/case/switch/case/sequence/assign[2]/copy</loc>
+      <line>1250</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}long" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}string"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/process/sequence/pick/onMessage[2]/sequence/scope/sequence/switch/case[2]/sequence/scope/sequence/switch/case/switch/case[2]/sequence/assign[2]/copy</loc>
+      <line>1278</line>
+      <col/>
+      <file>SPMProcessBPEL.bpel</file>
+      <name>SPMProcessBPEL.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}long" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}string"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/ns:composite/ns:wire/ns:target.uri[.='UpdateGSI']</loc>
+      <line>194</line>
+      <col>21</col>
+      <file>C:\JDeveloper\mywork\18.12\MISIMDOMNotifySPM\SOA\composite.xml</file>
+      <name>C:\JDeveloper\mywork\18.12\MISIMDOMNotifySPM\SOA\composite.xml</name>
+      <fix/>
+      <msg>Schema validation failed with exception "null"</msg>
+   </Fault>
+</Faults>

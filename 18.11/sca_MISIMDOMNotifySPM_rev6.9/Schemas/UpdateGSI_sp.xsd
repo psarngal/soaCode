@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/UpdateGSI" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/UpdateGSI" elementFormDefault="qualified">
+   <element name="InputParameters">
+      <complexType>
+         <sequence>
+            <element name="P_LINE_ID" type="decimal" db:index="1" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="P_OPC_CUSTOMER_NAME" type="string" db:index="2" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_SPM_PLAN_NUMBER" type="string" db:index="3" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_SPM_PLAN_STATUS" type="string" db:index="4" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_SPM_INTERFACE_STATUS" type="string" db:index="5" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_SPM_INTERFACE_ERROR" type="string" db:index="6" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="P_SPM_CREATION_DATE" type="dateTime" db:index="7" db:type="DATE" minOccurs="0" nillable="true"/>
+            <element name="P_SPM_INTERFACE_UPDATE_DATE" type="dateTime" db:index="8" db:type="DATE" minOccurs="0" nillable="true"/>
+            <element name="P_INVOICE_NUMBER" type="string" db:index="9" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+</schema>

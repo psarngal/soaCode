@@ -1,0 +1,2020 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Fri Oct 17 12:02:53 IST 2014
+  Author:  nitesaxe
+  Type: BPEL 1.1 Process
+  Purpose: Empty BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="SPMProcessBPEL" targetNamespace="http://xmlns.oracle.com/SPM/MISIMDOMNotifySPM/SPMProcessBPEL" xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/" xmlns:client="http://xmlns.oracle.com/SPM/MISIMDOMNotifySPM/SPMProcessBPEL" xmlns:ora="http://schemas.oracle.com/xpath/extension" xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/" xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/apps/SPM/MISIMDOMNotifySPM/DequeueOrderDetailsForSPM" xmlns:ns2="http://xmlns.oracle.com/pcbpel/adapter/http/SPM/MISIMDOMNotifySPM/SPMGenericWS" xmlns:ns3="http://xmlns.oracle.com/pcbpel/adapter/db/SPM/MISIMDOMNotifySPM/UpdateGSI" xmlns:ns4="http://xmlns.oracle.com/apps/sales/opptyMgmt/opportunities/opportunityService/" xmlns:ns5="http://xmlns.oracle.com/pcbpel/adapter/db/SPM/MISIMDOMNotifySPM/GSICustomerOSR" xmlns:bpelx="http://schemas.oracle.com/bpel/extension" xmlns:ns6="http://www.oracle.com/spm" xmlns:ns7="http://xmlns.oracle.com/apps/sales/opptyMgmt/opportunities/opportunityService/types/" xmlns:ns8="http://xmlns.oracle.com/pcbpel/adapter/db/sp/UpdateGSI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns9="http://xmlns.oracle.com/oih/oracle_integration_message" xmlns:msg_in_out="http://xmlns.oracle.com/oih/oracle_integration_message" xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20" xmlns:bpel2="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns10="http://xmlns.oracle.com/xdb/APPS/DequeueOrderDetailsForSPM" xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions" xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc" xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue" xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath" xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath" xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk" xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions" xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap" xmlns:ns11="http://xmlns.oracle.com/pcbpel/adapter/AQ/SPM/MISIMDOMNotifySPM/DequeueOrderDetailsForSPM" xmlns:ns12="http://xmlns.oracle.com/pcbpel/adapter/db/sp/GSICustomerOSR" xmlns:ns13="http://xmlns.oracle.com/pcbpel/adapter/db/Enhancements/MISIMDOMNotifySPM/GetCRMSalesAccount" xmlns:ns14="http://xmlns.oracle.com/pcbpel/adapter/db/top/GetCRMSalesAccount" xmlns:ns17="http://xmlns.oracle.com/oracle/apps/sales/opptyMgmt/revenues/revenueService/" xmlns:ns16="http://xmlns.oracle.com/apps/crmCommon/notes/flex/noteDff/" xmlns:ns18="http://xmlns.oracle.com/apps/crmCommon/activities/activitiesService/" xmlns:ns15="http://xmlns.oracle.com/apps/crmCommon/notes/noteService" xmlns:ns19="http://xmlns.oracle.com/apps/sales/opptyMgmt/revenues/revenueService/" xmlns:ess="http://xmlns.oracle.com/scheduler" xmlns:ns20="http://xmlns.oracle.com/pcbpel/adapter/jms/SPM/MISIMDOMNotifySPM/SPMActiveMQ" xmlns:ns21="http://oracle.com/sca/soapservice/SPM/MISIMDOMNotifySPM/OM_SPM_Response" xmlns:ns22="http://xmlns.oracle.com/pcbpel/adapter/http/SPM/MISIMDOMNotifySPM/SPMGetContractLines" xmlns:ns23="http://www.openbravo.com" xmlns:ns24="http://xmlns.oracle.com/pcbpel/adapter/opaque/" xmlns:ns25="http://xmlns.oracle.com/pcbpel/adapter/jms/SPM/MISIMDOMNotifySPM/SPMActiveMQResp" xmlns:ns26="http://xmlns.oracle.com/pcbpel/adapter/jms/Project16.12/MISIMDOMNotifySPM/ErrorFrameWorkJMS" xmlns:ns27="http://www.example.org/InputSchema" xmlns:ns28="http://xmlns.oracle.com/adf/svc/types/" xmlns:ns29="http://xmlns.oracle.com/pcbpel/adapter/http/SPM/MISIMDOMNotifySPM/SPMInFlightWS" xmlns:ns30="http://xmlns.oracle.com/pcbpel/adapter/db/SPM_PROV/MISIMDOMNotifySPM/InsertPRM" xmlns:ns31="http://xmlns.oracle.com/pcbpel/adapter/db/SPM_PROV/MISIMDOMNotifySPM/InsertPayloadsPRM" xmlns:ns33="http://xmlns.oracle.com/pcbpel/adapter/db/sp/InsertPayloadsPRM" xmlns:ns32="http://xmlns.oracle.com/SPMPaaS/MISIMDOMNotifySPM/InvokeSPMRestGoFastWS">
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <bpelx:exec import="java.util.*"/>
+  <bpelx:exec import="java.lang.*"/>
+  <bpelx:annotation>
+    <bpelx:analysis>
+      <bpelx:property name="wsdlFile">
+        <![CDATA[SPMGenericWS.wsdl]]>
+      </bpelx:property>
+    </bpelx:analysis>
+  </bpelx:annotation>
+  <partnerLinks>
+    <partnerLink name="SPMGenericWS" partnerLinkType="ns2:Request_Response_plt" partnerRole="Request-Response_role"/>
+    <partnerLink name="UpdateGSI" partnerLinkType="ns3:UpdateGSI_plt" partnerRole="UpdateGSI_role"/>
+    <partnerLink name="CRMOptyService" partnerLinkType="ns4:OpportunityService" partnerRole="OpportunityServiceProvider" myRole="OpportunityServiceRequestor"/>
+    <partnerLink name="GSICustomerOSR" partnerLinkType="ns5:GSICustomerOSR_plt" partnerRole="GSICustomerOSR_role"/>
+    <partnerLink name="DequeueOrderDetailsForSPM1" partnerLinkType="ns11:Dequeue_plt" myRole="Dequeue_role"/>
+    <partnerLink name="GetCRMSalesAccount" partnerLinkType="ns13:GetCRMSalesAccount_plt" partnerRole="GetCRMSalesAccount_role"/>
+    <partnerLink name="SPMActiveMQ" partnerLinkType="ns20:Produce_Message_plt" partnerRole="Produce_Message_role"/>
+    <partnerLink name="SPMGetContractLines" partnerLinkType="ns22:Request_Response_plt" partnerRole="Request-Response_role"/>
+    <partnerLink name="SPMActiveMQResp" partnerLinkType="ns25:Consume_Message_plt" myRole="Consume_Message_role"/>
+    <partnerLink name="SPMInFlightWS" partnerLinkType="ns29:Request_Response_plt" partnerRole="Request-Response_role"/>
+    <partnerLink name="InsertPayloadsPRM" partnerLinkType="ns31:InsertPayloadsPRM_plt" partnerRole="InsertPayloadsPRM_role"/>
+    <partnerLink name="InvokeSPMRestGoFastWS" partnerLinkType="ns32:InvokeSPMRestGoFastWS" partnerRole="InvokeSPMRestGoFastWSProvider"/>
+  </partnerLinks>
+  <variables>
+    <variable name="GOrderDetailsInXML" element="ns6:MISIMD_SPM_SUBSCRIPTION"/>
+    <variable name="GInstanceTitle" type="xsd:string"/>
+    <variable name="GUpdateGSIInput" messageType="ns3:args_in_msg"/>
+    <variable name="GErrorMessage" type="xsd:string"/>
+    <variable name="VCounter" type="xsd:integer"/>
+    <variable name="VCount" type="xsd:integer"/>
+    <variable name="InvokeSPMGenericWS_Request-Response_InputVariable" messageType="ns2:ORACLE_INTEGRATION_MESSAGE_msg_in"/>
+    <variable name="InvokeSPMGenericWS_Request-Response_OutputVariable" messageType="ns2:ORACLE_INTEGRATION_MESSAGE_msg_out"/>
+    <variable name="OrderDetailsInput" messageType="ns11:MISIMD_SPM_SUBSCRIPTION_msg"/>
+    <variable name="SPMOutput" element="ns9:ORACLE_INTEGRATION_MESSAGE"/>
+    <variable name="InvokeOSR_GSICustomerOSR_InputVariable" messageType="ns5:args_in_msg"/>
+    <variable name="VChkError" type="xsd:string"/>
+    <variable name="InvokeSPMGenericWS_Produce_Message_InputVariable" messageType="ns20:Produce_Message_msg"/>
+    <variable name="OnMessage_Consume_Message_InputVariable" messageType="ns25:Consume_Message_msg"/>
+    <variable name="InvokeSPMGetContractLines_Request-Response_InputVariable" messageType="ns22:Openbravo_msg_in"/>
+    <variable name="InvokeSPMGetContractLines_Request-Response_OutputVariable" messageType="ns22:Openbravo_msg_out"/>
+    <variable name="InvokeSPMGetContractLines_Request-Response_InputVariable_1" messageType="ns22:Openbravo_msg_in"/>
+    <variable name="InvokeSPMGetContractLines_Request-Response_OutputVariable_1" messageType="ns22:Openbravo_msg_out"/>
+    <variable name="InvokeInflightWS_Request-Response_InputVariable" messageType="ns29:ORACLE_INTEGRATION_MESSAGE_msg_in"/>
+    <variable name="InvokeInflightWS_Request-Response_OutputVariable" messageType="ns29:ORACLE_INTEGRATION_MESSAGE_msg_out"/>
+    <variable messageType="bpelx:RuntimeFaultMessage" name="FaultVar"/>
+    <variable name="v_subscription_source" type="xsd:string"/>
+    <variable name="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" messageType="ns31:args_in_msg"/>
+    <variable name="InvokeInsertResponsePayloadPRM_InsertPayloadsPRM_InputVariable" messageType="ns31:args_in_msg"/>
+    <variable name="InvokeGoFastWS_PostOrders_InputVariable" messageType="ns32:PostOrders_inputMessage"/>
+    <variable name="InvokeGoFastWS_PostOrders_OutputVariable" messageType="ns32:PostOrders_outputMessage"/>
+    <variable name="InvokeSPMRest_PostOrderToSPMPaaS_InputVariable" messageType="ns32:PostOrderToSPMPaaS_inputMessage"/>
+    <variable name="InvokeSPMRest_PostOrderToSPMPaaS_OutputVariable" messageType="ns32:Rest_EmptyMessage"/>
+  </variables>
+  <faultHandlers>
+    <catch bpelx:name="GoFastFault" faultName="bpws:selectionFailure" faultVariable="FaultVar">
+      <sequence name="Sequence15" xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/">
+        <assign name="AssignLinesCount">
+          <copy>
+            <from expression="'0'"/>
+            <to variable="VCounter"/>
+          </copy>
+          <copy>
+            <from expression="ora:countNodes('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES')"/>
+            <to variable="VCount"/>
+          </copy>
+        </assign>
+        <while name="WhileLines" condition="bpws:getVariableData('VCount')>=bpws:getVariableData('VCounter')">
+          <sequence name="Lines">
+            <switch name="SwitchCounter">
+              <case condition="bpws:getVariableData('VCounter')=0">
+                <bpelx:annotation xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+                  <bpelx:pattern>ChkCounter</bpelx:pattern>
+                  <bpelx:general>
+                    <bpelx:property name="userLabel">
+                      <![CDATA[ChkCounter]]>
+                    </bpelx:property>
+                  </bpelx:general>
+                </bpelx:annotation>
+                <assign name="AssignCounter">
+                  <copy>
+                    <from expression="'1'"/>
+                    <to variable="VCounter"/>
+                  </copy>
+                </assign>
+              </case>
+              <otherwise>
+                <empty name="Empty"/>
+              </otherwise>
+            </switch>
+            <assign name="AssignUpdateGSI">
+              <copy>
+                <from expression="xp20:current-dateTime()"/>
+                <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_SPM_CREATION_DATE"/>
+              </copy>
+              <copy>
+                <from expression="concat(bpws:getVariableData('GErrorMessage'),'--Error From SPM GoFast WS:',ora:getCompositeInstanceId())" bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"/>
+                <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_SPM_INTERFACE_ERROR"/>
+              </copy>
+              <copy>
+                <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES[bpws:getVariableData('VCounter')]/ns6:ORDER_LINE_ID"/>
+                <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_LINE_ID"/>
+              </copy>
+              <copy>
+                <from expression="'SPM_INTERFACE_FAILED'"/>
+                <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_SPM_INTERFACE_STATUS"/>
+              </copy>
+              <copy>
+                <from expression="xp20:current-dateTime()"/>
+                <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_SPM_INTERFACE_UPDATE_DATE"/>
+              </copy>
+            </assign>
+            <invoke name="InvokeUpdateGSI" inputVariable="GUpdateGSIInput" partnerLink="UpdateGSI" portType="ns3:UpdateGSI_ptt" operation="UpdateGSI" bpelx:invokeAsDetail="no" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+            <assign name="AssignCounter">
+              <copy>
+                <from expression="bpws:getVariableData('VCounter')+1"/>
+                <to variable="VCounter"/>
+              </copy>
+            </assign>
+          </sequence>
+        </while>
+      </sequence>
+    </catch>
+    <catchAll>
+      <scope name="UpdateGSI" variableAccessSerializable="no">
+        <bpelx:annotation>
+          <bpelx:general>
+            <bpelx:property name="userLabel">
+              <![CDATA[UpdateGSI]]>
+            </bpelx:property>
+          </bpelx:general>
+        </bpelx:annotation>
+        <variables>
+          <variable name="VCounter" type="xsd:integer"/>
+          <variable name="VCount" type="xsd:integer"/>
+        </variables>
+        <sequence name="Sequence15">
+          <assign name="AssignLinesCount">
+            <copy>
+              <from expression="'0'"/>
+              <to variable="VCounter"/>
+            </copy>
+            <copy>
+              <from expression="ora:countNodes('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES')"/>
+              <to variable="VCount"/>
+            </copy>
+          </assign>
+          <while name="WhileLines" condition="bpws:getVariableData('VCount')>=bpws:getVariableData('VCounter')">
+            <sequence name="Lines">
+              <switch name="SwitchCounter">
+                <case condition="bpws:getVariableData('VCounter')=0">
+                  <bpelx:annotation>
+                    <bpelx:pattern>ChkCounter</bpelx:pattern>
+                    <bpelx:general>
+                      <bpelx:property name="userLabel">
+                        <![CDATA[ChkCounter]]>
+                      </bpelx:property>
+                    </bpelx:general>
+                  </bpelx:annotation>
+                  <assign name="AssignCounter">
+                    <copy>
+                      <from expression="'1'"/>
+                      <to variable="VCounter"/>
+                    </copy>
+                  </assign>
+                </case>
+                <otherwise>
+                  <empty name="Empty"/>
+                </otherwise>
+              </switch>
+              <assign name="AssignUpdateGSI">
+                <copy>
+                  <from expression="xp20:current-dateTime()"/>
+                  <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_SPM_CREATION_DATE"/>
+                </copy>
+                <copy>
+                  <from expression="concat(bpws:getVariableData('GErrorMessage'),'--Interface Failed in SOA/BPEL - Instance ID:',ora:getCompositeInstanceId())"/>
+                  <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_SPM_INTERFACE_ERROR"/>
+                </copy>
+                <copy>
+                  <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES[bpws:getVariableData('VCounter')]/ns6:ORDER_LINE_ID"/>
+                  <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_LINE_ID"/>
+                </copy>
+                <copy>
+                  <from expression="'SPM_INTERFACE_FAILED'"/>
+                  <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_SPM_INTERFACE_STATUS"/>
+                </copy>
+                <copy>
+                  <from expression="xp20:current-dateTime()"/>
+                  <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_SPM_INTERFACE_UPDATE_DATE"/>
+                </copy>
+              </assign>
+              <invoke name="InvokeUpdateGSI" inputVariable="GUpdateGSIInput" partnerLink="UpdateGSI" portType="ns3:UpdateGSI_ptt" operation="UpdateGSI" bpelx:invokeAsDetail="no"/>
+              <assign name="AssignCounter">
+                <copy>
+                  <from expression="bpws:getVariableData('VCounter')+1"/>
+                  <to variable="VCounter"/>
+                </copy>
+              </assign>
+            </sequence>
+          </while>
+        </sequence>
+      </scope>
+    </catchAll>
+  </faultHandlers>
+  <sequence name="main">
+    <pick name="Receive" createInstance="yes">
+      <onMessage bpelx:name="ReceiveResponse" variable="OnMessage_Consume_Message_InputVariable" partnerLink="SPMActiveMQResp" portType="ns25:Consume_Message_ptt" operation="Consume_Message">
+        <scope name="ReceiveResponse">
+          <variables>
+            <variable name="v_string" type="xsd:string"/>
+            <variable name="v_string2" type="xsd:string"/>
+          </variables>
+          <sequence name="ReceiveResponse">
+            <assign name="AssignPayloadtoString">
+              <copy>
+                <from expression="oraext:get-content-as-string(bpws:getVariableData('OnMessage_Consume_Message_InputVariable','body','/msg_in_out:ORACLE_INTEGRATION_MESSAGE'))"/>
+                <to variable="v_string"/>
+              </copy>
+            </assign>
+            <bpelx:exec name="Java_Embedding_Replace" version="1.5" language="java">
+              <![CDATA[String stringInput = (String)getVariableData("v_string");           
+//String toBeReplaced = "msg_in_out:";           
+//String replacementString = "";           
+//String end = stringInput.replaceAll(toBeReplaced, replacementString);      
+String toBeReplaced1 = "\"\"";        
+String replacementString1 = "\"http://xmlns.oracle.com/oih/oracle_integration_message\"";           
+String end1 = stringInput.replaceAll(toBeReplaced1, replacementString1);       
+String toBeReplaced2 = "<MISIMD_SPM_SUBSCRIPTION";           
+String replacementString2 = "<MISIMD_SPM_SUBSCRIPTION xmlns=\"http://www.oracle.com/spm\"";           
+String end2 = end1.replaceAll(toBeReplaced2, replacementString2);          
+setVariableData("v_string",end2);]]>
+            </bpelx:exec>
+            <assign name="AssignResponse">
+              <!--copy>
+                    <from expression="oraext:setFlowInstanceTitle(bpws:getVariableData('GInstanceTitle'))"/>
+                    <to variable="GInstanceTitle"/>
+                  </copy-->
+              <copy>
+                <from variable="v_string"/>
+                <to variable="v_string"/>
+              </copy>
+              <copy>
+                <from expression="oraext:parseXML(bpws:getVariableData('v_string'))"/>
+                <to variable="SPMOutput"/>
+              </copy>
+              <copy>
+                <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:ATTACHMENT/ns6:MISIMD_SPM_SUBSCRIPTION"/>
+                <to variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION"/>
+              </copy>
+              <copy bpelx:insertMissingToData="yes" bpelx:ignoreMissingFromData="yes">
+                <from variable="SPMOutput" query="/ns9:ORACLE_INTEGRATION_MESSAGE/ns9:RESPONSE/ns9:Entity[ns9:Name='Subscription']/ns9:Value"/>
+                <to variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER"/>
+              </copy>
+              <copy>
+                <from expression="concat('RECEIVE-',bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:ORDER_NUMBER'),'-',bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER'))"/>
+                <to variable="GInstanceTitle"/>
+              </copy>
+            </assign>
+            <assign name="SetFlowTitle">
+              <copy>
+                <from expression="oraext:setFlowInstanceTitle(bpws:getVariableData('GInstanceTitle'))"/>
+                <to variable="GInstanceTitle"/>
+              </copy>
+            </assign>
+            <switch name="SwitchError">
+              <case condition="ora:countNodes('SPMOutput','/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Error') = 0">
+                <bpelx:annotation>
+                  <bpelx:pattern>ChkSuccess</bpelx:pattern>
+                  <bpelx:general>
+                    <bpelx:property name="userLabel">
+                      <![CDATA[ChkSuccess]]>
+                    </bpelx:property>
+                  </bpelx:general>
+                </bpelx:annotation>
+                <sequence name="Success">
+                  <assign name="AssignSPMPlanNumber">
+                    <copy bpelx:insertMissingToData="yes">
+                      <from variable="SPMOutput" query="/ns9:ORACLE_INTEGRATION_MESSAGE/ns9:RESPONSE/ns9:Entity[ns9:Name='Subscription']/ns9:Value"/>
+                      <to variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER"/>
+                    </copy>
+                    <copy>
+                      <from expression="'Success'"/>
+                      <to variable="VChkError"/>
+                    </copy>
+                  </assign>
+                  <scope name="OSR" variableAccessSerializable="no">
+                    <bpelx:annotation>
+                      <bpelx:general>
+                        <bpelx:property name="userLabel">
+                          <![CDATA[OSR]]>
+                        </bpelx:property>
+                      </bpelx:general>
+                    </bpelx:annotation>
+                    <variables>
+                      <variable name="v_name_chk" type="xsd:string"/>
+                    </variables>
+                    <sequence name="OSR">
+                      <scope name="Sold2Customer" variableAccessSerializable="no">
+                        <bpelx:annotation>
+                          <bpelx:general>
+                            <bpelx:property name="userLabel">
+                              <![CDATA[Sold2Customer]]>
+                            </bpelx:property>
+                          </bpelx:general>
+                        </bpelx:annotation>
+                        <sequence name="ChkEntity">
+                          <assign name="AssignName">
+                            <copy bpelx:ignoreMissingFromData="yes">
+                              <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='Sold2Customer']/msg_in_out:Name"/>
+                              <to variable="v_name_chk"/>
+                            </copy>
+                          </assign>
+                          <switch name="ChkEntity">
+                            <case condition="bpws:getVariableData('v_name_chk') = 'Sold2Customer'">
+                              <bpelx:annotation>
+                                <bpelx:pattern>ChkEntity</bpelx:pattern>
+                                <bpelx:general>
+                                  <bpelx:property name="userLabel">
+                                    <![CDATA[ChkEntity]]>
+                                  </bpelx:property>
+                                </bpelx:general>
+                              </bpelx:annotation>
+                              <sequence name="AssignOSR">
+                                <assign name="AssignOSRPayload">
+                                  <copy>
+                                    <from expression="'SPM'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM"/>
+                                  </copy>
+                                  <copy>
+                                    <from expression="'HZ_CUST_ACCOUNTS'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_NAME"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='Sold2Customer']/msg_in_out:Id"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM_REFERENCE"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CUSTOMERS/ns6:MISIMD_SPM_CUSTOMER[ns6:SITE_USE_TYPE='SOLD_TO']/ns6:TCA_CUST_ACCOUNT_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_ID"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:ORGANIZATION_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORG_ID"/>
+                                  </copy>
+                                </assign>
+                                <invoke name="InvokeOSR" inputVariable="InvokeOSR_GSICustomerOSR_InputVariable" partnerLink="GSICustomerOSR" portType="ns5:GSICustomerOSR_ptt" operation="GSICustomerOSR" bpelx:invokeAsDetail="no"/>
+                              </sequence>
+                            </case>
+                            <otherwise>
+                              <empty name="Empty"/>
+                            </otherwise>
+                          </switch>
+                        </sequence>
+                      </scope>
+                      <scope name="Sold2Contact" variableAccessSerializable="no">
+                        <bpelx:annotation>
+                          <bpelx:general>
+                            <bpelx:property name="userLabel">
+                              <![CDATA[Sold2Contact]]>
+                            </bpelx:property>
+                          </bpelx:general>
+                        </bpelx:annotation>
+                        <sequence name="ChkEntity">
+                          <assign name="AssignName">
+                            <copy bpelx:ignoreMissingFromData="yes">
+                              <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='Sold2Contact']/msg_in_out:Name"/>
+                              <to variable="v_name_chk"/>
+                            </copy>
+                          </assign>
+                          <switch name="ChkEntity">
+                            <case condition="bpws:getVariableData('v_name_chk') = 'Sold2Contact'">
+                              <bpelx:annotation>
+                                <bpelx:pattern>ChkEntity</bpelx:pattern>
+                                <bpelx:general>
+                                  <bpelx:property name="userLabel">
+                                    <![CDATA[ChkEntity]]>
+                                  </bpelx:property>
+                                </bpelx:general>
+                              </bpelx:annotation>
+                              <sequence name="AssignOSR">
+                                <assign name="AssignOSRPayload">
+                                  <copy>
+                                    <from expression="'SPM'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM"/>
+                                  </copy>
+                                  <copy>
+                                    <from expression="'HZ_CUST_ACCOUNT_ROLES'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_NAME"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='Sold2Contact']/msg_in_out:Id"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM_REFERENCE"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CUSTOMERS/ns6:MISIMD_SPM_CUSTOMER[ns6:SITE_USE_TYPE='SOLD_TO']/ns6:CONTACT_CUST_ACCT_ROLE_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_ID"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:ORGANIZATION_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORG_ID"/>
+                                  </copy>
+                                </assign>
+                                <invoke name="InvokeOSR" inputVariable="InvokeOSR_GSICustomerOSR_InputVariable" partnerLink="GSICustomerOSR" portType="ns5:GSICustomerOSR_ptt" operation="GSICustomerOSR" bpelx:invokeAsDetail="no"/>
+                              </sequence>
+                            </case>
+                            <otherwise>
+                              <empty name="Empty"/>
+                            </otherwise>
+                          </switch>
+                        </sequence>
+                      </scope>
+                      <scope name="Bill2Customer" variableAccessSerializable="no">
+                        <bpelx:annotation>
+                          <bpelx:general>
+                            <bpelx:property name="userLabel">
+                              <![CDATA[Bill2Customer]]>
+                            </bpelx:property>
+                          </bpelx:general>
+                        </bpelx:annotation>
+                        <sequence name="ChkEntity">
+                          <assign name="AssignName">
+                            <copy bpelx:ignoreMissingFromData="yes">
+                              <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='Bill2Customer']/msg_in_out:Name"/>
+                              <to variable="v_name_chk"/>
+                            </copy>
+                          </assign>
+                          <switch name="ChkEntity">
+                            <case condition="bpws:getVariableData('v_name_chk') = 'Bill2Customer'">
+                              <bpelx:annotation>
+                                <bpelx:pattern>ChkEntity</bpelx:pattern>
+                                <bpelx:general>
+                                  <bpelx:property name="userLabel">
+                                    <![CDATA[ChkEntity]]>
+                                  </bpelx:property>
+                                </bpelx:general>
+                              </bpelx:annotation>
+                              <sequence name="AssignOSR">
+                                <assign name="AssignOSRPayload">
+                                  <copy>
+                                    <from expression="'SPM'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM"/>
+                                  </copy>
+                                  <copy>
+                                    <from expression="'HZ_CUST_ACCOUNTS'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_NAME"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='Bill2Customer']/msg_in_out:Id"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM_REFERENCE"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CUSTOMERS/ns6:MISIMD_SPM_CUSTOMER[ns6:SITE_USE_TYPE='BILL_TO']/ns6:TCA_CUST_ACCOUNT_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_ID"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:ORGANIZATION_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORG_ID"/>
+                                  </copy>
+                                </assign>
+                                <invoke name="InvokeOSR" inputVariable="InvokeOSR_GSICustomerOSR_InputVariable" partnerLink="GSICustomerOSR" portType="ns5:GSICustomerOSR_ptt" operation="GSICustomerOSR" bpelx:invokeAsDetail="no"/>
+                              </sequence>
+                            </case>
+                            <otherwise>
+                              <empty name="Empty"/>
+                            </otherwise>
+                          </switch>
+                        </sequence>
+                      </scope>
+                      <scope name="Bill2Address" variableAccessSerializable="no">
+                        <bpelx:annotation>
+                          <bpelx:general>
+                            <bpelx:property name="userLabel">
+                              <![CDATA[Bill2Address]]>
+                            </bpelx:property>
+                          </bpelx:general>
+                        </bpelx:annotation>
+                        <sequence name="ChkEntity">
+                          <assign name="AssignName">
+                            <copy bpelx:ignoreMissingFromData="yes">
+                              <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='Bill2Address']/msg_in_out:Name"/>
+                              <to variable="v_name_chk"/>
+                            </copy>
+                          </assign>
+                          <switch name="ChkEntity">
+                            <case condition="bpws:getVariableData('v_name_chk') = 'Bill2Address'">
+                              <bpelx:annotation>
+                                <bpelx:pattern>ChkEntity</bpelx:pattern>
+                                <bpelx:general>
+                                  <bpelx:property name="userLabel">
+                                    <![CDATA[ChkEntity]]>
+                                  </bpelx:property>
+                                </bpelx:general>
+                              </bpelx:annotation>
+                              <sequence name="AssignOSR">
+                                <assign name="AssignOSRPayload">
+                                  <copy>
+                                    <from expression="'SPM'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM"/>
+                                  </copy>
+                                  <copy>
+                                    <from expression="'HZ_CUST_ACCT_SITES_ALL'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_NAME"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='Bill2Address']/msg_in_out:Id"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM_REFERENCE"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CUSTOMERS/ns6:MISIMD_SPM_CUSTOMER[ns6:SITE_USE_TYPE='BILL_TO']/ns6:CUST_ACCT_SITE_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_ID"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:ORGANIZATION_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORG_ID"/>
+                                  </copy>
+                                </assign>
+                                <invoke name="InvokeOSR" inputVariable="InvokeOSR_GSICustomerOSR_InputVariable" partnerLink="GSICustomerOSR" portType="ns5:GSICustomerOSR_ptt" operation="GSICustomerOSR" bpelx:invokeAsDetail="no"/>
+                              </sequence>
+                            </case>
+                            <otherwise>
+                              <empty name="Empty"/>
+                            </otherwise>
+                          </switch>
+                        </sequence>
+                      </scope>
+                      <scope name="BillingContact" variableAccessSerializable="no">
+                        <bpelx:annotation>
+                          <bpelx:general>
+                            <bpelx:property name="userLabel">
+                              <![CDATA[BillingContact]]>
+                            </bpelx:property>
+                          </bpelx:general>
+                        </bpelx:annotation>
+                        <sequence name="ChkEntity">
+                          <assign name="AssignName">
+                            <copy bpelx:ignoreMissingFromData="yes">
+                              <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='BillingContact']/msg_in_out:Name"/>
+                              <to variable="v_name_chk"/>
+                            </copy>
+                          </assign>
+                          <switch name="ChkEntity">
+                            <case condition="bpws:getVariableData('v_name_chk') = 'BillingContact'">
+                              <bpelx:annotation>
+                                <bpelx:pattern>ChkEntity</bpelx:pattern>
+                                <bpelx:general>
+                                  <bpelx:property name="userLabel">
+                                    <![CDATA[ChkEntity]]>
+                                  </bpelx:property>
+                                </bpelx:general>
+                              </bpelx:annotation>
+                              <sequence name="AssignOSR">
+                                <assign name="AssignOSRPayload">
+                                  <copy>
+                                    <from expression="'SPM'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM"/>
+                                  </copy>
+                                  <copy>
+                                    <from expression="'HZ_CUST_ACCOUNT_ROLES'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_NAME"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='BillingContact']/msg_in_out:Id"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM_REFERENCE"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CUSTOMERS/ns6:MISIMD_SPM_CUSTOMER[ns6:SITE_USE_TYPE='BILL_TO']/ns6:CONTACT_CUST_ACCT_ROLE_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_ID"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:ORGANIZATION_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORG_ID"/>
+                                  </copy>
+                                </assign>
+                                <invoke name="InvokeOSR" inputVariable="InvokeOSR_GSICustomerOSR_InputVariable" partnerLink="GSICustomerOSR" portType="ns5:GSICustomerOSR_ptt" operation="GSICustomerOSR" bpelx:invokeAsDetail="no"/>
+                              </sequence>
+                            </case>
+                            <otherwise>
+                              <empty name="Empty"/>
+                            </otherwise>
+                          </switch>
+                        </sequence>
+                      </scope>
+                      <scope name="Service2Customer" variableAccessSerializable="no">
+                        <bpelx:annotation>
+                          <bpelx:general>
+                            <bpelx:property name="userLabel">
+                              <![CDATA[Service2Customer]]>
+                            </bpelx:property>
+                          </bpelx:general>
+                        </bpelx:annotation>
+                        <sequence name="ChkEntity">
+                          <assign name="AssignName">
+                            <copy bpelx:ignoreMissingFromData="yes">
+                              <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='Service2Customer']/msg_in_out:Name"/>
+                              <to variable="v_name_chk"/>
+                            </copy>
+                          </assign>
+                          <switch name="ChkEntity">
+                            <case condition="bpws:getVariableData('v_name_chk') = 'Service2Customer'">
+                              <bpelx:annotation>
+                                <bpelx:pattern>ChkEntity</bpelx:pattern>
+                                <bpelx:general>
+                                  <bpelx:property name="userLabel">
+                                    <![CDATA[ChkEntity]]>
+                                  </bpelx:property>
+                                </bpelx:general>
+                              </bpelx:annotation>
+                              <sequence name="AssignOSR">
+                                <assign name="AssignOSRPayload">
+                                  <copy>
+                                    <from expression="'SPM'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM"/>
+                                  </copy>
+                                  <copy>
+                                    <from expression="'HZ_CUST_ACCOUNTS'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_NAME"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='Service2Customer']/msg_in_out:Id"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM_REFERENCE"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CUSTOMERS/ns6:MISIMD_SPM_CUSTOMER[ns6:SITE_USE_TYPE='SHIP_TO']/ns6:TCA_CUST_ACCOUNT_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_ID"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:ORGANIZATION_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORG_ID"/>
+                                  </copy>
+                                </assign>
+                                <invoke name="InvokeOSR" inputVariable="InvokeOSR_GSICustomerOSR_InputVariable" partnerLink="GSICustomerOSR" portType="ns5:GSICustomerOSR_ptt" operation="GSICustomerOSR" bpelx:invokeAsDetail="no"/>
+                              </sequence>
+                            </case>
+                            <otherwise>
+                              <empty name="Empty"/>
+                            </otherwise>
+                          </switch>
+                        </sequence>
+                      </scope>
+                      <scope name="Service2Address" variableAccessSerializable="no">
+                        <bpelx:annotation>
+                          <bpelx:general>
+                            <bpelx:property name="userLabel">
+                              <![CDATA[Service2Address]]>
+                            </bpelx:property>
+                          </bpelx:general>
+                        </bpelx:annotation>
+                        <sequence name="ChkEntity">
+                          <assign name="AssignName">
+                            <copy bpelx:ignoreMissingFromData="yes">
+                              <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='Service2Address']/msg_in_out:Name"/>
+                              <to variable="v_name_chk"/>
+                            </copy>
+                          </assign>
+                          <switch name="ChkEntity">
+                            <case condition="bpws:getVariableData('v_name_chk') = 'Service2Address'">
+                              <bpelx:annotation>
+                                <bpelx:pattern>ChkEntity</bpelx:pattern>
+                                <bpelx:general>
+                                  <bpelx:property name="userLabel">
+                                    <![CDATA[ChkEntity]]>
+                                  </bpelx:property>
+                                </bpelx:general>
+                              </bpelx:annotation>
+                              <sequence name="AssignOSR">
+                                <assign name="AssignOSRPayload">
+                                  <copy>
+                                    <from expression="'SPM'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM"/>
+                                  </copy>
+                                  <copy>
+                                    <from expression="'HZ_CUST_ACCT_SITES_ALL'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_NAME"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='Service2Address']/msg_in_out:Id"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM_REFERENCE"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CUSTOMERS/ns6:MISIMD_SPM_CUSTOMER[ns6:SITE_USE_TYPE='SHIP_TO']/ns6:CUST_ACCT_SITE_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_ID"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:ORGANIZATION_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORG_ID"/>
+                                  </copy>
+                                </assign>
+                                <invoke name="InvokeOSR" inputVariable="InvokeOSR_GSICustomerOSR_InputVariable" partnerLink="GSICustomerOSR" portType="ns5:GSICustomerOSR_ptt" operation="GSICustomerOSR" bpelx:invokeAsDetail="no"/>
+                              </sequence>
+                            </case>
+                            <otherwise>
+                              <empty name="Empty"/>
+                            </otherwise>
+                          </switch>
+                        </sequence>
+                      </scope>
+                      <scope name="Service2Contact" variableAccessSerializable="no">
+                        <bpelx:annotation>
+                          <bpelx:general>
+                            <bpelx:property name="userLabel">
+                              <![CDATA[Service2Contact]]>
+                            </bpelx:property>
+                          </bpelx:general>
+                        </bpelx:annotation>
+                        <sequence name="ChkEntity">
+                          <assign name="AssignName">
+                            <copy bpelx:ignoreMissingFromData="yes">
+                              <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='Service2Contact']/msg_in_out:Name"/>
+                              <to variable="v_name_chk"/>
+                            </copy>
+                          </assign>
+                          <switch name="ChkEntity">
+                            <case condition="bpws:getVariableData('v_name_chk') = 'Service2Contact'">
+                              <bpelx:annotation>
+                                <bpelx:pattern>ChkEntity</bpelx:pattern>
+                                <bpelx:general>
+                                  <bpelx:property name="userLabel">
+                                    <![CDATA[ChkEntity]]>
+                                  </bpelx:property>
+                                </bpelx:general>
+                              </bpelx:annotation>
+                              <sequence name="AssignOSR">
+                                <assign name="AssignOSRPayload">
+                                  <copy>
+                                    <from expression="'SPM'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM"/>
+                                  </copy>
+                                  <copy>
+                                    <from expression="'HZ_CUST_ACCOUNT_ROLES'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_NAME"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='Service2Contact']/msg_in_out:Id"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM_REFERENCE"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CUSTOMERS/ns6:MISIMD_SPM_CUSTOMER[ns6:SITE_USE_TYPE='SHIP_TO']/ns6:CONTACT_CUST_ACCT_ROLE_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_ID"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:ORGANIZATION_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORG_ID"/>
+                                  </copy>
+                                </assign>
+                                <invoke name="InvokeOSR" inputVariable="InvokeOSR_GSICustomerOSR_InputVariable" partnerLink="GSICustomerOSR" portType="ns5:GSICustomerOSR_ptt" operation="GSICustomerOSR" bpelx:invokeAsDetail="no"/>
+                              </sequence>
+                            </case>
+                            <otherwise>
+                              <empty name="Empty"/>
+                            </otherwise>
+                          </switch>
+                        </sequence>
+                      </scope>
+                      <scope name="EndUserCustomer" variableAccessSerializable="no">
+                        <bpelx:annotation>
+                          <bpelx:general>
+                            <bpelx:property name="userLabel">
+                              <![CDATA[EndUserCustomer]]>
+                            </bpelx:property>
+                          </bpelx:general>
+                        </bpelx:annotation>
+                        <sequence name="ChkEntity">
+                          <assign name="AssignName">
+                            <copy bpelx:ignoreMissingFromData="yes">
+                              <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='EndUserCustomer']/msg_in_out:Name"/>
+                              <to variable="v_name_chk"/>
+                            </copy>
+                          </assign>
+                          <switch name="ChkEntity">
+                            <case condition="bpws:getVariableData('v_name_chk') = 'EndUserCustomer'">
+                              <bpelx:annotation>
+                                <bpelx:pattern>ChkEntity</bpelx:pattern>
+                                <bpelx:general>
+                                  <bpelx:property name="userLabel">
+                                    <![CDATA[ChkEntity]]>
+                                  </bpelx:property>
+                                </bpelx:general>
+                              </bpelx:annotation>
+                              <sequence name="AssignOSR">
+                                <assign name="AssignOSRPayload">
+                                  <copy>
+                                    <from expression="'SPM'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM"/>
+                                  </copy>
+                                  <copy>
+                                    <from expression="'HZ_CUST_ACCOUNTS'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_NAME"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='EndUserCustomer']/msg_in_out:Id"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM_REFERENCE"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CUSTOMERS/ns6:MISIMD_SPM_CUSTOMER[ns6:SITE_USE_TYPE='END_USER']/ns6:TCA_CUST_ACCOUNT_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_ID"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:ORGANIZATION_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORG_ID"/>
+                                  </copy>
+                                </assign>
+                                <invoke name="InvokeOSR" inputVariable="InvokeOSR_GSICustomerOSR_InputVariable" partnerLink="GSICustomerOSR" portType="ns5:GSICustomerOSR_ptt" operation="GSICustomerOSR" bpelx:invokeAsDetail="no"/>
+                              </sequence>
+                            </case>
+                            <otherwise>
+                              <empty name="Empty"/>
+                            </otherwise>
+                          </switch>
+                        </sequence>
+                      </scope>
+                      <scope name="EndUserAddress" variableAccessSerializable="no">
+                        <bpelx:annotation>
+                          <bpelx:general>
+                            <bpelx:property name="userLabel">
+                              <![CDATA[EndUserAddress]]>
+                            </bpelx:property>
+                          </bpelx:general>
+                        </bpelx:annotation>
+                        <sequence name="ChkEntity">
+                          <assign name="AssignName">
+                            <copy bpelx:ignoreMissingFromData="yes">
+                              <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='EndUserAddress']/msg_in_out:Name"/>
+                              <to variable="v_name_chk"/>
+                            </copy>
+                          </assign>
+                          <switch name="ChkEntity">
+                            <case condition="bpws:getVariableData('v_name_chk') = 'EndUserAddress'">
+                              <bpelx:annotation>
+                                <bpelx:pattern>ChkEntity</bpelx:pattern>
+                                <bpelx:general>
+                                  <bpelx:property name="userLabel">
+                                    <![CDATA[ChkEntity]]>
+                                  </bpelx:property>
+                                </bpelx:general>
+                              </bpelx:annotation>
+                              <sequence name="AssignOSR">
+                                <assign name="AssignOSRPayload">
+                                  <copy>
+                                    <from expression="'SPM'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM"/>
+                                  </copy>
+                                  <copy>
+                                    <from expression="'HZ_CUST_ACCT_SITES_ALL'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_NAME"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='EndUserAddress']/msg_in_out:Id"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM_REFERENCE"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CUSTOMERS/ns6:MISIMD_SPM_CUSTOMER[ns6:SITE_USE_TYPE='END_USER']/ns6:CUST_ACCT_SITE_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_ID"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:ORGANIZATION_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORG_ID"/>
+                                  </copy>
+                                </assign>
+                                <invoke name="InvokeOSR" inputVariable="InvokeOSR_GSICustomerOSR_InputVariable" partnerLink="GSICustomerOSR" portType="ns5:GSICustomerOSR_ptt" operation="GSICustomerOSR" bpelx:invokeAsDetail="no"/>
+                              </sequence>
+                            </case>
+                            <otherwise>
+                              <empty name="Empty"/>
+                            </otherwise>
+                          </switch>
+                        </sequence>
+                      </scope>
+                      <scope name="EndUserContact" variableAccessSerializable="no">
+                        <bpelx:annotation>
+                          <bpelx:general>
+                            <bpelx:property name="userLabel">
+                              <![CDATA[EndUserContact]]>
+                            </bpelx:property>
+                          </bpelx:general>
+                        </bpelx:annotation>
+                        <sequence name="ChkEntity">
+                          <assign name="AssignName">
+                            <copy bpelx:ignoreMissingFromData="yes">
+                              <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='EndUserContact']/msg_in_out:Name"/>
+                              <to variable="v_name_chk"/>
+                            </copy>
+                          </assign>
+                          <switch name="ChkEntity">
+                            <case condition="bpws:getVariableData('v_name_chk') = 'EndUserContact'">
+                              <bpelx:annotation>
+                                <bpelx:pattern>ChkEntity</bpelx:pattern>
+                                <bpelx:general>
+                                  <bpelx:property name="userLabel">
+                                    <![CDATA[ChkEntity]]>
+                                  </bpelx:property>
+                                </bpelx:general>
+                              </bpelx:annotation>
+                              <sequence name="AssignOSR">
+                                <assign name="AssignOSRPayload">
+                                  <copy>
+                                    <from expression="'SPM'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM"/>
+                                  </copy>
+                                  <copy>
+                                    <from expression="'HZ_CUST_ACCOUNT_ROLES'"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_NAME"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Entity[msg_in_out:Name='EndUserContact']/msg_in_out:Id"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORIG_SYSTEM_REFERENCE"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CUSTOMERS/ns6:MISIMD_SPM_CUSTOMER[ns6:SITE_USE_TYPE='END_USER']/ns6:CONTACT_CUST_ACCT_ROLE_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_OWNER_TABLE_ID"/>
+                                  </copy>
+                                  <copy>
+                                    <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:ORGANIZATION_ID"/>
+                                    <to variable="InvokeOSR_GSICustomerOSR_InputVariable" part="InputParameters" query="/ns12:InputParameters/ns12:P_ORG_ID"/>
+                                  </copy>
+                                </assign>
+                                <invoke name="InvokeOSR" inputVariable="InvokeOSR_GSICustomerOSR_InputVariable" partnerLink="GSICustomerOSR" portType="ns5:GSICustomerOSR_ptt" operation="GSICustomerOSR" bpelx:invokeAsDetail="no"/>
+                              </sequence>
+                            </case>
+                            <otherwise>
+                              <empty name="Empty"/>
+                            </otherwise>
+                          </switch>
+                        </sequence>
+                      </scope>
+                    </sequence>
+                  </scope>
+                </sequence>
+              </case>
+              <otherwise>
+                <assign name="AssignError">
+                  <copy>
+                    <from variable="SPMOutput" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE/msg_in_out:RESPONSE/msg_in_out:Error"/>
+                    <to variable="GErrorMessage"/>
+                  </copy>
+                  <copy>
+                    <from expression="concat('Document Number:',ora:getCompositeInstanceId(),' ','Error: ',bpws:getVariableData('GErrorMessage'))"/>
+                    <to variable="GErrorMessage"/>
+                  </copy>
+                  <copy>
+                    <from expression="substring(bpws:getVariableData('GErrorMessage'),1,1900)"/>
+                    <to variable="GErrorMessage"/>
+                  </copy>
+                  <copy>
+                    <from expression="'Error'"/>
+                    <to variable="VChkError"/>
+                  </copy>
+                </assign>
+              </otherwise>
+            </switch>
+            <assign name="AssignLinesCount">
+              <copy>
+                <from expression="'0'"/>
+                <to variable="VCounter"/>
+              </copy>
+              <copy>
+                <from expression="ora:countNodes('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES')"/>
+                <to variable="VCount"/>
+              </copy>
+            </assign>
+            <while name="WhileOrderLines" condition="bpws:getVariableData('VCount')>bpws:getVariableData('VCounter')">
+              <sequence name="Sequence25">
+                <scope name="UpdateGSI" variableAccessSerializable="no">
+                  <bpelx:annotation>
+                    <bpelx:general>
+                      <bpelx:property name="userLabel">
+                        <![CDATA[UpdateGSI]]>
+                      </bpelx:property>
+                    </bpelx:general>
+                  </bpelx:annotation>
+                  <sequence name="Sequence15">
+                    <assign name="AssignCounter">
+                      <copy>
+                        <from expression="bpws:getVariableData('VCounter')+1"/>
+                        <to variable="VCounter"/>
+                      </copy>
+                    </assign>
+                    <switch name="SwitchError">
+                      <case condition="bpws:getVariableData('VChkError')='Success'">
+                        <bpelx:annotation>
+                          <bpelx:pattern>ChkSuccess</bpelx:pattern>
+                          <bpelx:general>
+                            <bpelx:property name="userLabel">
+                              <![CDATA[ChkSuccess]]>
+                            </bpelx:property>
+                          </bpelx:general>
+                        </bpelx:annotation>
+                        <assign name="AssignUpdateGSI">
+                          <copy>
+                            <from expression="'Payload Received'"/>
+                            <to variable="GErrorMessage"/>
+                          </copy>
+                          <copy>
+                            <from expression="xp20:current-dateTime()"/>
+                            <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_SPM_CREATION_DATE"/>
+                          </copy>
+                          <copy>
+                            <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES[bpws:getVariableData('VCounter')]/ns6:ORDER_LINE_ID"/>
+                            <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_LINE_ID"/>
+                          </copy>
+                          <copy>
+                            <from variable="GErrorMessage"/>
+                            <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_SPM_INTERFACE_ERROR"/>
+                          </copy>
+                          <copy bpelx:ignoreMissingFromData="yes" bpelx:insertMissingToData="yes">
+                            <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER"/>
+                            <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_SPM_PLAN_NUMBER"/>
+                          </copy>
+                          <copy>
+                            <from expression="'ACTIVE'"/>
+                            <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_SPM_PLAN_STATUS"/>
+                          </copy>
+                          <copy>
+                            <from expression="'SPM_INTERFACED'"/>
+                            <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_SPM_INTERFACE_STATUS"/>
+                          </copy>
+                          <copy>
+                            <from expression="xp20:current-dateTime()"/>
+                            <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_SPM_INTERFACE_UPDATE_DATE"/>
+                          </copy>
+                        </assign>
+                      </case>
+                      <otherwise>
+                        <assign name="AssignUpdateGSI">
+                          <copy>
+                            <from expression="xp20:current-dateTime()"/>
+                            <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_SPM_CREATION_DATE"/>
+                          </copy>
+                          <copy>
+                            <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES[bpws:getVariableData('VCounter')]/ns6:ORDER_LINE_ID"/>
+                            <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_LINE_ID"/>
+                          </copy>
+                          <copy>
+                            <from variable="GErrorMessage"/>
+                            <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_SPM_INTERFACE_ERROR"/>
+                          </copy>
+                          <copy>
+                            <from expression="'ACTIVE'"/>
+                            <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_SPM_PLAN_STATUS"/>
+                          </copy>
+                          <copy>
+                            <from expression="'SPM_INTERFACE_FAILED'"/>
+                            <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_SPM_INTERFACE_STATUS"/>
+                          </copy>
+                          <copy>
+                            <from expression="xp20:current-dateTime()"/>
+                            <to variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_SPM_INTERFACE_UPDATE_DATE"/>
+                          </copy>
+                        </assign>
+                      </otherwise>
+                    </switch>
+                    <invoke name="InvokeUpdateGSI" inputVariable="GUpdateGSIInput" partnerLink="UpdateGSI" portType="ns3:UpdateGSI_ptt" operation="UpdateGSI" bpelx:invokeAsDetail="no"/>
+                  </sequence>
+                </scope>
+              </sequence>
+            </while>
+            <assign name="AssignPRMInput">
+              <copy>
+                <from expression='"SPM_INTERFACE"' bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"/>
+                <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertResponsePayloadPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_FLOW"/>
+              </copy>
+              <copy bpelx:ignoreMissingFromData="yes">
+                <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES[1]/ns6:SUBSCRIPTION_ID"/>
+                <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertResponsePayloadPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_SUBSCRIPTIONID"/>
+              </copy>
+              <copy bpelx:ignoreMissingFromData="yes">
+                <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER"/>
+                <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertResponsePayloadPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_PLANNUMBER"/>
+              </copy>
+              <copy>
+                <from expression="ora:getContentAsString(bpws:getVariableData('OnMessage_Consume_Message_InputVariable','body','/ns9:ORACLE_INTEGRATION_MESSAGE'))"/>
+                <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertResponsePayloadPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_RESPONSEPAYLOAD"/>
+              </copy>
+              <copy>
+                <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="OnMessage_Consume_Message_InputVariable" part="body" query="/*[local-name()='ORACLE_INTEGRATION_MESSAGE']/*[local-name()='DOCUMENT_NUMBER']"/>
+                <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertResponsePayloadPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_ORDERNUMBER"/>
+              </copy>
+              <copy>
+                <from expression='"SPM"' bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"/>
+                <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertResponsePayloadPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_SOURCE"/>
+              </copy>
+              <copy>
+                <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="GUpdateGSIInput" part="InputParameters" query="/ns8:InputParameters/ns8:P_SPM_INTERFACE_STATUS"/>
+                <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertResponsePayloadPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_STATUS"/>
+              </copy>
+            </assign>
+            <invoke name="InvokeInsertResponsePayloadPRM" partnerLink="InsertPayloadsPRM" inputVariable="InvokeInsertResponsePayloadPRM_InsertPayloadsPRM_InputVariable" portType="ns31:InsertPayloadsPRM_ptt" operation="InsertPayloadsPRM"/>
+          </sequence>
+        </scope>
+      </onMessage>
+      <onMessage partnerLink="DequeueOrderDetailsForSPM1" portType="ns11:Dequeue_ptt" operation="Dequeue" variable="OrderDetailsInput" bpelx:name="ReceivePayload">
+        <sequence name="ReceivePayload">
+          <scope name="ReceivePayload">
+            <variables>
+              <variable name="v_plan_flag" type="xsd:string"/>
+            </variables>
+            <sequence name="ReceivePayload">
+              <assign name="GetOrderDetails">
+                <!--copy>
+                <from expression="oraext:setFlowInstanceTitle(bpws:getVariableData('GInstanceTitle'))"/>
+                <to variable="GInstanceTitle"/>
+                </copy-->
+                <copy>
+                  <from variable="OrderDetailsInput" part="MISIMD_SPM_SUBSCRIPTION"
+                        query="/ns6:MISIMD_SPM_SUBSCRIPTION"/>
+                  <to variable="GOrderDetailsInXML"/>
+                </copy>
+                <copy>
+                  <from expression="concat('SEND-',bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:ORDER_NUMBER'),'-',bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER'),'-INFLIGHT-',bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:INFLIGHT_ORDER'),'-',bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:ORDER_SOURCE'))"
+                        bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"/>
+                  <to variable="GInstanceTitle"/>
+                </copy>
+                <copy>
+                  <from expression="'Payload Received'"/>
+                  <to variable="GErrorMessage"/>
+                </copy>
+              </assign>
+              <assign name="SetFlowTitle">
+                <copy>
+                  <from expression="oraext:setFlowInstanceTitle(bpws:getVariableData('GInstanceTitle'))"/>
+                  <to variable="GInstanceTitle"/>
+                </copy>
+                <copy>
+                  <from expression="'false'"/>
+                  <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="v_plan_flag"/>
+                </copy>
+              </assign>
+              <switch name="Chklines">
+                <case condition="bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:INFLIGHT_ORDER')='Y'">
+                  <bpelx:annotation>
+                    <bpelx:general>
+                      <bpelx:property name="userLabel">
+                        <![CDATA[Inflight]]>
+                      </bpelx:property>
+                    </bpelx:general>
+                  </bpelx:annotation>
+                  <scope name="Inflight">
+                    <sequence name="Sequence22">
+                      <assign name="TransformationPayload">
+                        <bpelx:annotation>
+                          <bpelx:pattern>transformation</bpelx:pattern>
+                        </bpelx:annotation>
+                        <copy>
+                          <from expression="ora:doXSLTransformForDoc('Transformations/Transformation_Inflight.xsl', $GOrderDetailsInXML)"/>
+                          <to variable="InvokeInflightWS_Request-Response_InputVariable" part="ORACLE_INTEGRATION_MESSAGE"/>
+                        </copy>
+                      </assign>
+                      <assign name="TransformationCleanNS">
+                        <bpelx:annotation>
+                          <bpelx:pattern>transformation</bpelx:pattern>
+                        </bpelx:annotation>
+                        <copy>
+                          <from expression="ora:doXSLTransformForDoc('xsl/Transformation_CleanNS.xsl', $InvokeInflightWS_Request-Response_InputVariable.ORACLE_INTEGRATION_MESSAGE)"/>
+                          <to variable="InvokeInflightWS_Request-Response_InputVariable" part="ORACLE_INTEGRATION_MESSAGE"/>
+                        </copy>
+                      </assign>
+                      <invoke name="InvokeInflightWS" inputVariable="InvokeInflightWS_Request-Response_InputVariable" outputVariable="InvokeInflightWS_Request-Response_OutputVariable" partnerLink="SPMInFlightWS" portType="ns29:Request_Response_ptt" operation="Request-Response">
+                        <bpelx:inputProperty name="endpointURI" expression='concat(dvm:lookupValue("oramds:/apps/SPMURLs.dvm","Key","HOST","Value","HOSTName"),"/spm/ws/com.oracle.oal.spm.InFlightWS")'/>
+                      </invoke>
+                    </sequence>
+                  </scope>
+                </case>
+                <case condition="ora:countNodes('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES')>0 and bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:INFLIGHT_ORDER') != 'Y'">
+                  <bpelx:annotation>
+                    <bpelx:general>
+                      <bpelx:property name="userLabel">
+                        <![CDATA[ChkLines]]>
+                      </bpelx:property>
+                    </bpelx:general>
+                  </bpelx:annotation>
+                  <sequence name="ChkLines">
+                    <!-- <bpelx:exec name="SetTitle" version="1.5" language="java">
+                    <![CDATA[/*Write your java code below e.g.  
+	System.out.println("Hello, World"); 
+*/ 
+String instanceName = (String)getVariableData("GInstanceTitle");         
+setCompositeInstanceTitle(instanceName);]]>
+                  </bpelx:exec>-->
+                    <scope name="Ref_CRMTargetPartyID" variableAccessSerializable="no">
+                      <bpelx:annotation>
+                        <bpelx:general>
+                          <bpelx:property name="userLabel">
+                            <![CDATA[Ref_CRMTargetPartyID]]>
+                          </bpelx:property>
+                        </bpelx:general>
+                      </bpelx:annotation>
+                      <variables>
+                        <variable name="VCRMfindOpportunityInput" messageType="ns4:OpportunityService_findOpportunity"/>
+                        <variable name="VCRMfindOpportunityOutput" messageType="ns4:OpportunityService_findOpportunityResponse"/>
+                        <variable name="InvokeGetCRMSalesAccount_GetCRMSalesAccountSelect_InputVariable" messageType="ns13:GetCRMSalesAccountSelect_inputParameters"/>
+                        <variable name="InvokeGetCRMSalesAccount_GetCRMSalesAccountSelect_OutputVariable" messageType="ns13:HzPartiesCollection_msg"/>
+                      </variables>
+                      <faultHandlers>
+                        <catchAll>
+                          <sequence name="Sequence21">
+                            <empty name="Empty"/>
+                          </sequence>
+                        </catchAll>
+                      </faultHandlers>
+                      <sequence name="Sequence17">
+                        <switch name="GSI_CRM_TARGET_PARTY_ID">
+                          <case condition="not(string(bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CRM_TARGET_PARTY_ID'))) or bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CRM_TARGET_PARTY_ID') ='0'">
+                            <bpelx:annotation>
+                              <bpelx:general>
+                                <bpelx:property name="userLabel">
+                                  <![CDATA[Check_CRM_TARGET_PARTY_ID]]>
+                                </bpelx:property>
+                              </bpelx:general>
+                            </bpelx:annotation>
+                            <switch name="ChkOptyNumber">
+                              <case condition="bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CRM_OPTY_NUM') = '0' and bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CUSTOMERS/ns6:MISIMD_SPM_CUSTOMER/ns6:SITE_USE_TYPE') = 'SOLD_TO'">
+                                <bpelx:annotation>
+                                  <bpelx:general>
+                                    <bpelx:property name="userLabel">
+                                      <![CDATA[ChkGSIOptyNumber]]>
+                                    </bpelx:property>
+                                  </bpelx:general>
+                                </bpelx:annotation>
+                                <sequence name="Ref_GSICRMTargetPartyID">
+                                  <assign name="AssignPartyID">
+                                    <copy>
+                                      <from variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CUSTOMERS/ns6:MISIMD_SPM_CUSTOMER[1]/ns6:CUST_ACCOUNT_NUMBER"/>
+                                      <to variable="InvokeGetCRMSalesAccount_GetCRMSalesAccountSelect_InputVariable" part="GetCRMSalesAccountSelect_inputParameters" query="/ns14:GetCRMSalesAccountSelect_p_account_numberInputParameters/ns14:p_account_number"/>
+                                    </copy>
+                                  </assign>
+                                  <invoke name="InvokeGetCRMSalesAccount" inputVariable="InvokeGetCRMSalesAccount_GetCRMSalesAccountSelect_InputVariable" partnerLink="GetCRMSalesAccount" portType="ns13:GetCRMSalesAccount_ptt" operation="GetCRMSalesAccountSelect" outputVariable="InvokeGetCRMSalesAccount_GetCRMSalesAccountSelect_OutputVariable" bpelx:invokeAsDetail="no"/>
+                                  <assign name="AssignTargetPartyID">
+                                    <copy bpelx:insertMissingToData="yes">
+                                      <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeGetCRMSalesAccount_GetCRMSalesAccountSelect_OutputVariable" part="HzPartiesCollection" query="/*[local-name()='HzPartiesCollection']/*[local-name()='HzParties']/*[local-name()='attribute24']"/>
+                                      <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CRM_TARGET_PARTY_ID"/>
+                                    </copy>
+                                  </assign>
+                                </sequence>
+                              </case>
+                              <case condition="bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CRM_OPTY_NUM') != '0'">
+                                <bpelx:annotation>
+                                  <bpelx:pattern>ChkOptyNumber</bpelx:pattern>
+                                  <bpelx:general>
+                                    <bpelx:property name="userLabel">
+                                      <![CDATA[ChkOptyNumber]]>
+                                    </bpelx:property>
+                                  </bpelx:general>
+                                </bpelx:annotation>
+                                <sequence name="Ref_CRMTargetPartyID">
+                                  <assign name="TransformFindOpty">
+                                    <bpelx:annotation>
+                                      <bpelx:pattern>transformation</bpelx:pattern>
+                                    </bpelx:annotation>
+                                    <copy>
+                                      <from expression="ora:doXSLTransformForDoc('xsl/Transformation_FindOpty.xsl', $GOrderDetailsInXML)"/>
+                                      <to variable="VCRMfindOpportunityInput" part="parameters"/>
+                                    </copy>
+                                  </assign>
+                                  <invoke name="InvokeCRMOptyService" inputVariable="VCRMfindOpportunityInput" outputVariable="VCRMfindOpportunityOutput" partnerLink="CRMOptyService" portType="ns4:OpportunityService" operation="findOpportunity" bpelx:invokeAsDetail="no"/>
+                                  <assign name="AssignTargetPartyID">
+                                    <copy bpelx:ignoreMissingFromData="yes" bpelx:insertMissingToData="yes">
+                                      <from variable="VCRMfindOpportunityOutput" part="parameters" query="/ns7:findOpportunityResponse/ns7:result/ns4:TargetPartyId"/>
+                                      <to variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CRM_TARGET_PARTY_ID"/>
+                                    </copy>
+                                    <copy bpelx:ignoreMissingFromData="yes">
+                                      <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="VCRMfindOpportunityOutput" part="parameters" query="/ns7:findOpportunityResponse/ns7:result/ns4:PreviousContractNumber_c"/>
+                                      <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SUBSCRIPTION_SOURCE"/>
+                                    </copy>
+                                  </assign>
+                                </sequence>
+                              </case>
+                              <otherwise>
+                                <empty name="Empty"/>
+                              </otherwise>
+                            </switch>
+                          </case>
+                          <otherwise>
+                            <empty name="Empty" xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/"/>
+                          </otherwise>
+                        </switch>
+                      </sequence>
+                    </scope>
+                    <flow name="SplitFlows">
+                      <sequence name="Sequence_Evergreen">
+                        <switch name="Chk_Evergreen">
+                          <case condition="ora:countNodes('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES[ns6:CONTRACT_TYPE=&quot;Cloud Evergreen Subscriptions&quot;]')>0">
+                            <bpelx:annotation>
+                              <bpelx:general>
+                                <bpelx:property name="userLabel">
+                                  <![CDATA[Chk_Evergreen]]>
+                                </bpelx:property>
+                              </bpelx:general>
+                            </bpelx:annotation>
+                            <scope name="Scope_Evergreen">
+                              <sequence name="Sequence23">
+                                <scope name="ChkExistingPlanType">
+                                  <faultHandlers>
+                                    <catchAll>
+                                      <sequence name="Sequence24">
+                                        <assign name="AssignFlag">
+                                          <copy>
+                                            <from expression="'N'"/>
+                                            <to variable="v_plan_flag"/>
+                                          </copy>
+                                        </assign>
+                                      </sequence>
+                                    </catchAll>
+                                  </faultHandlers>
+                                  <switch name="ChkExistingPlanType">
+                                    <case condition="(bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES[ns6:CLOUD_DATA_CENTER_REGION=&quot;EXTSITE&quot;]/ns6:CLOUD_DATA_CENTER_REGION') = 'EXTSITE') and (bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES[ns6:OPERATION_TYPE!=&quot;UPDATE&quot;]'))">
+                                      <bpelx:annotation>
+                                        <bpelx:general>
+                                          <bpelx:property name="userLabel">
+                                            <![CDATA[ChkExternelSite]]>
+                                          </bpelx:property>
+                                        </bpelx:general>
+                                      </bpelx:annotation>
+                                      <sequence name="ChkExistingPlanType">
+                                        <switch name="ChkPlanNumber">
+                                          <case condition="bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER')!='0'  ">
+                                            <bpelx:annotation>
+                                              <bpelx:general>
+                                                <bpelx:property name="userLabel">
+                                                  <![CDATA[ChkPlanNumber]]>
+                                                </bpelx:property>
+                                              </bpelx:general>
+                                            </bpelx:annotation>
+                                            <scope name="ChkPlanNumber">
+                                              <sequence name="ChkPlanNumber">
+                                                <invoke name="InvokeSPMGetContractLines" outputVariable="InvokeSPMGetContractLines_Request-Response_OutputVariable" partnerLink="SPMGetContractLines" portType="ns22:Request_Response_ptt" operation="Request-Response" inputVariable="InvokeSPMGetContractLines_Request-Response_InputVariable">
+                                                  <bpelx:inputProperty name="endpointURI"
+                                                                       expression="concat(dvm:lookupValue('oramds:/apps/SPMURLs.dvm','Key','HOST','Value','HOSTName'),dvm:lookupValue('oramds:/apps/SPMURLs.dvm','Key','SPM_DAL_PROJECT','Value','/spm/ws/dal/Project'),&quot;?maxResult=100&amp;where=searchKey='&quot;,bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER'),&quot;'&amp;_selectedProperties=searchKey,oBCNTRContractType&amp;operationName=Request-Response&quot;)"/>
+                                                </invoke>
+                                                <scope name="ParseResponse">
+                                                  <faultHandlers>
+                                                    <catchAll>
+                                                      <empty name="Empty"/>
+                                                    </catchAll>
+                                                  </faultHandlers>
+                                                  <sequence>
+                                                    <assign name="ParseResponse">
+                                                      <copy bpelx:ignoreMissingFromData="yes">
+                                                        <from expression="oraext:parseXML(concat(substring-before(oraext:get-content-as-string(bpws:getVariableData('InvokeSPMGetContractLines_Request-Response_OutputVariable','Openbravo')),'xmlns'),' xmlns=&quot;http://www.openbravo.com&quot; xmlns',substring-after(oraext:get-content-as-string(bpws:getVariableData('InvokeSPMGetContractLines_Request-Response_OutputVariable','Openbravo')),'xmlns')))"/>
+                                                        <to variable="InvokeSPMGetContractLines_Request-Response_OutputVariable" part="Openbravo"/>
+                                                      </copy>
+                                                    </assign>
+                                                    <assign name="AssignSPMPlanNumber">
+                                                      <copy bpelx:ignoreMissingFromData="yes" bpelx:insertMissingToData="yes">
+                                                        <from variable="InvokeSPMGetContractLines_Request-Response_OutputVariable" part="Openbravo" query="/ns23:Openbravo/ns23:Project[ns23:oBCNTRContractType/@identifier='Cloud Evergreen Subscriptions']/ns23:searchKey"/>
+                                                        <to variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER"/>
+                                                      </copy>
+                                                      <copy>
+                                                        <from expression="'Cloud Evergreen Subscriptions'"/>
+                                                        <to variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CONTRACT_TYPE"/>
+                                                      </copy>
+                                                      <copy>
+                                                        <from expression="xp20:matches(bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CONTRACT_TYPE'),bpws:getVariableData('InvokeSPMGetContractLines_Request-Response_OutputVariable','Openbravo','/ns23:Openbravo/ns23:Project/ns23:oBCNTRContractType/@identifier'))" bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"/>
+                                                        <to variable="v_plan_flag"/>
+                                                      </copy>
+                                                    </assign>
+                                                  </sequence>
+                                                </scope>
+                                              </sequence>
+                                            </scope>
+                                          </case>
+                                          <otherwise>
+                                            <empty name="Empty"/>
+                                          </otherwise>
+                                        </switch>
+                                        <switch name="ChkPlanAssignmentFlag">
+                                          <case condition="bpws:getVariableData('v_plan_flag')='true'">
+                                            <bpelx:annotation>
+                                              <bpelx:general>
+                                                <bpelx:property name="userLabel">
+                                                  <![CDATA[ChkPlanAssignmentFlag]]>
+                                                </bpelx:property>
+                                              </bpelx:general>
+                                            </bpelx:annotation>
+                                            <empty name="Empty"/>
+                                          </case>
+                                          <otherwise>
+                                            <sequence name="ChkPlanAssignmentFlag">
+                                              <invoke name="InvokeSPMGetContractLines" outputVariable="InvokeSPMGetContractLines_Request-Response_OutputVariable" partnerLink="SPMGetContractLines" portType="ns22:Request_Response_ptt" operation="Request-Response" inputVariable="InvokeSPMGetContractLines_Request-Response_InputVariable">
+                                                <bpelx:inputProperty name="endpointURI"
+                                                                     expression="concat(dvm:lookupValue('oramds:/apps/SPMURLs.dvm','Key','HOST','Value','HOSTName'),dvm:lookupValue('oramds:/apps/SPMURLs.dvm','Key','SPM_DAL_PROJECT','Value','/spm/ws/dal/Project'),&quot;?maxResult=100&amp;where=em_spm_relatedgrp_plan_idf='&quot;,bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:RELATED_GROUP_PLAN_ID'),&quot;'&amp;_selectedProperties=searchKey,oBCNTRContractType&amp;operationName=Request-Response&quot;)"/>
+                                              </invoke>
+                                              <scope name="ParseResponse">
+                                                <faultHandlers>
+                                                  <catchAll>
+                                                    <empty name="Empty"/>
+                                                  </catchAll>
+                                                </faultHandlers>
+                                                <sequence>
+                                                  <assign name="ParseResponse">
+                                                    <copy bpelx:ignoreMissingFromData="yes">
+                                                      <from expression="oraext:parseXML(concat(substring-before(oraext:get-content-as-string(bpws:getVariableData('InvokeSPMGetContractLines_Request-Response_OutputVariable','Openbravo')),'xmlns'),' xmlns=&quot;http://www.openbravo.com&quot; xmlns',substring-after(oraext:get-content-as-string(bpws:getVariableData('InvokeSPMGetContractLines_Request-Response_OutputVariable','Openbravo')),'xmlns')))"/>
+                                                      <to variable="InvokeSPMGetContractLines_Request-Response_OutputVariable" part="Openbravo"/>
+                                                    </copy>
+                                                  </assign>
+                                                  <assign name="AssignSPMPlanNumber">
+                                                    <copy bpelx:ignoreMissingFromData="yes">
+                                                      <from variable="InvokeSPMGetContractLines_Request-Response_OutputVariable" part="Openbravo" query="/ns23:Openbravo/ns23:Project[ns23:oBCNTRContractType/@identifier='Cloud Evergreen Subscriptions']/ns23:searchKey"/>
+                                                      <to variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER"/>
+                                                    </copy>
+                                                    <copy>
+                                                      <from expression="'Cloud Evergreen Subscriptions'" bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"/>
+                                                      <to variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CONTRACT_TYPE"/>
+                                                    </copy>
+                                                    <copy>
+                                                      <from expression="xp20:matches(bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CONTRACT_TYPE'),bpws:getVariableData('InvokeSPMGetContractLines_Request-Response_OutputVariable','Openbravo','/ns23:Openbravo/ns23:Project/ns23:oBCNTRContractType[@identifier=&quot;Cloud Evergreen Subscriptions&quot;]/@identifier'))" bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"/>
+                                                      <to variable="v_plan_flag"/>
+                                                    </copy>
+                                                  </assign>
+                                                </sequence>
+                                              </scope>
+                                            </sequence>
+                                          </otherwise>
+                                        </switch>
+                                      </sequence>
+                                    </case>
+                                    <otherwise>
+                                      <empty name="Empty"/>
+                                    </otherwise>
+                                  </switch>
+                                </scope>
+                              </sequence>
+                            </scope>
+                          </case>
+                          <otherwise>
+                            <empty name="Empty"/>
+                          </otherwise>
+                        </switch>
+                      </sequence>
+                      <sequence name="Sequence_Renewable">
+                        <switch name="Chk_Renewable">
+                          <case condition="ora:countNodes('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES[ns6:CONTRACT_TYPE=&quot;Cloud Renewable Subscriptions&quot;]')>0">
+                            <bpelx:annotation>
+                              <bpelx:general>
+                                <bpelx:property name="userLabel">
+                                  <![CDATA[Chk_Renewable]]>
+                                </bpelx:property>
+                              </bpelx:general>
+                            </bpelx:annotation>
+                            <scope name="Scope_Renewable">
+                              <sequence name="Sequence23">
+                                <scope name="ChkExistingPlanType">
+                                  <faultHandlers>
+                                    <catchAll>
+                                      <assign name="AssignFlag">
+                                        <copy>
+                                          <from expression="'N'"/>
+                                          <to variable="v_plan_flag"/>
+                                        </copy>
+                                      </assign>
+                                    </catchAll>
+                                  </faultHandlers>
+                                  <switch name="ChkExistingPlanType">
+                                    <case condition="(bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES[ns6:CLOUD_DATA_CENTER_REGION=&quot;EXTSITE&quot;]/ns6:CLOUD_DATA_CENTER_REGION') = 'EXTSITE') and (bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES[ns6:OPERATION_TYPE!=&quot;UPDATE&quot;]'))">
+                                      <bpelx:annotation>
+                                        <bpelx:general>
+                                          <bpelx:property name="userLabel">
+                                            <![CDATA[ChkExternelSite]]>
+                                          </bpelx:property>
+                                        </bpelx:general>
+                                      </bpelx:annotation>
+                                      <sequence name="ChkExistingPlanType">
+                                        <switch name="ChkPlanNumber">
+                                          <case condition="bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER')!='0'  ">
+                                            <bpelx:annotation>
+                                              <bpelx:general>
+                                                <bpelx:property name="userLabel">
+                                                  <![CDATA[ChkPlanNumber]]>
+                                                </bpelx:property>
+                                              </bpelx:general>
+                                            </bpelx:annotation>
+                                            <scope name="ChkPlanNumber">
+                                              <sequence name="ChkPlanNumber">
+                                                <invoke name="InvokeSPMGetContractLines" outputVariable="InvokeSPMGetContractLines_Request-Response_OutputVariable" partnerLink="SPMGetContractLines" portType="ns22:Request_Response_ptt" operation="Request-Response" inputVariable="InvokeSPMGetContractLines_Request-Response_InputVariable">
+                                                  <bpelx:inputProperty name="endpointURI"
+                                                                       expression="concat(dvm:lookupValue('oramds:/apps/SPMURLs.dvm','Key','HOST','Value','HOSTName'),dvm:lookupValue('oramds:/apps/SPMURLs.dvm','Key','SPM_DAL_PROJECT','Value','/spm/ws/dal/Project'),&quot;?maxResult=100&amp;where=searchKey='&quot;,bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER'),&quot;'&amp;_selectedProperties=searchKey,oBCNTRContractType&amp;operationName=Request-Response&quot;)"/>
+                                                </invoke>
+                                                <scope name="ParseResponse">
+                                                  <faultHandlers>
+                                                    <catchAll>
+                                                      <empty name="Empty"/>
+                                                    </catchAll>
+                                                  </faultHandlers>
+                                                  <sequence>
+                                                    <assign name="ParseResponse">
+                                                      <copy bpelx:ignoreMissingFromData="yes">
+                                                        <from expression="oraext:parseXML(concat(substring-before(oraext:get-content-as-string(bpws:getVariableData('InvokeSPMGetContractLines_Request-Response_OutputVariable','Openbravo')),'xmlns'),' xmlns=&quot;http://www.openbravo.com&quot; xmlns',substring-after(oraext:get-content-as-string(bpws:getVariableData('InvokeSPMGetContractLines_Request-Response_OutputVariable','Openbravo')),'xmlns')))"/>
+                                                        <to variable="InvokeSPMGetContractLines_Request-Response_OutputVariable" part="Openbravo"/>
+                                                      </copy>
+                                                    </assign>
+                                                    <assign name="AssignSPMPlanNumber">
+                                                      <copy bpelx:ignoreMissingFromData="yes" bpelx:insertMissingToData="yes">
+                                                        <from variable="InvokeSPMGetContractLines_Request-Response_OutputVariable" part="Openbravo" query="/ns23:Openbravo/ns23:Project[ns23:oBCNTRContractType/@identifier='Cloud Renewable Subscriptions']/ns23:searchKey"/>
+                                                        <to variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER"/>
+                                                      </copy>
+                                                      <copy>
+                                                        <from expression="'Cloud Renewable Subscriptions'"/>
+                                                        <to variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CONTRACT_TYPE"/>
+                                                      </copy>
+                                                      <copy>
+                                                        <from expression="xp20:matches(bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CONTRACT_TYPE'),bpws:getVariableData('InvokeSPMGetContractLines_Request-Response_OutputVariable','Openbravo','/ns23:Openbravo/ns23:Project/ns23:oBCNTRContractType/@identifier'))"/>
+                                                        <to variable="v_plan_flag"/>
+                                                      </copy>
+                                                    </assign>
+                                                  </sequence>
+                                                </scope>
+                                              </sequence>
+                                            </scope>
+                                          </case>
+                                          <otherwise>
+                                            <empty name="Empty"/>
+                                          </otherwise>
+                                        </switch>
+                                        <switch name="ChkPlanAssignmentFlag">
+                                          <case condition="bpws:getVariableData('v_plan_flag')='true'">
+                                            <bpelx:annotation>
+                                              <bpelx:general>
+                                                <bpelx:property name="userLabel">
+                                                  <![CDATA[ChkPlanAssignmentFlag]]>
+                                                </bpelx:property>
+                                              </bpelx:general>
+                                            </bpelx:annotation>
+                                            <empty name="Empty"/>
+                                          </case>
+                                          <otherwise>
+                                            <sequence name="ChkPlanAssignmentFlag">
+                                              <invoke name="InvokeSPMGetContractLines" outputVariable="InvokeSPMGetContractLines_Request-Response_OutputVariable" partnerLink="SPMGetContractLines" portType="ns22:Request_Response_ptt" operation="Request-Response" inputVariable="InvokeSPMGetContractLines_Request-Response_InputVariable">
+                                                <bpelx:inputProperty name="endpointURI"
+                                                                     expression="concat(dvm:lookupValue('oramds:/apps/SPMURLs.dvm','Key','HOST','Value','HOSTName'),dvm:lookupValue('oramds:/apps/SPMURLs.dvm','Key','SPM_DAL_PROJECT','Value','/spm/ws/dal/Project'),&quot;?maxResult=100&amp;where=em_spm_relatedgrp_plan_idf='&quot;,bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:RELATED_GROUP_PLAN_ID'),&quot;'&amp;_selectedProperties=searchKey,oBCNTRContractType&amp;operationName=Request-Response&quot;)"/>
+                                              </invoke>
+                                              <scope name="ParseResponse">
+                                                <faultHandlers>
+                                                  <catchAll>
+                                                    <empty name="Empty"/>
+                                                  </catchAll>
+                                                </faultHandlers>
+                                                <sequence>
+                                                  <assign name="ParseResponse">
+                                                    <copy bpelx:ignoreMissingFromData="yes">
+                                                      <from expression="oraext:parseXML(concat(substring-before(oraext:get-content-as-string(bpws:getVariableData('InvokeSPMGetContractLines_Request-Response_OutputVariable','Openbravo')),'xmlns'),' xmlns=&quot;http://www.openbravo.com&quot; xmlns',substring-after(oraext:get-content-as-string(bpws:getVariableData('InvokeSPMGetContractLines_Request-Response_OutputVariable','Openbravo')),'xmlns')))"/>
+                                                      <to variable="InvokeSPMGetContractLines_Request-Response_OutputVariable" part="Openbravo"/>
+                                                    </copy>
+                                                  </assign>
+                                                  <assign name="AssignSPMPlanNumber">
+                                                    <copy bpelx:ignoreMissingFromData="yes">
+                                                      <from variable="InvokeSPMGetContractLines_Request-Response_OutputVariable" part="Openbravo" query="/ns23:Openbravo/ns23:Project[ns23:oBCNTRContractType/@identifier='Cloud Renewable Subscriptions']/ns23:searchKey"/>
+                                                      <to variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER"/>
+                                                    </copy>
+                                                    <copy>
+                                                      <from expression="'Cloud Renewable Subscriptions'"/>
+                                                      <to variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CONTRACT_TYPE"/>
+                                                    </copy>
+                                                    <copy>
+                                                      <from expression="xp20:matches(bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CONTRACT_TYPE'),bpws:getVariableData('InvokeSPMGetContractLines_Request-Response_OutputVariable','Openbravo','/ns23:Openbravo/ns23:Project/ns23:oBCNTRContractType[@identifier=&quot;Cloud Renewal Subscriptions&quot;]/@identifier'))" bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"/>
+                                                      <to variable="v_plan_flag"/>
+                                                    </copy>
+                                                  </assign>
+                                                </sequence>
+                                              </scope>
+                                            </sequence>
+                                          </otherwise>
+                                        </switch>
+                                      </sequence>
+                                    </case>
+                                    <otherwise>
+                                      <empty name="Empty"/>
+                                    </otherwise>
+                                  </switch>
+                                </scope>
+                              </sequence>
+                            </scope>
+                          </case>
+                          <otherwise>
+                            <empty name="Empty"/>
+                          </otherwise>
+                        </switch>
+                      </sequence>
+                      <sequence name="Sequence_Universal">
+                        <switch name="Chk_Universal">
+                          <case condition="ora:countNodes('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES[ns6:CONTRACT_TYPE=&quot;Cloud Universal Subscriptions&quot;]')>0">
+                            <bpelx:annotation>
+                              <bpelx:general>
+                                <bpelx:property name="userLabel">
+                                  <![CDATA[Chk_Universal]]>
+                                </bpelx:property>
+                              </bpelx:general>
+                            </bpelx:annotation>
+                            <scope name="Scope_Universal">
+                              <sequence name="Sequence23">
+                                <scope name="ChkExistingPlanType">
+                                  <faultHandlers>
+                                    <catchAll>
+                                      <assign name="AssignFlag">
+                                        <copy>
+                                          <from expression="'N'"/>
+                                          <to variable="v_plan_flag"/>
+                                        </copy>
+                                      </assign>
+                                    </catchAll>
+                                  </faultHandlers>
+                                  <switch name="ChkExistingPlanType">
+                                    <case condition="(bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES[ns6:CLOUD_DATA_CENTER_REGION=&quot;EXTSITE&quot;]/ns6:CLOUD_DATA_CENTER_REGION') = 'EXTSITE') and not(string((bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES[ns6:OPERATION_TYPE =&quot;UPDATE&quot; or ns6:OPERATION_TYPE =&quot;REPLENISH&quot;]'))))">
+                                      <bpelx:annotation>
+                                        <bpelx:general>
+                                          <bpelx:property name="userLabel">
+                                            <![CDATA[ChkExternelSite]]>
+                                          </bpelx:property>
+                                        </bpelx:general>
+                                      </bpelx:annotation>
+                                      <sequence name="ChkExistingPlanType">
+                                        <switch name="ChkPlanNumber">
+                                          <case condition="bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER')!='0'  ">
+                                            <bpelx:annotation>
+                                              <bpelx:general>
+                                                <bpelx:property name="userLabel">
+                                                  <![CDATA[ChkPlanNumber]]>
+                                                </bpelx:property>
+                                              </bpelx:general>
+                                            </bpelx:annotation>
+                                            <scope name="ChkPlanNumber">
+                                              <sequence>
+                                                <invoke name="InvokeSPMGetContractLines" outputVariable="InvokeSPMGetContractLines_Request-Response_OutputVariable" partnerLink="SPMGetContractLines" portType="ns22:Request_Response_ptt" operation="Request-Response" inputVariable="InvokeSPMGetContractLines_Request-Response_InputVariable">
+                                                  <bpelx:inputProperty name="endpointURI"
+                                                                       expression="concat(dvm:lookupValue('oramds:/apps/SPMURLs.dvm','Key','HOST','Value','HOSTName'),dvm:lookupValue('oramds:/apps/SPMURLs.dvm','Key','SPM_DAL_PROJECT','Value','/spm/ws/dal/Project'),&quot;?maxResult=100&amp;where=searchKey='&quot;,bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER'),&quot;'&amp;_selectedProperties=searchKey,oBCNTRContractType&amp;operationName=Request-Response&quot;)"/>
+                                                </invoke>
+                                                <scope name="ParseResponse">
+                                                  <faultHandlers>
+                                                    <catchAll>
+                                                      <empty name="Empty"/>
+                                                    </catchAll>
+                                                  </faultHandlers>
+                                                  <sequence>
+                                                    <assign name="ParseResponse">
+                                                      <copy bpelx:ignoreMissingFromData="yes">
+                                                        <from expression="oraext:parseXML(concat(substring-before(oraext:get-content-as-string(bpws:getVariableData('InvokeSPMGetContractLines_Request-Response_OutputVariable','Openbravo')),'xmlns'),' xmlns=&quot;http://www.openbravo.com&quot; xmlns',substring-after(oraext:get-content-as-string(bpws:getVariableData('InvokeSPMGetContractLines_Request-Response_OutputVariable','Openbravo')),'xmlns')))"/>
+                                                        <to variable="InvokeSPMGetContractLines_Request-Response_OutputVariable" part="Openbravo"/>
+                                                      </copy>
+                                                    </assign>
+                                                    <assign name="AssignSPMPlanNumber">
+                                                      <copy bpelx:ignoreMissingFromData="yes" bpelx:insertMissingToData="yes">
+                                                        <from variable="InvokeSPMGetContractLines_Request-Response_OutputVariable" part="Openbravo" query="/ns23:Openbravo/ns23:Project[ns23:oBCNTRContractType/@identifier='Cloud Universal Subscriptions']/ns23:searchKey"/>
+                                                        <to variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER"/>
+                                                      </copy>
+                                                      <copy>
+                                                        <from expression="'Cloud Universal Subscriptions'"/>
+                                                        <to variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CONTRACT_TYPE"/>
+                                                      </copy>
+                                                      <copy>
+                                                        <from expression="xp20:matches(bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CONTRACT_TYPE'),bpws:getVariableData('InvokeSPMGetContractLines_Request-Response_OutputVariable','Openbravo','/ns23:Openbravo/ns23:Project/ns23:oBCNTRContractType/@identifier'))"/>
+                                                        <to variable="v_plan_flag"/>
+                                                      </copy>
+                                                    </assign>
+                                                  </sequence>
+                                                </scope>
+                                              </sequence>
+                                            </scope>
+                                          </case>
+                                          <otherwise>
+                                            <empty name="Empty"/>
+                                          </otherwise>
+                                        </switch>
+                                        <switch name="ChkPlanAssignmentFlag">
+                                          <case condition="bpws:getVariableData('v_plan_flag')='true'">
+                                            <bpelx:annotation>
+                                              <bpelx:general>
+                                                <bpelx:property name="userLabel">
+                                                  <![CDATA[ChkPlanAssignmentFlag]]>
+                                                </bpelx:property>
+                                              </bpelx:general>
+                                            </bpelx:annotation>
+                                            <empty name="Empty"/>
+                                          </case>
+                                          <otherwise>
+                                            <sequence name="ChkPlanAssignmentFlag">
+                                              <invoke name="InvokeSPMGetContractLines" outputVariable="InvokeSPMGetContractLines_Request-Response_OutputVariable" partnerLink="SPMGetContractLines" portType="ns22:Request_Response_ptt" operation="Request-Response" inputVariable="InvokeSPMGetContractLines_Request-Response_InputVariable">
+                                                <bpelx:inputProperty name="endpointURI"
+                                                                     expression="concat(dvm:lookupValue('oramds:/apps/SPMURLs.dvm','Key','HOST','Value','HOSTName'),dvm:lookupValue('oramds:/apps/SPMURLs.dvm','Key','SPM_DAL_PROJECT','Value','/spm/ws/dal/Project'),&quot;?maxResult=100&amp;where=em_spm_relatedgrp_plan_idf='&quot;,bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:RELATED_GROUP_PLAN_ID'),&quot;'&amp;_selectedProperties=searchKey,oBCNTRContractType&amp;operationName=Request-Response&quot;)"/>
+                                              </invoke>
+                                              <scope name="ParseResponse">
+                                                <faultHandlers>
+                                                  <catchAll>
+                                                    <empty name="Empty"/>
+                                                  </catchAll>
+                                                </faultHandlers>
+                                                <sequence>
+                                                  <assign name="ParseResponse">
+                                                    <copy bpelx:ignoreMissingFromData="yes">
+                                                      <from expression="oraext:parseXML(concat(substring-before(oraext:get-content-as-string(bpws:getVariableData('InvokeSPMGetContractLines_Request-Response_OutputVariable','Openbravo')),'xmlns'),' xmlns=&quot;http://www.openbravo.com&quot; xmlns',substring-after(oraext:get-content-as-string(bpws:getVariableData('InvokeSPMGetContractLines_Request-Response_OutputVariable','Openbravo')),'xmlns')))"/>
+                                                      <to variable="InvokeSPMGetContractLines_Request-Response_OutputVariable" part="Openbravo"/>
+                                                    </copy>
+                                                  </assign>
+                                                  <assign name="AssignSPMPlanNumber">
+                                                    <copy>
+                                                      <from expression="'0'"/>
+                                                      <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER"/>
+                                                    </copy>
+                                                    <copy bpelx:ignoreMissingFromData="yes">
+                                                      <from variable="InvokeSPMGetContractLines_Request-Response_OutputVariable" part="Openbravo" query="/ns23:Openbravo/ns23:Project[ns23:oBCNTRContractType/@identifier='Cloud Universal Subscriptions']/ns23:searchKey"/>
+                                                      <to variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER"/>
+                                                    </copy>
+                                                    <copy>
+                                                      <from expression="'Cloud Universal Subscriptions'" bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"/>
+                                                      <to variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CONTRACT_TYPE"/>
+                                                    </copy>
+                                                    <copy>
+                                                      <from expression="xp20:matches(bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:CONTRACT_TYPE'),bpws:getVariableData('InvokeSPMGetContractLines_Request-Response_OutputVariable','Openbravo','/ns23:Openbravo/ns23:Project/ns23:oBCNTRContractType[@identifier=&quot;Cloud Universal Subscriptions&quot;]/@identifier'))" bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"/>
+                                                      <to variable="v_plan_flag"/>
+                                                    </copy>
+                                                  </assign>
+                                                </sequence>
+                                              </scope>
+                                              <switch name="Switch1">
+                                                <case condition="(bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER') =0 ) and (bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:ATTRIBUTE2') !=0)">
+                                                  <assign name="AssignSupersedProject">
+                                                    <copy bpelx:insertMissingToData="yes">
+                                                      <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:ATTRIBUTE2"/>
+                                                      <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SUPERSEDED_PROJECT"/>
+                                                    </copy>
+                                                  </assign>
+                                                </case>
+                                                <otherwise>
+                                                  <empty name="EmptyDonotUpdateSupersedProject"/>
+                                                </otherwise>
+                                              </switch>
+                                            </sequence>
+                                          </otherwise>
+                                        </switch>
+                                      </sequence>
+                                    </case>
+                                    <otherwise>
+                                      <empty name="Empty"/>
+                                    </otherwise>
+                                  </switch>
+                                </scope>
+                              </sequence>
+                            </scope>
+                          </case>
+                          <otherwise>
+                            <empty name="Empty"/>
+                          </otherwise>
+                        </switch>
+                      </sequence>
+                    </flow>
+                  </sequence>
+                </case>
+                <otherwise>
+                  <sequence name="Sequence18">
+                    <empty name="Empty"/>
+                  </sequence>
+                </otherwise>
+              </switch>
+              <scope name="SPMGenericService" variableAccessSerializable="no">
+                <bpelx:annotation>
+                  <bpelx:general>
+                    <bpelx:property name="userLabel">
+                      <![CDATA[SPMGenericService]]>
+                    </bpelx:property>
+                  </bpelx:general>
+                </bpelx:annotation>
+                <variables>
+                  <variable name="InvokeSPMGetContractLines_Request-Response_OutputVariable" messageType="ns22:Openbravo_msg_out"/>
+                  <variable name="InvokeSPMGetContractLines_Request-Response_InputVariable" messageType="ns22:Openbravo_msg_in"/>
+                </variables>
+                <sequence name="Sequence16">
+                  <assign name="TransformToSPMMessage">
+                    <bpelx:annotation>
+                      <bpelx:pattern>transformation</bpelx:pattern>
+                    </bpelx:annotation>
+                    <copy>
+                      <from expression="ora:doXSLTransformForDoc('xsl/Transformation_SPMGenericServiceInput.xsl', $GOrderDetailsInXML)"/>
+                      <to variable="InvokeSPMGenericWS_Request-Response_InputVariable" part="ORACLE_INTEGRATION_MESSAGE"/>
+                    </copy>
+                  </assign>
+                  <!--assign name="AssignSub">
+                                  <copy>
+                                    <from variable="InvokeSPMGenericWS_Request-Response_InputVariable"
+                                          part="ORACLE_INTEGRATION_MESSAGE"
+                                          query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE"/>
+                                    <to variable="v_Sub" query="/ns6:MISIMD_SPM_SUBSCRIPTION"/>
+                                  </copy>
+                                </assign-->
+                  <assign name="TransformCleanNS">
+                    <bpelx:annotation>
+                      <bpelx:pattern>transformation</bpelx:pattern>
+                    </bpelx:annotation>
+                    <copy>
+                      <from expression="ora:doXSLTransformForDoc('xsl/Transformation_CleanNS.xsl', $InvokeSPMGenericWS_Request-Response_InputVariable.ORACLE_INTEGRATION_MESSAGE)"/>
+                      <to variable="InvokeSPMGenericWS_Request-Response_InputVariable" part="ORACLE_INTEGRATION_MESSAGE"/>
+                    </copy>
+                  </assign>
+                  <assign name="AssignPayload">
+                    <!--copy bpelx:insertMissingToData="yes">
+                                    <from variable="v_Sub" query="/ns6:MISIMD_SPM_SUBSCRIPTION"/>
+                                    <to variable="InvokeSPMGenericWS_Request-Response_InputVariable"
+                                        part="ORACLE_INTEGRATION_MESSAGE"
+                                        query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE"/>
+                                  </copy-->
+                    <copy>
+                      <from variable="InvokeSPMGenericWS_Request-Response_InputVariable" part="ORACLE_INTEGRATION_MESSAGE" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE"/>
+                      <to variable="InvokeSPMGenericWS_Produce_Message_InputVariable" part="body" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE"/>
+                    </copy>
+                  </assign>
+                </sequence>
+              </scope>
+              <switch name="Switch2" xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/">
+                <case condition="dvm:lookupValue(&quot;oramds:/apps/SPMURLs.dvm&quot;,&quot;Key&quot;,&quot;SPMPAASENABLE&quot;,&quot;Value&quot;,&quot;N&quot;) = 'Y'">
+                  <bpelx:annotation>
+                    <bpelx:general>
+                      <bpelx:property name="userLabel">
+                        <![CDATA[SPM_PAAS_ENABLED]]>
+                      </bpelx:property>
+                    </bpelx:general>
+                  </bpelx:annotation>
+                  <sequence name="Sequence28">
+                    <assign name="AssignPayload">
+                      <copy>
+                        <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeSPMGenericWS_Request-Response_InputVariable" part="ORACLE_INTEGRATION_MESSAGE" query="/ns9:ORACLE_INTEGRATION_MESSAGE"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeSPMRest_PostOrderToSPMPaaS_InputVariable" part="request" query="/ns9:ORACLE_INTEGRATION_MESSAGE"/>
+                      </copy>
+                    </assign>
+                    <invoke name="InvokeSPMRest" partnerLink="InvokeSPMRestGoFastWS" inputVariable="InvokeSPMRest_PostOrderToSPMPaaS_InputVariable" outputVariable="InvokeSPMRest_PostOrderToSPMPaaS_OutputVariable" portType="ns32:InvokeSPMRestGoFastWS_ptt" operation="PostOrderToSPMPaaS">
+                      <bpelx:inputProperty name="rest.binding.requestURI" expression='concat(dvm:lookupValue("oramds:/apps/SPMURLs.dvm","Key","HOST","Value","HOSTName"),dvm:lookupValue("oramds:/apps/SPMURLs.dvm","Key","BPELTOSPMQ","Value","BPELTOSPMQ"))'/>
+                    </invoke>
+                    <assign name="AssignPRMInput" xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/">
+                      <copy bpelx:ignoreMissingFromData="yes" xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+                        <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES[1]/ns6:SUBSCRIPTION_ID"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_SUBSCRIPTIONID"/>
+                      </copy>
+                      <copy bpelx:ignoreMissingFromData="yes" xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+                        <from expression='"SPM_INTERFACE"' bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_FLOW"/>
+                      </copy>
+                      <copy bpelx:ignoreMissingFromData="yes" xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+                        <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_PLANNUMBER"/>
+                      </copy>
+                      <copy bpelx:ignoreMissingFromData="yes" xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+                        <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES[1]/ns6:SUBSCRIPTION_ID"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_SUBSCRIPTIONID"/>
+                      </copy>
+                      <copy>
+                        <from expression='"GSI"'/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_SOURCE" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                      </copy>
+                      <copy>
+                        <from expression='"SENT_TO_SPM"' bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_STATUS" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                      </copy>
+                      <copy>
+                        <from expression="ora:getContentAsString(bpws:getVariableData('InvokeSPMRest_PostOrderToSPMPaaS_InputVariable','request','/ns9:ORACLE_INTEGRATION_MESSAGE'))" bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_PAYLOAD" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                      </copy>
+                      <copy>
+                        <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeSPMGenericWS_Request-Response_InputVariable" part="ORACLE_INTEGRATION_MESSAGE" query="/*[local-name()='ORACLE_INTEGRATION_MESSAGE']/*[local-name()='DOCUMENT_NUMBER']" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_ORDERNUMBER" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                      </copy>
+                    </assign>
+                  </sequence>
+                </case>
+                <case condition="bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES/ns6:PROVISIONING_SOURCE') ='SPM' and  bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:ORDER_SOURCE') ='CLOUDPORTAL' and bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES/ns6:PROMOTION_ORDER') ='Y'">
+                  <bpelx:annotation xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+                    <bpelx:general>
+                      <bpelx:property name="userLabel">
+                        <![CDATA[IS_CLOUDPORTAL_PROMO_ORDER]]>
+                      </bpelx:property>
+                    </bpelx:general>
+                  </bpelx:annotation>
+                  <sequence name="Sequence27">
+                    <assign name="AssignPayload" xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/">
+                      <!--copy bpelx:insertMissingToData="yes">
+                                    <from variable="v_Sub" query="/ns6:MISIMD_SPM_SUBSCRIPTION"/>
+                                    <to variable="InvokeSPMGenericWS_Request-Response_InputVariable"
+                                        part="ORACLE_INTEGRATION_MESSAGE"
+                                        query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE"/>
+                                  </copy-->
+                      <copy>
+                        <from variable="InvokeSPMGenericWS_Request-Response_InputVariable" part="ORACLE_INTEGRATION_MESSAGE" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE"/>
+                        <to variable="InvokeSPMGenericWS_Produce_Message_InputVariable" part="body" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE"/>
+                      </copy>
+                      <copy>
+                        <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeSPMGenericWS_Request-Response_InputVariable" part="ORACLE_INTEGRATION_MESSAGE" query="/ns9:ORACLE_INTEGRATION_MESSAGE" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeGoFastWS_PostOrders_InputVariable" part="request" query="/ns9:ORACLE_INTEGRATION_MESSAGE" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                      </copy>
+                    </assign>
+                    <invoke name="InvokeGoFastWS" partnerLink="InvokeSPMRestGoFastWS" inputVariable="InvokeGoFastWS_PostOrders_InputVariable" outputVariable="InvokeGoFastWS_PostOrders_OutputVariable" portType="ns32:InvokeSPMRestGoFastWS_ptt" operation="PostOrders">
+                      <bpelx:inputProperty name="rest.binding.requestURI" expression='concat(dvm:lookupValue("oramds:/apps/SPMURLs.dvm","Key","HOST","Value","HOSTName"),dvm:lookupValue("oramds:/apps/SPMURLs.dvm","Key","SPM_GO_FAST","Value","/spm/ws/com.oracle.oal.spm.ProvisioningPayloadWS?sentToProvisioning=Y&amp;planCreation=Y"))'/>
+                      <bpelx:inputProperty name="rest.binding.http.Content-Type" expression="'application/xml'"/>
+                    </invoke>
+                    <assign name="AssignPRMInput" xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/">
+                      <copy bpelx:ignoreMissingFromData="yes" xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+                        <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES[1]/ns6:SUBSCRIPTION_ID"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_SUBSCRIPTIONID"/>
+                      </copy>
+                      <copy bpelx:ignoreMissingFromData="yes" xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+                        <from expression='"SPM_INTERFACE"' bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_FLOW"/>
+                      </copy>
+                      <copy bpelx:ignoreMissingFromData="yes" xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+                        <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_PLANNUMBER"/>
+                      </copy>
+                      <copy bpelx:ignoreMissingFromData="yes" xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+                        <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES[1]/ns6:SUBSCRIPTION_ID"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_SUBSCRIPTIONID"/>
+                      </copy>
+                      <copy>
+                        <from expression='"GSI"'/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_SOURCE" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                      </copy>
+                      <copy>
+                        <from expression='"SENT_TO_SPM"' bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_STATUS" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                      </copy>
+                      <copy>
+                        <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeSPMGenericWS_Request-Response_InputVariable" part="ORACLE_INTEGRATION_MESSAGE" query="/*[local-name()='ORACLE_INTEGRATION_MESSAGE']/*[local-name()='DOCUMENT_NUMBER']" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_ORDERNUMBER" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                      </copy>
+                      <copy bpelx:ignoreMissingFromData="yes" xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+                        <from expression="oraext:get-content-as-string(bpws:getVariableData('InvokeGoFastWS_PostOrders_InputVariable','request','/ns9:ORACLE_INTEGRATION_MESSAGE'))"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_PAYLOAD"/>
+                      </copy>
+                      <copy>
+                        <from expression="oraext:get-content-as-string(bpws:getVariableData('InvokeGoFastWS_PostOrders_OutputVariable','reply','/*'))" bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_RESPONSEPAYLOAD" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                      </copy>
+                    </assign>
+                  </sequence>
+                </case>
+                <otherwise>
+                  <sequence>
+                    <assign name="AssignPayload">
+                      <!--copy bpelx:insertMissingToData="yes">
+                                    <from variable="v_Sub" query="/ns6:MISIMD_SPM_SUBSCRIPTION"/>
+                                    <to variable="InvokeSPMGenericWS_Request-Response_InputVariable"
+                                        part="ORACLE_INTEGRATION_MESSAGE"
+                                        query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE"/>
+                                  </copy-->
+                      <copy>
+                        <from variable="InvokeSPMGenericWS_Request-Response_InputVariable" part="ORACLE_INTEGRATION_MESSAGE" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE"/>
+                        <to variable="InvokeSPMGenericWS_Produce_Message_InputVariable" part="body" query="/msg_in_out:ORACLE_INTEGRATION_MESSAGE"/>
+                      </copy>
+                    </assign>
+                    <invoke name="InvokeSPMActiveMQ" inputVariable="InvokeSPMGenericWS_Produce_Message_InputVariable" partnerLink="SPMActiveMQ" portType="ns20:Produce_Message_ptt" operation="Produce_Message"/>
+                    <assign name="AssignPRMInput" xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/">
+                      <copy bpelx:ignoreMissingFromData="yes" xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+                        <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES[1]/ns6:SUBSCRIPTION_ID"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_SUBSCRIPTIONID"/>
+                      </copy>
+                      <copy bpelx:ignoreMissingFromData="yes" xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+                        <from expression='"SPM_INTERFACE"' bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_FLOW"/>
+                      </copy>
+                      <copy bpelx:ignoreMissingFromData="yes" xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+                        <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:SPM_PLAN_NUMBER"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_PLANNUMBER"/>
+                      </copy>
+                      <copy bpelx:ignoreMissingFromData="yes" xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+                        <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="GOrderDetailsInXML" query="/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES[1]/ns6:SUBSCRIPTION_ID"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_SUBSCRIPTIONID"/>
+                      </copy>
+                      <copy>
+                        <from expression='"GSI"'/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_SOURCE" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                      </copy>
+                      <copy>
+                        <from expression='"SENT_TO_SPM"' bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_STATUS" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                      </copy>
+                      <copy>
+                        <from expression="ora:getContentAsString(bpws:getVariableData('InvokeSPMGenericWS_Request-Response_InputVariable','ORACLE_INTEGRATION_MESSAGE','/msg_in_out:ORACLE_INTEGRATION_MESSAGE'))"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_PAYLOAD" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                      </copy>
+                      <copy>
+                        <from bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeSPMGenericWS_Request-Response_InputVariable" part="ORACLE_INTEGRATION_MESSAGE" query="/*[local-name()='ORACLE_INTEGRATION_MESSAGE']/*[local-name()='DOCUMENT_NUMBER']" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                        <to bpelx:language="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0" variable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" part="InputParameters" query="/ns33:InputParameters/ns33:P_ORDERNUMBER" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"/>
+                      </copy>
+                    </assign>
+                  </sequence>
+                </otherwise>
+              </switch>
+              <invoke name="InvokeInsertPayloadsPRM" partnerLink="InsertPayloadsPRM" inputVariable="InvokeInsertPayloadsPRM_InsertPayloadsPRM_InputVariable" portType="ns31:InsertPayloadsPRM_ptt" operation="InsertPayloadsPRM"/>
+              <switch name="Switch3">
+                <case condition="not(string(bpws:getVariableData('InvokeGoFastWS_PostOrders_OutputVariable','reply','/ns9:ORACLE_INTEGRATION_MESSAGE')))  and bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES/ns6:PROVISIONING_SOURCE') ='SPM' and  bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:ORDER_SOURCE') ='CLOUDPORTAL' and bpws:getVariableData('GOrderDetailsInXML','/ns6:MISIMD_SPM_SUBSCRIPTION/ns6:LINES/ns6:MISIMD_SPM_LINES/ns6:PROMOTION_ORDER') ='Y'">
+                  <bpelx:annotation>
+                    <bpelx:general>
+                      <bpelx:property name="userLabel">
+                        <![CDATA[ErrorFromGoFast]]>
+                      </bpelx:property>
+                    </bpelx:general>
+                  </bpelx:annotation>
+                  <throw name="ThrowGoFastError" faultName="bpws:selectionFailure" faultVariable="FaultVar"/>
+                </case>
+                <otherwise>
+                  <empty name="Empty"/>
+                </otherwise>
+              </switch>
+            </sequence>
+          </scope>
+        </sequence>
+      </onMessage>
+    </pick>
+  </sequence>
+</process>

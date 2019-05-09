@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions name="InsertPayloadsPRM" targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/SPM_PROV/MISIMDOMNotifySPM/InsertPayloadsPRM" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/SPM_PROV/MISIMDOMNotifySPM/InsertPayloadsPRM" xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/InsertPayloadsPRM" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+   <plt:partnerLinkType name="InsertPayloadsPRM_plt">
+      <plt:role name="InsertPayloadsPRM_role">
+         <plt:portType name="tns:InsertPayloadsPRM_ptt"/>
+      </plt:role>
+   </plt:partnerLinkType>
+   <wsdl:types>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema">
+         <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/InsertPayloadsPRM" schemaLocation="../Schemas/InsertPayloadsPRM_sp.xsd"/>
+      </schema>
+   </wsdl:types>
+   <wsdl:message name="args_in_msg">
+      <wsdl:part name="InputParameters" element="db:InputParameters"/>
+   </wsdl:message>
+   <wsdl:portType name="InsertPayloadsPRM_ptt">
+      <wsdl:operation name="InsertPayloadsPRM">
+         <wsdl:input message="tns:args_in_msg"/>
+      </wsdl:operation>
+   </wsdl:portType>
+</wsdl:definitions>

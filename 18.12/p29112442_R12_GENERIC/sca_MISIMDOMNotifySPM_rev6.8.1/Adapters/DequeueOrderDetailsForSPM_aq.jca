@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<adapter-config name="DequeueOrderDetailsForSPM" adapter="AQ Adapter" wsdlLocation="DequeueOrderDetailsForSPM.wsdl"
+                xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+    <connection-factory location="eis/AQ/SOAXAGSIMISBPEL" UIConnectionName="GSIAV"/>
+    <endpoint-activation portType="Dequeue_ptt" operation="Dequeue">
+        <activation-spec className="oracle.tip.adapter.aq.inbound.AQDequeueActivationSpec">
+            <property name="PayloadHeaderRequired" value="true"/>
+            <property name="MessageSelectorRule" value="tab.user_data.event_name = 'misimd.om.notify.spm'"/>
+            <property name="Consumer" value="WF_BPEL_Q_SPM"/>
+            <property name="QueueName" value="WF_BPEL_Q"/>
+            <property name="ObjectFieldName" value="EVENT_DATA"/>
+            <property name="DatabaseSchema" value="APPS"/>
+        </activation-spec>
+    </endpoint-activation>
+</adapter-config>

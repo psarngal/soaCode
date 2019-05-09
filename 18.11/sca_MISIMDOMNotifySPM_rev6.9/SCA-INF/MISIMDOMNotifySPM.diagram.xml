@@ -1,0 +1,384 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dgm:gDiagram xmlns:dgm="http://xmlns.oracle.com/sca/soadgm">
+   <dgm:gService name="DequeueOrderDetailsForSPM">
+      <dgm:body borderWidth="2" arcRad="20" X="21" Y="502" width="137" height="84">
+         <dgm:borderColor r="153" g="153" b="153"/>
+         <dgm:bgColor r="255" g="255" b="255"/>
+      </dgm:body>
+      <dgm:shadow arcRad="20" X="11" Y="495" width="156" height="98">
+         <dgm:bgColor r="196" g="228" b="240"/>
+      </dgm:shadow>
+      <dgm:outputPort name="DequeueOrderDetailsForSPM" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/AQ/SPM/MISIMDOMNotifySPM/DequeueOrderDetailsForSPM#wsdl.interface(Dequeue_ptt)"/>
+      <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/aq_adapter_20x20.png" X="20" Y="4" width="20" height="20"/>
+      <dgm:operations>
+         <dgm:item>Dequeue</dgm:item>
+      </dgm:operations>
+   </dgm:gService>
+   <dgm:gService name="SPMActiveMQResp">
+      <dgm:body borderWidth="2" arcRad="20" X="21" Y="620" width="137" height="84">
+         <dgm:borderColor r="153" g="153" b="153"/>
+         <dgm:bgColor r="255" g="255" b="255"/>
+      </dgm:body>
+      <dgm:shadow arcRad="20" X="11" Y="613" width="156" height="98">
+         <dgm:bgColor r="196" g="228" b="240"/>
+      </dgm:shadow>
+      <dgm:outputPort name="SPMActiveMQResp" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/jms/SPM/MISIMDOMNotifySPM/SPMActiveMQResp#wsdl.interface(Consume_Message_ptt)"/>
+      <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/jms_adapter_20x20.png" X="20" Y="4" width="20" height="20"/>
+      <dgm:operations>
+         <dgm:item>Consume_Message</dgm:item>
+      </dgm:operations>
+   </dgm:gService>
+   <dgm:gService name="ReceiveSPMInterfaceResp">
+      <dgm:body borderWidth="2" arcRad="20" X="21" Y="738" width="137" height="84">
+         <dgm:borderColor r="153" g="153" b="153"/>
+         <dgm:bgColor r="255" g="255" b="255"/>
+      </dgm:body>
+      <dgm:shadow arcRad="20" X="11" Y="731" width="156" height="98">
+         <dgm:bgColor r="196" g="228" b="240"/>
+      </dgm:shadow>
+      <dgm:outputPort name="ReceiveSPMInterfaceResp" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/jms/SPM/MISIMDOMNotifySPM/SPMActiveMQResp#wsdl.interface(Consume_Message_ptt)"/>
+      <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="20" Y="4" width="20" height="20"/>
+      <dgm:operations>
+         <dgm:item>Consume_Message</dgm:item>
+      </dgm:operations>
+   </dgm:gService>
+   <dgm:gReference name="SPMGenericWS">
+      <dgm:body borderWidth="2" arcRad="20" X="786" Y="26" width="136" height="84">
+         <dgm:borderColor r="153" g="153" b="153"/>
+         <dgm:bgColor r="255" g="255" b="255"/>
+      </dgm:body>
+      <dgm:shadow arcRad="20" X="776" Y="19" width="156" height="98">
+         <dgm:bgColor r="196" g="228" b="240"/>
+      </dgm:shadow>
+      <dgm:inputPort name="SPMGenericWS" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/http/SPM/MISIMDOMNotifySPM/SPMGenericWS#wsdl.interface(Request_Response_ptt)"/>
+      <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/http_adapter_20x20.png" X="27" Y="4" width="20" height="20"/>
+      <dgm:operations>
+         <dgm:item>Request-Response</dgm:item>
+      </dgm:operations>
+   </dgm:gReference>
+   <dgm:gReference name="UpdateGSI">
+      <dgm:body borderWidth="2" arcRad="20" X="786" Y="144" width="136" height="84">
+         <dgm:borderColor r="153" g="153" b="153"/>
+         <dgm:bgColor r="255" g="255" b="255"/>
+      </dgm:body>
+      <dgm:shadow arcRad="20" X="776" Y="137" width="156" height="98">
+         <dgm:bgColor r="196" g="228" b="240"/>
+      </dgm:shadow>
+      <dgm:inputPort name="UpdateGSI" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/db/SPM/MISIMDOMNotifySPM/UpdateGSI#wsdl.interface(UpdateGSI_ptt)"/>
+      <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/db_adapter_20x20.png" X="27" Y="4" width="20" height="20"/>
+      <dgm:operations>
+         <dgm:item>UpdateGSI</dgm:item>
+      </dgm:operations>
+   </dgm:gReference>
+   <dgm:gReference name="CRMOptyService">
+      <dgm:body borderWidth="2" arcRad="20" X="786" Y="262" width="136" height="168">
+         <dgm:borderColor r="153" g="153" b="153"/>
+         <dgm:bgColor r="255" g="255" b="255"/>
+      </dgm:body>
+      <dgm:shadow arcRad="20" X="776" Y="255" width="156" height="182">
+         <dgm:bgColor r="196" g="228" b="240"/>
+      </dgm:shadow>
+      <dgm:inputPort name="CRMOptyService" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/apps/sales/opptyMgmt/opportunities/opportunityService/#wsdl.interface(OpportunityService)" callbackInterface="http://xmlns.oracle.com/apps/sales/opptyMgmt/opportunities/opportunityService/#wsdl.interface(OpportunityServiceResponse)"/>
+      <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="27" Y="4" width="20" height="20"/>
+      <dgm:operations>
+         <dgm:item>getOpportunity</dgm:item>
+         <dgm:item>createOpportunity</dgm:item>
+         <dgm:item>updateOpportunity</dgm:item>
+         <dgm:item>deleteOpportunity</dgm:item>
+         <dgm:item>mergeOpportunity</dgm:item>
+         <dgm:item>processOpportunity</dgm:item>
+         <dgm:item>processCSOpportunity</dgm:item>
+         <dgm:item>processCSOpportunityAsync</dgm:item>
+         <dgm:item>processOpportunityAsync</dgm:item>
+         <dgm:item>deleteOpportunityAsync</dgm:item>
+         <dgm:item>getOpportunityAsync</dgm:item>
+         <dgm:item>createOpportunityAsync</dgm:item>
+         <dgm:item>mergeOpportunityAsync</dgm:item>
+         <dgm:item>updateOpportunityAsync</dgm:item>
+         <dgm:item>deleteOpportunityCompetitor</dgm:item>
+         <dgm:item>deleteOpportunityLead</dgm:item>
+         <dgm:item>deleteOpportunityReference</dgm:item>
+         <dgm:item>deleteOpportunityResource</dgm:item>
+         <dgm:item>deleteOpportunityMktResponse</dgm:item>
+         <dgm:item>deleteOpportunityRevenue</dgm:item>
+         <dgm:item>deleteOpportunitySource</dgm:item>
+         <dgm:item>deleteOpportunityCompetitorAsync</dgm:item>
+         <dgm:item>deleteOpportunityMktResponseAsync</dgm:item>
+         <dgm:item>deleteOpportunityRevenueAsync</dgm:item>
+         <dgm:item>deleteOpportunityResourceAsync</dgm:item>
+         <dgm:item>deleteOpportunityLeadAsync</dgm:item>
+         <dgm:item>deleteOpportunitySourceAsync</dgm:item>
+         <dgm:item>deleteOpportunityReferenceAsync</dgm:item>
+         <dgm:item>doAutoAssignmentAsynchronously</dgm:item>
+         <dgm:item>doAutoAssignmentAsynchronouslyAsync</dgm:item>
+         <dgm:item>deleteOpportunityContact</dgm:item>
+         <dgm:item>deleteOpportunityContactAsync</dgm:item>
+         <dgm:item>findOpportunity</dgm:item>
+         <dgm:item>findOpportunityAsync</dgm:item>
+         <dgm:item>isSalesAccountUsedInOpportunity</dgm:item>
+         <dgm:item>isSalesAccountUsedInOpportunityAsync</dgm:item>
+         <dgm:item>checkConstraint</dgm:item>
+         <dgm:item>checkConstraintAsync</dgm:item>
+         <dgm:item>getDfltObjAttrHints</dgm:item>
+         <dgm:item>getServiceLastUpdateTime</dgm:item>
+         <dgm:item>getEntityList</dgm:item>
+         <dgm:item>getEntityListAsync</dgm:item>
+         <dgm:item>getDfltObjAttrHintsAsync</dgm:item>
+         <dgm:item>getServiceLastUpdateTimeAsync</dgm:item>
+         <dgm:item>createAttachment</dgm:item>
+         <dgm:item>createAttachmentAsync</dgm:item>
+         <dgm:item>copyAttachment</dgm:item>
+         <dgm:item>copyAttachmentAsync</dgm:item>
+         <dgm:item>deleteAttachment</dgm:item>
+         <dgm:item>deleteAttachmentAsync</dgm:item>
+         <dgm:item>getAttachmentContent</dgm:item>
+         <dgm:item>getAttachmentContentAsync</dgm:item>
+         <dgm:item>getAttachmentsListWithoutContent</dgm:item>
+         <dgm:item>getAttachmentsListWithoutContentAsync</dgm:item>
+         <dgm:item>deleteAllRevenuesInOpportunity</dgm:item>
+         <dgm:item>deleteAllRevenuesInOpportunityAsync</dgm:item>
+         <dgm:item>onFault</dgm:item>
+         <dgm:item>processCSOpportunityAsyncResponse</dgm:item>
+         <dgm:item>processOpportunityAsyncResponse</dgm:item>
+         <dgm:item>deleteOpportunityAsyncResponse</dgm:item>
+         <dgm:item>getOpportunityAsyncResponse</dgm:item>
+         <dgm:item>createOpportunityAsyncResponse</dgm:item>
+         <dgm:item>mergeOpportunityAsyncResponse</dgm:item>
+         <dgm:item>updateOpportunityAsyncResponse</dgm:item>
+         <dgm:item>deleteOpportunityCompetitorAsyncResponse</dgm:item>
+         <dgm:item>deleteOpportunityMktResponseAsyncResponse</dgm:item>
+         <dgm:item>deleteOpportunityRevenueAsyncResponse</dgm:item>
+         <dgm:item>deleteOpportunityResourceAsyncResponse</dgm:item>
+         <dgm:item>deleteOpportunityLeadAsyncResponse</dgm:item>
+         <dgm:item>deleteOpportunitySourceAsyncResponse</dgm:item>
+         <dgm:item>deleteOpportunityReferenceAsyncResponse</dgm:item>
+         <dgm:item>doAutoAssignmentAsynchronouslyAsyncResponse</dgm:item>
+         <dgm:item>deleteOpportunityContactAsyncResponse</dgm:item>
+         <dgm:item>findOpportunityAsyncResponse</dgm:item>
+         <dgm:item>isSalesAccountUsedInOpportunityAsyncResponse</dgm:item>
+         <dgm:item>checkConstraintAsyncResponse</dgm:item>
+         <dgm:item>getEntityListAsyncResponse</dgm:item>
+         <dgm:item>getDfltObjAttrHintsAsyncResponse</dgm:item>
+         <dgm:item>getServiceLastUpdateTimeAsyncResponse</dgm:item>
+         <dgm:item>createAttachmentAsyncResponse</dgm:item>
+         <dgm:item>copyAttachmentAsyncResponse</dgm:item>
+         <dgm:item>deleteAttachmentAsyncResponse</dgm:item>
+         <dgm:item>getAttachmentContentAsyncResponse</dgm:item>
+         <dgm:item>getAttachmentsListWithoutContentAsyncResponse</dgm:item>
+         <dgm:item>deleteAllRevenuesInOpportunityAsyncResponse</dgm:item>
+      </dgm:operations>
+   </dgm:gReference>
+   <dgm:gReference name="GSICustomerOSR">
+      <dgm:body borderWidth="2" arcRad="20" X="786" Y="464" width="136" height="84">
+         <dgm:borderColor r="153" g="153" b="153"/>
+         <dgm:bgColor r="255" g="255" b="255"/>
+      </dgm:body>
+      <dgm:shadow arcRad="20" X="776" Y="457" width="156" height="98">
+         <dgm:bgColor r="196" g="228" b="240"/>
+      </dgm:shadow>
+      <dgm:inputPort name="GSICustomerOSR" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/db/SPM/MISIMDOMNotifySPM/GSICustomerOSR#wsdl.interface(GSICustomerOSR_ptt)"/>
+      <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/db_adapter_20x20.png" X="27" Y="4" width="20" height="20"/>
+      <dgm:operations>
+         <dgm:item>GSICustomerOSR</dgm:item>
+      </dgm:operations>
+   </dgm:gReference>
+   <dgm:gReference name="GetCRMSalesAccount">
+      <dgm:body borderWidth="2" arcRad="20" X="786" Y="582" width="136" height="84">
+         <dgm:borderColor r="153" g="153" b="153"/>
+         <dgm:bgColor r="255" g="255" b="255"/>
+      </dgm:body>
+      <dgm:shadow arcRad="20" X="776" Y="575" width="156" height="98">
+         <dgm:bgColor r="196" g="228" b="240"/>
+      </dgm:shadow>
+      <dgm:inputPort name="GetCRMSalesAccount" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/db/Enhancements/MISIMDOMNotifySPM/GetCRMSalesAccount#wsdl.interface(GetCRMSalesAccount_ptt)"/>
+      <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/db_adapter_20x20.png" X="27" Y="4" width="20" height="20"/>
+      <dgm:operations>
+         <dgm:item>GetCRMSalesAccountSelect</dgm:item>
+      </dgm:operations>
+   </dgm:gReference>
+   <dgm:gReference name="SPMActiveMQ">
+      <dgm:body borderWidth="2" arcRad="20" X="786" Y="700" width="136" height="84">
+         <dgm:borderColor r="153" g="153" b="153"/>
+         <dgm:bgColor r="255" g="255" b="255"/>
+      </dgm:body>
+      <dgm:shadow arcRad="20" X="776" Y="693" width="156" height="98">
+         <dgm:bgColor r="196" g="228" b="240"/>
+      </dgm:shadow>
+      <dgm:inputPort name="SPMActiveMQ" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/jms/SPM/MISIMDOMNotifySPM/SPMActiveMQ#wsdl.interface(Produce_Message_ptt)"/>
+      <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/jms_adapter_20x20.png" X="27" Y="4" width="20" height="20"/>
+      <dgm:operations>
+         <dgm:item>Produce_Message</dgm:item>
+      </dgm:operations>
+   </dgm:gReference>
+   <dgm:gReference name="SPMGetContractLines">
+      <dgm:body borderWidth="2" arcRad="20" X="786" Y="818" width="136" height="84">
+         <dgm:borderColor r="153" g="153" b="153"/>
+         <dgm:bgColor r="255" g="255" b="255"/>
+      </dgm:body>
+      <dgm:shadow arcRad="20" X="776" Y="811" width="156" height="98">
+         <dgm:bgColor r="196" g="228" b="240"/>
+      </dgm:shadow>
+      <dgm:inputPort name="SPMGetContractLines" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/http/SPM/MISIMDOMNotifySPM/SPMGetContractLines#wsdl.interface(Request_Response_ptt)"/>
+      <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/http_adapter_20x20.png" X="27" Y="4" width="20" height="20"/>
+      <dgm:operations>
+         <dgm:item>Request-Response</dgm:item>
+      </dgm:operations>
+   </dgm:gReference>
+   <dgm:gReference name="SPMInFlightWS">
+      <dgm:body borderWidth="2" arcRad="20" X="786" Y="936" width="136" height="84">
+         <dgm:borderColor r="153" g="153" b="153"/>
+         <dgm:bgColor r="255" g="255" b="255"/>
+      </dgm:body>
+      <dgm:shadow arcRad="20" X="776" Y="929" width="156" height="98">
+         <dgm:bgColor r="196" g="228" b="240"/>
+      </dgm:shadow>
+      <dgm:inputPort name="SPMInFlightWS" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/http/SPM/MISIMDOMNotifySPM/SPMInFlightWS#wsdl.interface(Request_Response_ptt)"/>
+      <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/http_adapter_20x20.png" X="27" Y="4" width="20" height="20"/>
+      <dgm:operations>
+         <dgm:item>Request-Response</dgm:item>
+      </dgm:operations>
+   </dgm:gReference>
+   <dgm:gReference name="InsertPayloadsPRM">
+      <dgm:body borderWidth="2" arcRad="20" X="786" Y="1054" width="136" height="84">
+         <dgm:borderColor r="153" g="153" b="153"/>
+         <dgm:bgColor r="255" g="255" b="255"/>
+      </dgm:body>
+      <dgm:shadow arcRad="20" X="776" Y="1047" width="156" height="98">
+         <dgm:bgColor r="196" g="228" b="240"/>
+      </dgm:shadow>
+      <dgm:inputPort name="InsertPayloadsPRM" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/db/SPM_PROV/MISIMDOMNotifySPM/InsertPayloadsPRM#wsdl.interface(InsertPayloadsPRM_ptt)"/>
+      <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/db_adapter_20x20.png" X="27" Y="4" width="20" height="20"/>
+      <dgm:operations>
+         <dgm:item>InsertPayloadsPRM</dgm:item>
+      </dgm:operations>
+   </dgm:gReference>
+   <dgm:gReference name="InvokeSPMRestWS">
+      <dgm:body borderWidth="2" arcRad="20" X="786" Y="1172" width="136" height="96">
+         <dgm:borderColor r="153" g="153" b="153"/>
+         <dgm:bgColor r="255" g="255" b="255"/>
+      </dgm:body>
+      <dgm:shadow arcRad="20" X="776" Y="1165" width="156" height="110">
+         <dgm:bgColor r="196" g="228" b="240"/>
+      </dgm:shadow>
+      <dgm:inputPort name="InvokeSPMRestWS" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/SPMPaaS/MISIMDOMNotifySPM/InvokeSPMRestGoFastWS#wsdl.interface(InvokeSPMRestGoFastWS_ptt)"/>
+      <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="27" Y="4" width="20" height="20"/>
+      <dgm:operations>
+         <dgm:item>PostOrders</dgm:item>
+         <dgm:item>PostOrderToSPMPaaS</dgm:item>
+      </dgm:operations>
+   </dgm:gReference>
+   <dgm:gComponent name="SPMProcessBPEL">
+      <dgm:body borderWidth="2" arcRad="20" X="407" Y="519" width="130" height="286">
+         <dgm:borderColor r="69" g="113" b="140"/>
+         <dgm:lightBgColor r="166" g="208" b="230"/>
+         <dgm:darkBgColor r="99" g="162" b="201"/>
+      </dgm:body>
+      <dgm:shadow arcRad="20" X="397" Y="512" width="150" height="302">
+         <dgm:bgColor r="196" g="228" b="240"/>
+      </dgm:shadow>
+      <dgm:inputPort name="DequeueOrderDetailsForSPM1" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/AQ/SPM/MISIMDOMNotifySPM/DequeueOrderDetailsForSPM#wsdl.interface(Dequeue_ptt)"/>
+      <dgm:inputPort name="SPMActiveMQResp" X="-10" Y="40" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/jms/SPM/MISIMDOMNotifySPM/SPMActiveMQResp#wsdl.interface(Consume_Message_ptt)"/>
+      <dgm:outputPort name="SPMGenericWS" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/http/SPM/MISIMDOMNotifySPM/SPMGenericWS#wsdl.interface(Request_Response_ptt)"/>
+      <dgm:outputPort name="UpdateGSI" X="120" Y="40" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/db/SPM/MISIMDOMNotifySPM/UpdateGSI#wsdl.interface(UpdateGSI_ptt)"/>
+      <dgm:outputPort name="CRMOptyService" X="120" Y="65" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/apps/sales/opptyMgmt/opportunities/opportunityService/#wsdl.interface(OpportunityService)" callbackInterface="http://xmlns.oracle.com/apps/sales/opptyMgmt/opportunities/opportunityService/#wsdl.interface(OpportunityServiceResponse)"/>
+      <dgm:outputPort name="GSICustomerOSR" X="120" Y="90" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/db/SPM/MISIMDOMNotifySPM/GSICustomerOSR#wsdl.interface(GSICustomerOSR_ptt)"/>
+      <dgm:outputPort name="GetCRMSalesAccount" X="120" Y="115" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/db/Enhancements/MISIMDOMNotifySPM/GetCRMSalesAccount#wsdl.interface(GetCRMSalesAccount_ptt)"/>
+      <dgm:outputPort name="SPMActiveMQ" X="120" Y="140" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/jms/SPM/MISIMDOMNotifySPM/SPMActiveMQ#wsdl.interface(Produce_Message_ptt)"/>
+      <dgm:outputPort name="SPMGetContractLines" X="120" Y="165" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/http/SPM/MISIMDOMNotifySPM/SPMGetContractLines#wsdl.interface(Request_Response_ptt)"/>
+      <dgm:outputPort name="SPMInFlightWS" X="120" Y="190" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/http/SPM/MISIMDOMNotifySPM/SPMInFlightWS#wsdl.interface(Request_Response_ptt)"/>
+      <dgm:outputPort name="InsertPayloadsPRM" X="120" Y="215" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/db/SPM_PROV/MISIMDOMNotifySPM/InsertPayloadsPRM#wsdl.interface(InsertPayloadsPRM_ptt)"/>
+      <dgm:outputPort name="InvokeSPMRestGoFastWS" X="120" Y="240" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/SPMPaaS/MISIMDOMNotifySPM/InvokeSPMRestGoFastWS#wsdl.interface(InvokeSPMRestGoFastWS_ptt)"/>
+      <dgm:nodeIcon URI="/oracle/tip/tools/ide/bpel/shared/plugins/resources/images/soa/process_20x20.png" X="10" Y="4" width="20" height="20"/>
+   </dgm:gComponent>
+   <dgm:gWireLink source="SPMProcessBPEL/SPMGenericWS" target="SPMGenericWS" width="2">
+      <dgm:gSegment X1="547" Y1="544" X2="571" Y2="544"/>
+      <dgm:gSegment X1="571" Y1="544" X2="571" Y2="36"/>
+      <dgm:gSegment X1="571" Y1="36" X2="776" Y2="36"/>
+      <dgm:baseColor r="153" g="153" b="153"/>
+      <dgm:selectedColor r="49" g="106" b="196"/>
+   </dgm:gWireLink>
+   <dgm:gWireLink source="SPMProcessBPEL/UpdateGSI" target="UpdateGSI" width="2">
+      <dgm:gSegment X1="547" Y1="569" X2="586" Y2="569"/>
+      <dgm:gSegment X1="586" Y1="569" X2="586" Y2="154"/>
+      <dgm:gSegment X1="586" Y1="154" X2="776" Y2="154"/>
+      <dgm:baseColor r="153" g="153" b="153"/>
+      <dgm:selectedColor r="49" g="106" b="196"/>
+   </dgm:gWireLink>
+   <dgm:gWireLink source="SPMProcessBPEL/CRMOptyService" target="CRMOptyService" width="2">
+      <dgm:gSegment X1="547" Y1="594" X2="601" Y2="594"/>
+      <dgm:gSegment X1="601" Y1="594" X2="601" Y2="272"/>
+      <dgm:gSegment X1="601" Y1="272" X2="776" Y2="272"/>
+      <dgm:baseColor r="153" g="153" b="153"/>
+      <dgm:selectedColor r="49" g="106" b="196"/>
+   </dgm:gWireLink>
+   <dgm:gWireLink source="SPMProcessBPEL/GSICustomerOSR" target="GSICustomerOSR" width="2">
+      <dgm:gSegment X1="547" Y1="619" X2="616" Y2="619"/>
+      <dgm:gSegment X1="616" Y1="619" X2="616" Y2="474"/>
+      <dgm:gSegment X1="616" Y1="474" X2="776" Y2="474"/>
+      <dgm:baseColor r="153" g="153" b="153"/>
+      <dgm:selectedColor r="49" g="106" b="196"/>
+   </dgm:gWireLink>
+   <dgm:gWireLink source="DequeueOrderDetailsForSPM" target="SPMProcessBPEL/DequeueOrderDetailsForSPM1" width="2">
+      <dgm:gSegment X1="168" Y1="512" X2="192" Y2="512"/>
+      <dgm:gSegment X1="192" Y1="512" X2="192" Y2="544"/>
+      <dgm:gSegment X1="192" Y1="544" X2="397" Y2="544"/>
+      <dgm:baseColor r="153" g="153" b="153"/>
+      <dgm:selectedColor r="49" g="106" b="196"/>
+   </dgm:gWireLink>
+   <dgm:gWireLink source="SPMProcessBPEL/GetCRMSalesAccount" target="GetCRMSalesAccount" width="2">
+      <dgm:gSegment X1="547" Y1="644" X2="631" Y2="644"/>
+      <dgm:gSegment X1="631" Y1="644" X2="631" Y2="592"/>
+      <dgm:gSegment X1="631" Y1="592" X2="776" Y2="592"/>
+      <dgm:baseColor r="153" g="153" b="153"/>
+      <dgm:selectedColor r="49" g="106" b="196"/>
+   </dgm:gWireLink>
+   <dgm:gWireLink source="SPMProcessBPEL/SPMActiveMQ" target="SPMActiveMQ" width="2">
+      <dgm:gSegment X1="547" Y1="669" X2="631" Y2="669"/>
+      <dgm:gSegment X1="631" Y1="669" X2="631" Y2="710"/>
+      <dgm:gSegment X1="631" Y1="710" X2="776" Y2="710"/>
+      <dgm:baseColor r="153" g="153" b="153"/>
+      <dgm:selectedColor r="49" g="106" b="196"/>
+   </dgm:gWireLink>
+   <dgm:gWireLink source="SPMProcessBPEL/SPMGetContractLines" target="SPMGetContractLines" width="2">
+      <dgm:gSegment X1="547" Y1="694" X2="616" Y2="694"/>
+      <dgm:gSegment X1="616" Y1="694" X2="616" Y2="828"/>
+      <dgm:gSegment X1="616" Y1="828" X2="776" Y2="828"/>
+      <dgm:baseColor r="153" g="153" b="153"/>
+      <dgm:selectedColor r="49" g="106" b="196"/>
+   </dgm:gWireLink>
+   <dgm:gWireLink source="SPMActiveMQResp" target="SPMProcessBPEL/SPMActiveMQResp" width="2">
+      <dgm:gSegment X1="168" Y1="630" X2="192" Y2="630"/>
+      <dgm:gSegment X1="192" Y1="630" X2="192" Y2="569"/>
+      <dgm:gSegment X1="192" Y1="569" X2="397" Y2="569"/>
+      <dgm:baseColor r="153" g="153" b="153"/>
+      <dgm:selectedColor r="49" g="106" b="196"/>
+   </dgm:gWireLink>
+   <dgm:gWireLink source="SPMProcessBPEL/SPMInFlightWS" target="SPMInFlightWS" width="2">
+      <dgm:gSegment X1="547" Y1="719" X2="601" Y2="719"/>
+      <dgm:gSegment X1="601" Y1="719" X2="601" Y2="946"/>
+      <dgm:gSegment X1="601" Y1="946" X2="776" Y2="946"/>
+      <dgm:baseColor r="153" g="153" b="153"/>
+      <dgm:selectedColor r="49" g="106" b="196"/>
+   </dgm:gWireLink>
+   <dgm:gWireLink source="SPMProcessBPEL/InsertPayloadsPRM" target="InsertPayloadsPRM" width="2">
+      <dgm:gSegment X1="547" Y1="744" X2="586" Y2="744"/>
+      <dgm:gSegment X1="586" Y1="744" X2="586" Y2="1064"/>
+      <dgm:gSegment X1="586" Y1="1064" X2="776" Y2="1064"/>
+      <dgm:baseColor r="153" g="153" b="153"/>
+      <dgm:selectedColor r="49" g="106" b="196"/>
+   </dgm:gWireLink>
+   <dgm:gWireLink source="SPMProcessBPEL/InvokeSPMRestGoFastWS" target="InvokeSPMRestWS" width="2">
+      <dgm:gSegment X1="547" Y1="769" X2="571" Y2="769"/>
+      <dgm:gSegment X1="571" Y1="769" X2="571" Y2="1182"/>
+      <dgm:gSegment X1="571" Y1="1182" X2="776" Y2="1182"/>
+      <dgm:baseColor r="153" g="153" b="153"/>
+      <dgm:selectedColor r="49" g="106" b="196"/>
+   </dgm:gWireLink>
+   <dgm:gWireLink source="ReceiveSPMInterfaceResp" target="SPMProcessBPEL/SPMActiveMQResp" width="2">
+      <dgm:gSegment X1="168" Y1="748" X2="207" Y2="748"/>
+      <dgm:gSegment X1="207" Y1="748" X2="207" Y2="569"/>
+      <dgm:gSegment X1="207" Y1="569" X2="397" Y2="569"/>
+      <dgm:baseColor r="153" g="153" b="153"/>
+      <dgm:selectedColor r="49" g="106" b="196"/>
+   </dgm:gWireLink>
+</dgm:gDiagram>

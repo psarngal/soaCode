@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<adapter-config name="UpdateGSI" adapter="Database Adapter" wsdlLocation="UpdateGSI.wsdl"
+                xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+    <connection-factory location="eis/DB/SOAGSIXAMISBPEL" UIConnectionName="GSIAV" adapterRef=""/>
+    <endpoint-interaction portType="UpdateGSI_ptt" operation="UpdateGSI">
+        <interaction-spec className="oracle.tip.adapter.db.DBStoredProcedureInteractionSpec">
+            <property name="SchemaName" value="APPS"/>
+            <property name="PackageName" value="MISIMD_SPM_CLOUD_WF"/>
+            <property name="ProcedureName" value="SET_SPM_INFO"/>
+            <property name="GetActiveUnitOfWork" value="false"/>
+        </interaction-spec>
+    </endpoint-interaction>
+</adapter-config>

@@ -1,0 +1,2849 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<object-persistence xmlns="http://www.eclipse.org/eclipselink/xsds/persistence" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:eclipselink="http://www.eclipse.org/eclipselink/xsds/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="Eclipse Persistence Services - 2.3.1.v20111018-r10243">
+   <name>GetCRMSalesAccount-OR</name>
+   <class-mapping-descriptors>
+      <class-mapping-descriptor xsi:type="object-relational-class-mapping-descriptor">
+         <class>GetCRMSalesAccount.HzParties</class>
+         <alias>APPS.HZ_PARTIES</alias>
+         <primary-key>
+            <field table="HZ_PARTIES" name="PARTY_ID" xsi:type="column"/>
+         </primary-key>
+         <events/>
+         <querying>
+            <queries>
+               <query name="GetCRMSalesAccountSelect" xsi:type="read-all-query">
+                  <arguments>
+                     <argument name="p_account_number">
+                        <type>java.lang.String</type>
+                     </argument>
+                  </arguments>
+                  <call xsi:type="sql-call">
+                     <sql>SELECT t1.PARTY_ID, t1.ATTRIBUTE24, t0.ACCOUNT_NUMBER, t0.PARTY_ID FROM HZ_CUST_ACCOUNTS t0, HZ_PARTIES t1 WHERE ((t0.ACCOUNT_NUMBER = #p_account_number) AND (t0.PARTY_ID = t1.PARTY_ID))</sql>
+                  </call>
+                  <reference-class>GetCRMSalesAccount.HzParties</reference-class>
+                  <container xsi:type="list-container-policy">
+                     <collection-type>java.util.Vector</collection-type>
+                  </container>
+               </query>
+            </queries>
+            <timeout>30</timeout>
+         </querying>
+         <attribute-mappings>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>partyId</attribute-name>
+               <field table="HZ_PARTIES" name="PARTY_ID" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>partyNumber</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PARTY_NUMBER" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>partyName</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PARTY_NAME" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>partyType</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PARTY_TYPE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>validatedFlag</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="VALIDATED_FLAG" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>lastUpdatedBy</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="LAST_UPDATED_BY" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>creationDate</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="CREATION_DATE" xsi:type="column"/>
+               <attribute-classification>java.sql.Timestamp</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>lastUpdateLogin</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="LAST_UPDATE_LOGIN" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>requestId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="REQUEST_ID" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>programApplicationId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PROGRAM_APPLICATION_ID" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>createdBy</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="CREATED_BY" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>lastUpdateDate</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="LAST_UPDATE_DATE" xsi:type="column"/>
+               <attribute-classification>java.sql.Timestamp</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>programId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PROGRAM_ID" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>programUpdateDate</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PROGRAM_UPDATE_DATE" xsi:type="column"/>
+               <attribute-classification>java.sql.Timestamp</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>whUpdateDate</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="WH_UPDATE_DATE" xsi:type="column"/>
+               <attribute-classification>java.sql.Timestamp</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attributeCategory</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE_CATEGORY" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute1</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE1" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute2</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE2" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute3</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE3" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute4</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE4" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute5</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE5" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute6</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE6" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute7</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE7" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute8</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE8" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute9</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE9" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute10</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE10" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute11</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE11" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute12</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE12" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute13</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE13" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute14</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE14" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute15</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE15" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute16</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE16" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute17</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE17" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute18</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE18" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute19</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE19" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute20</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE20" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute21</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE21" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute22</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE22" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute23</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ATTRIBUTE23" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute24</attribute-name>
+               <field table="HZ_PARTIES" name="ATTRIBUTE24" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttributeCategory</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE_CATEGORY" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute1</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE1" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute2</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE2" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute4</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE4" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute3</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE3" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute5</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE5" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute6</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE6" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute7</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE7" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute8</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE8" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute9</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE9" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute10</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE10" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute11</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE11" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute12</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE12" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute13</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE13" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute14</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE14" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute15</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE15" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute16</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE16" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute17</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE17" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute18</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE18" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute19</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE19" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute20</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GLOBAL_ATTRIBUTE20" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>origSystemReference</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ORIG_SYSTEM_REFERENCE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>sicCode</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="SIC_CODE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>hqBranchInd</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="HQ_BRANCH_IND" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>customerKey</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="CUSTOMER_KEY" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>taxReference</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="TAX_REFERENCE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>jgzzFiscalCode</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="JGZZ_FISCAL_CODE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>dunsNumber</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="DUNS_NUMBER" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>taxName</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="TAX_NAME" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>personPreNameAdjunct</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PERSON_PRE_NAME_ADJUNCT" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>personFirstName</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PERSON_FIRST_NAME" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>personMiddleName</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PERSON_MIDDLE_NAME" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>personLastName</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PERSON_LAST_NAME" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>personNameSuffix</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PERSON_NAME_SUFFIX" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>personTitle</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PERSON_TITLE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>personAcademicTitle</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PERSON_ACADEMIC_TITLE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>personPreviousLastName</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PERSON_PREVIOUS_LAST_NAME" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>knownAs</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="KNOWN_AS" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>personIdenType</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PERSON_IDEN_TYPE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>personIdentifier</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PERSON_IDENTIFIER" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>groupType</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GROUP_TYPE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>country</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="COUNTRY" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>address1</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ADDRESS1" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>address2</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ADDRESS2" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>address3</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ADDRESS3" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>address4</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ADDRESS4" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>city</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="CITY" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>postalCode</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="POSTAL_CODE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>state</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="STATE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>province</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PROVINCE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>status</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="STATUS" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>county</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="COUNTY" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>sicCodeType</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="SIC_CODE_TYPE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>totalNumOfOrders</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="TOTAL_NUM_OF_ORDERS" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>totalOrderedAmount</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="TOTAL_ORDERED_AMOUNT" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>lastOrderedDate</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="LAST_ORDERED_DATE" xsi:type="column"/>
+               <attribute-classification>java.sql.Timestamp</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>url</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="URL" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>emailAddress</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="EMAIL_ADDRESS" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>doNotMailFlag</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="DO_NOT_MAIL_FLAG" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>analysisFy</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ANALYSIS_FY" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>fiscalYearendMonth</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="FISCAL_YEAREND_MONTH" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>employeesTotal</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="EMPLOYEES_TOTAL" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>currFyPotentialRevenue</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="CURR_FY_POTENTIAL_REVENUE" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>nextFyPotentialRevenue</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="NEXT_FY_POTENTIAL_REVENUE" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>yearEstablished</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="YEAR_ESTABLISHED" xsi:type="column"/>
+               <attribute-classification>java.lang.Integer</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>gsaIndicatorFlag</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="GSA_INDICATOR_FLAG" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>missionStatement</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="MISSION_STATEMENT" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>organizationNamePhonetic</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ORGANIZATION_NAME_PHONETIC" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>personFirstNamePhonetic</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PERSON_FIRST_NAME_PHONETIC" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>personLastNamePhonetic</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PERSON_LAST_NAME_PHONETIC" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>languageName</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="LANGUAGE_NAME" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>categoryCode</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="CATEGORY_CODE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>referenceUseFlag</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="REFERENCE_USE_FLAG" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>thirdPartyFlag</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="THIRD_PARTY_FLAG" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>competitorFlag</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="COMPETITOR_FLAG" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>salutation</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="SALUTATION" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>knownAs2</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="KNOWN_AS2" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>knownAs3</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="KNOWN_AS3" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>knownAs4</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="KNOWN_AS4" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>knownAs5</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="KNOWN_AS5" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>dunsNumberC</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="DUNS_NUMBER_C" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>objectVersionNumber</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="OBJECT_VERSION_NUMBER" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>createdByModule</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="CREATED_BY_MODULE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>applicationId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="APPLICATION_ID" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>primaryPhoneContactPtId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PRIMARY_PHONE_CONTACT_PT_ID" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>primaryPhonePurpose</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PRIMARY_PHONE_PURPOSE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>primaryPhoneLineType</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PRIMARY_PHONE_LINE_TYPE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>primaryPhoneCountryCode</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PRIMARY_PHONE_COUNTRY_CODE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>primaryPhoneAreaCode</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PRIMARY_PHONE_AREA_CODE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>primaryPhoneNumber</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PRIMARY_PHONE_NUMBER" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>primaryPhoneExtension</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PRIMARY_PHONE_EXTENSION" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>certificationLevel</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="CERTIFICATION_LEVEL" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>certReasonCode</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="CERT_REASON_CODE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>preferredContactMethod</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PREFERRED_CONTACT_METHOD" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>homeCountry</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="HOME_COUNTRY" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>personBoVersion</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PERSON_BO_VERSION" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>orgBoVersion</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ORG_BO_VERSION" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>personCustBoVersion</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="PERSON_CUST_BO_VERSION" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>orgCustBoVersion</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_PARTIES" name="ORG_CUST_BO_VERSION" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="one-to-one-mapping">
+               <attribute-name>hzPartyId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>true</value>
+                  </property>
+               </properties>
+               <reference-class>GetCRMSalesAccount.HzCustAccounts</reference-class>
+               <private-owned>true</private-owned>
+               <foreign-key>
+                  <field-reference>
+                     <source-field table="HZ_PARTIES" name="PARTY_ID" xsi:type="column"/>
+                     <target-field table="HZ_CUST_ACCOUNTS" name="PARTY_ID" xsi:type="column"/>
+                  </field-reference>
+               </foreign-key>
+               <batch-reading>true</batch-reading>
+               <indirection xsi:type="value-holder-indirection-policy"/>
+               <selection-query xsi:type="read-object-query">
+                  <reference-class>GetCRMSalesAccount.HzCustAccounts</reference-class>
+               </selection-query>
+            </attribute-mapping>
+         </attribute-mappings>
+         <descriptor-type>independent</descriptor-type>
+         <caching>
+            <cache-type>weak-reference</cache-type>
+            <cache-size>-1</cache-size>
+            <always-refresh>true</always-refresh>
+         </caching>
+         <remote-caching>
+            <cache-type>weak-reference</cache-type>
+            <cache-size>-1</cache-size>
+         </remote-caching>
+         <instantiation/>
+         <copying xsi:type="instantiation-copy-policy"/>
+         <tables>
+            <table name="APPS.HZ_PARTIES"/>
+         </tables>
+         <structure>structureName</structure>
+      </class-mapping-descriptor>
+      <class-mapping-descriptor xsi:type="object-relational-class-mapping-descriptor">
+         <class>GetCRMSalesAccount.HzCustAccounts</class>
+         <alias>APPS.HZ_CUST_ACCOUNTS</alias>
+         <primary-key>
+            <field table="HZ_CUST_ACCOUNTS" name="ACCOUNT_NUMBER" xsi:type="column"/>
+         </primary-key>
+         <events/>
+         <querying>
+            <queries>
+               <query name="GetCRMSalesAccountSelect" xsi:type="read-all-query">
+                  <arguments>
+                     <argument name="p_account_number">
+                        <type>java.lang.String</type>
+                     </argument>
+                  </arguments>
+                  <call xsi:type="sql-call">
+                     <sql>select p.attribute24
+from   hz_parties p, hz_cust_accounts a
+where  p.party_id = a.party_id
+and    a.account_number = p_account_number ;</sql>
+                  </call>
+                  <reference-class>GetCRMSalesAccount.HzCustAccounts</reference-class>
+                  <container xsi:type="list-container-policy">
+                     <collection-type>java.util.Vector</collection-type>
+                  </container>
+               </query>
+            </queries>
+         </querying>
+         <attribute-mappings>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>custAccountId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="CUST_ACCOUNT_ID" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>partyId</attribute-name>
+               <read-only>true</read-only>
+               <properties>
+                  <property name="fkPlaceholder">
+                     <value>true</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="PARTY_ID" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>lastUpdateDate</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="LAST_UPDATE_DATE" xsi:type="column"/>
+               <attribute-classification>java.sql.Timestamp</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>accountNumber</attribute-name>
+               <field table="HZ_CUST_ACCOUNTS" name="ACCOUNT_NUMBER" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>lastUpdatedBy</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="LAST_UPDATED_BY" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>creationDate</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="CREATION_DATE" xsi:type="column"/>
+               <attribute-classification>java.sql.Timestamp</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>createdBy</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="CREATED_BY" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>lastUpdateLogin</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="LAST_UPDATE_LOGIN" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>requestId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="REQUEST_ID" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>programApplicationId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="PROGRAM_APPLICATION_ID" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>programId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="PROGRAM_ID" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>programUpdateDate</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="PROGRAM_UPDATE_DATE" xsi:type="column"/>
+               <attribute-classification>java.sql.Timestamp</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>whUpdateDate</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="WH_UPDATE_DATE" xsi:type="column"/>
+               <attribute-classification>java.sql.Timestamp</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attributeCategory</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE_CATEGORY" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute1</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE1" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute2</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE2" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute3</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE3" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute4</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE4" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute5</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE5" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute6</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE6" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute7</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE7" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute8</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE8" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute9</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE9" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute10</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE10" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute11</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE11" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute12</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE12" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute13</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE13" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute14</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE14" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute15</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE15" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute16</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE16" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute17</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE17" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute18</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE18" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute19</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE19" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>attribute20</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ATTRIBUTE20" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttributeCategory</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE_CATEGORY" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute1</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE1" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute2</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE2" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute3</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE3" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute4</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE4" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute5</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE5" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute6</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE6" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute7</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE7" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute8</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE8" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute9</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE9" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute10</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE10" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute11</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE11" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute12</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE12" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute13</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE13" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute14</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE14" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute15</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE15" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute16</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE16" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute17</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE17" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute18</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE18" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute19</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE19" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>globalAttribute20</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GLOBAL_ATTRIBUTE20" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>origSystemReference</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ORIG_SYSTEM_REFERENCE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>status</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="STATUS" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>customerType</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="CUSTOMER_TYPE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>customerClassCode</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="CUSTOMER_CLASS_CODE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>primarySalesrepId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="PRIMARY_SALESREP_ID" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>salesChannelCode</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="SALES_CHANNEL_CODE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>orderTypeId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ORDER_TYPE_ID" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>priceListId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="PRICE_LIST_ID" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>subcategoryCode</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="SUBCATEGORY_CODE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>taxCode</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="TAX_CODE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>fobPoint</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="FOB_POINT" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>freightTerm</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="FREIGHT_TERM" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>shipPartial</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="SHIP_PARTIAL" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>shipVia</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="SHIP_VIA" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>warehouseId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="WAREHOUSE_ID" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>paymentTermId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="PAYMENT_TERM_ID" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>taxHeaderLevelFlag</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="TAX_HEADER_LEVEL_FLAG" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>taxRoundingRule</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="TAX_ROUNDING_RULE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>coterminateDayMonth</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="COTERMINATE_DAY_MONTH" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>primarySpecialistId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="PRIMARY_SPECIALIST_ID" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>secondarySpecialistId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="SECONDARY_SPECIALIST_ID" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>accountLiableFlag</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ACCOUNT_LIABLE_FLAG" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>restrictionLimitAmount</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="RESTRICTION_LIMIT_AMOUNT" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>currentBalance</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="CURRENT_BALANCE" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>passwordText</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="PASSWORD_TEXT" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>highPriorityIndicator</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="HIGH_PRIORITY_INDICATOR" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>accountEstablishedDate</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ACCOUNT_ESTABLISHED_DATE" xsi:type="column"/>
+               <attribute-classification>java.sql.Timestamp</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>accountTerminationDate</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ACCOUNT_TERMINATION_DATE" xsi:type="column"/>
+               <attribute-classification>java.sql.Timestamp</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>accountActivationDate</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ACCOUNT_ACTIVATION_DATE" xsi:type="column"/>
+               <attribute-classification>java.sql.Timestamp</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>creditClassificationCode</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="CREDIT_CLASSIFICATION_CODE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>department</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="DEPARTMENT" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>majorAccountNumber</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="MAJOR_ACCOUNT_NUMBER" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>hotwatchServiceFlag</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="HOTWATCH_SERVICE_FLAG" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>hotwatchSvcBalInd</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="HOTWATCH_SVC_BAL_IND" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>heldBillExpirationDate</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="HELD_BILL_EXPIRATION_DATE" xsi:type="column"/>
+               <attribute-classification>java.sql.Timestamp</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>holdBillFlag</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="HOLD_BILL_FLAG" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>highPriorityRemarks</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="HIGH_PRIORITY_REMARKS" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>poEffectiveDate</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="PO_EFFECTIVE_DATE" xsi:type="column"/>
+               <attribute-classification>java.sql.Timestamp</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>poExpirationDate</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="PO_EXPIRATION_DATE" xsi:type="column"/>
+               <attribute-classification>java.sql.Timestamp</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>realtimeRateFlag</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="REALTIME_RATE_FLAG" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>singleUserFlag</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="SINGLE_USER_FLAG" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>watchAccountFlag</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="WATCH_ACCOUNT_FLAG" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>watchBalanceIndicator</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="WATCH_BALANCE_INDICATOR" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>geoCode</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="GEO_CODE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>acctLifeCycleStatus</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ACCT_LIFE_CYCLE_STATUS" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>accountName</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ACCOUNT_NAME" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>depositRefundMethod</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="DEPOSIT_REFUND_METHOD" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>dormantAccountFlag</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="DORMANT_ACCOUNT_FLAG" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>npaNumber</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="NPA_NUMBER" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>pinNumber</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="PIN_NUMBER" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>suspensionDate</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="SUSPENSION_DATE" xsi:type="column"/>
+               <attribute-classification>java.sql.Timestamp</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>writeOffAdjustmentAmount</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="WRITE_OFF_ADJUSTMENT_AMOUNT" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>writeOffPaymentAmount</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="WRITE_OFF_PAYMENT_AMOUNT" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>writeOffAmount</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="WRITE_OFF_AMOUNT" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>sourceCode</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="SOURCE_CODE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>competitorType</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="COMPETITOR_TYPE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>comments</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="COMMENTS" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>datesNegativeTolerance</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="DATES_NEGATIVE_TOLERANCE" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>datesPositiveTolerance</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="DATES_POSITIVE_TOLERANCE" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>dateTypePreference</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="DATE_TYPE_PREFERENCE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>overShipmentTolerance</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="OVER_SHIPMENT_TOLERANCE" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>underShipmentTolerance</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="UNDER_SHIPMENT_TOLERANCE" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>overReturnTolerance</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="OVER_RETURN_TOLERANCE" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>underReturnTolerance</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="UNDER_RETURN_TOLERANCE" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>itemCrossRefPref</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ITEM_CROSS_REF_PREF" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>shipSetsIncludeLinesFlag</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="SHIP_SETS_INCLUDE_LINES_FLAG" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>arrivalsetsIncludeLinesFlag</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ARRIVALSETS_INCLUDE_LINES_FLAG" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>schedDatePushFlag</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="SCHED_DATE_PUSH_FLAG" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>invoiceQuantityRule</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="INVOICE_QUANTITY_RULE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>pricingEvent</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="PRICING_EVENT" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>accountReplicationKey</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ACCOUNT_REPLICATION_KEY" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>statusUpdateDate</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="STATUS_UPDATE_DATE" xsi:type="column"/>
+               <attribute-classification>java.sql.Timestamp</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>autopayFlag</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="AUTOPAY_FLAG" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>notifyFlag</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="NOTIFY_FLAG" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>lastBatchId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="LAST_BATCH_ID" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>orgId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="ORG_ID" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>objectVersionNumber</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="OBJECT_VERSION_NUMBER" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>createdByModule</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="CREATED_BY_MODULE" xsi:type="column"/>
+               <attribute-classification>java.lang.String</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>applicationId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="APPLICATION_ID" xsi:type="column"/>
+               <attribute-classification>java.math.BigDecimal</attribute-classification>
+            </attribute-mapping>
+            <attribute-mapping xsi:type="direct-mapping">
+               <attribute-name>sellingPartyId</attribute-name>
+               <properties>
+                  <property name="enabled">
+                     <value>false</value>
+                  </property>
+               </properties>
+               <field table="HZ_CUST_ACCOUNTS" name="SELLING_PARTY_ID" xsi:type="column"/>
+               <attribute-classification>java.lang.Long</attribute-classification>
+            </attribute-mapping>
+         </attribute-mappings>
+         <descriptor-type>independent</descriptor-type>
+         <caching>
+            <cache-type>weak-reference</cache-type>
+            <cache-size>-1</cache-size>
+            <always-refresh>true</always-refresh>
+         </caching>
+         <remote-caching>
+            <cache-type>weak-reference</cache-type>
+            <cache-size>-1</cache-size>
+         </remote-caching>
+         <instantiation/>
+         <copying xsi:type="instantiation-copy-policy"/>
+         <tables>
+            <table name="APPS.HZ_CUST_ACCOUNTS"/>
+         </tables>
+         <structure>structureName</structure>
+      </class-mapping-descriptor>
+   </class-mapping-descriptors>
+   <login xsi:type="database-login">
+      <platform-class>org.eclipse.persistence.platform.database.oracle.Oracle9Platform</platform-class>
+      <connection-url/>
+   </login>
+</object-persistence>

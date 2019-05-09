@@ -1,0 +1,1449 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.oracle.com/spm"
+           targetNamespace="http://www.oracle.com/spm" elementFormDefault="qualified">
+    <xs:element name="MISIMD_SPM_SUBSCRIPTION">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ORDER_HEADER_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ORGANIZATION_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ORGANIZATION_NAME"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ORDER_NUMBER"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ORDER_DATE"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ORDER_TYPE"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ORDER_TYPE_COMPLEX"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="OPERATIONTYPE"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="USAGE_BILLING"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="START_DATE"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="END_DATE"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="DURATION"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="DURATION_UOM"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SALES_REPS"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PRIMARY_SALESREP_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SALESREP_NUMBER"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SALESREP_NAME"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SALESREP_EMAIL"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SALES_CHANNEL"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="IS_AUTO_RENEWED"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ORDER_CREATED_BY_AUTO_RENEWAL"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ORDER_SOURCE"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PAYMENT_TERMS"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PAYMENT_TERMS_DAYS_DUE"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PAYMENT_TERMS_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CURRENCY"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PRICE_LIST"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PAYMENT_METHOD"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="INVOICE_SCHEDULE"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="IS_INDIRECT"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CONTRACT_TYPE"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CC_TOKEN_REF"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CC_EXPIRY_DATE"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CRM_OPTY_NUM"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CRM_TARGET_PARTY_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ISPUBLICSECTOR"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="COST_CENTER"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="COST_CENTER_DESCRIPTION"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SUPERSEDED_PROJECT"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="BUYER_EMAIL_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="RELATED_GROUP_PLAN_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PLAN_CLASSIFICATION"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="REKEY_TYPE"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SUBSCRIPTION_SOURCE"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="INFLIGHT_ORDER"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="INFLIGHT_SERVICE_START_DATE"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="INFLIGHT_STATUS"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="INFLIGHT_SUBSCRIPTION_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ATTRIBUTE1"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ATTRIBUTE2"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ATTRIBUTE3"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ATTRIBUTE4"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ATTRIBUTE5"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_ORG_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_PROJECT_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_PLAN_NUMBER"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_PAYMENT_METHOD_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_BUSINESS_PARTNER_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_BUSINESS_PARTNER_LOC_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_CONTACT_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_BP_CATEGORY_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_LANGUAGE_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_COUNTRY_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_REGION_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_PAYMENT_TERM_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_PRIMARY_SALESREP_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_ADUSER_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_CURRENCY_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_PRICE_LIST_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_INVOICE_SCHEDULE_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_CONTRACT_TYPE_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_SHIPTO_BP_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_SHIPTO_BP_LOC_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_SHIPTO_CONTACT_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_SHIPTO_COUNTRY_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_SHIPTO_REGION_ID"/>
+                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_SOLDTO_BP_ID"/>
+                <xs:element name="CUSTOMERS" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="MISIMD_SPM_CUSTOMER" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PARTY_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="PARENT_PARTY_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PARTY_NUMBER"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PARTY_NAME"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PARTY_TYPE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="TAX_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="TRANSLATED_NAME"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="URL"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="TCA_CUST_ACCOUNT_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CUST_ACCOUNT_NUMBER"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PARTY_SITE_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="PARTY_SITE_NUMBER"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CUST_ACCT_SITE_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="LOCATION_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ADDRESS1"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ADDRESS2"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CITY"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="POSTAL_CODE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="STATE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="COUNTRY"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SITE_USE_TYPE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SITE_USE_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CONTACT_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CONTACT_FIRST_NAME"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CONTACT_LAST_NAME"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CONTACT_EMAIL"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CONTACT_PHONE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CONTACT_PARTY_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CONTACT_CUST_ACCT_ROLE_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CONTACT_CUST_ACCT_SITE_ID"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="LINES" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="MISIMD_SPM_LINES" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ORDER_LINE_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="ORDER_LINE_NUMBER"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="METERED_SUBSCRIPTION"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CSI"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="GSI_SYSTEM_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="OVERAGE_ENABLED"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="OVERAGE_THRESHOLD"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="OVERAGE_BILLING_TERM"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="OVERAGE_POLICY"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="OVERAGE_PRICE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="SPLIT_ALLOWANCE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="ALLOWANCE_SPLIT_DURATION"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="ALLOWANCE_SPLIT_DURATION_UOM"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="IS_SUBSCRIPTION_ENABLED"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="SUBSCRIPTION_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="OPERATION_TYPE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CLOUD_RENEWAL_FLAG"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CLOUD_RENEWAL_FLAG_MEANING"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="INV_PART_NUMBER"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="INVENTORY_ITEM_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="INV_PART_DESCRIPTION"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="USER_ITEM_DESCRIPTION"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="INV_CATEGORY"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="USAGE_BILLING"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ITEM_TYPE_CODE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="START_DATE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="END_DATE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="DURATION"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="DURATION_UNIT"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="COMMITTED_QUANTITY"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="LINE_NET_AMOUNT"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="TCLV"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CLOUD_FUTURE_MON_PRICE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CLOUD_DATA_CENTER_REGION"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CLOUD_DATA_CENTER_REGION_M"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CLOUD_ACC_ADMIN_EMAIL"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="SERVICE_LINE_AMOUNT"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="OPC_CUSTOMER_NAME"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPMIST4C"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="PROVISIONING_STATUS"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="PROVISIONING_DATE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PO_EXPIRY_DATE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CAP_TO_PRICELIST"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="SPM_MASTER_LINE_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_PRODUCT_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="SPM_OLD_LINE_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="ENTITLEMENT_COUNTRYCODE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="ENTITLEMENT_PHONENUMBER"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="BASE_ORDER_LINE_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="HAS_PROMOTION"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="REBALANCE_OPTED"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="FULFILLMENT_SET"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="POOLED_ITEM"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="REPLACE_REASON_CODE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="SUPERSEDE_NOTES"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="REPLACE_SUBSCRIPTION_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="SUPERSEDED_SET_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PARENT_LINE_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="IS_UNIFIED"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="UNIFIED_REVENUE_QUOTA"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="UNIFIED_REVENUE_AMOUNT"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PRICE_PERIOD"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="RENEWAL"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="UPSELL"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CROSSSELL"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="DOWNSELL"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CLOUD_ACCOUNT_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CLOUD_ACCOUNT_NAME"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="ASSOCIATE_SUB_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CONTRACT_TYPE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="ORIGINAL_PROMO_AMT"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PROMOTION_TYPE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="PROMOTION_ORDER"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="PARTNER_TRANSACTION_TYPE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="IS_CREDIT_ENABLED"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CREDIT_PERCENTAGE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="OVERAGE_BILL_TO"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="RATE_CARD_DIS_PER"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PAYG_POLICY"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="INTENT_TO_PAY"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="DEPLOYMENT_TYPE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="DEPLOYMENT_NAME"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="COMMIT_MODEL"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="ASSC_REV_SUBSC_MAP"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="PROVISIONING_SOURCE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="PARTNER_CREDIT_VALUE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="COMMIT_SCHEDULE_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="QUOTE_NUMBER"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="COMP_SALES_REP"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CLOUD_PROVISION_SEQ_NUM"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CLOUD_PO_TERM"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CLOUD_PO_TERM_UOM"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CLOUD_BACK_DATED_CONTRACT"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CLOUD_STORE_SSO_USERNAME"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CLOUD_REF_SUBSCRIPTION_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CUSTOMERS_CRM_CHOICE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="ADMIN_FIRST_NAME"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="ADMIN_LAST_NAME"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CUSTOMER_CODE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="LANGUAGE_PACK"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="TALEO_CONSULTING_METHODOLOGY"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="AUTO_CLOSE_FOR_PROVISIONING"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CHANNEL_OPTION"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PARTNER_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="RAVELLO_TOKEN_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CLOUD_BACK_DATED_FLAG"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PILOT_TYPE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="FIXED_DATE_FLAG"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="SPECIAL_HANDLING_FLAG"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="LINE_OF_BUSINESS"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="TEXTURA_TOKEN_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="APIARY_TOKEN_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CUSTOMER_READINESS_DATE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="DEDICATED_COMPUTE_CAPACITY"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="ESTIMATED_PROV_DATE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="COST_CENTER_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="COST_CENTER_DESCRIPTION"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PROGRAM_TYPE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="AGREEMENT_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="START_DATE_TYPE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="AGREEMENT_NAME"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SALES_SCENARIO"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="PROMOTION_TYPE_VAL"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="ORIGINAL_SUB_IDS"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="AGREEMENT_END_DATE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ULA2PAAS"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ULAORDER"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CREDIT4_REPUR_SUPP"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="SYNC_START_DATE_OCC"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="ASSET_TRANSFER_FLAG"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CLOUD_OPERATION_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CONVERSION_RATE_DATE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CONVERSION_TYPE_CODE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CONVERSION_RATE"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="IS_VARIABLE_COMMITMENT"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="COS_ORDER_LINEID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="CUSTOMER_ORDER_REF"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PO_NUMBER"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="IS_SELFSERVICE_PROV"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CONFIG_ID"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                    name="ENFORCED_RATECARD"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="LINEATTRIBUTE1"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="LINEATTRIBUTE2"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="LINEATTRIBUTE3"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="LINEATTRIBUTE4"/>
+                                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="LINEATTRIBUTE5"/>
+                                        <xs:element name="CUSTOMERS" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="MISIMD_SPM_CUSTOMER" maxOccurs="unbounded"
+                                                                minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="PARTY_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="PARENT_PARTY_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="PARTY_NUMBER"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="PARTY_NAME"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="PARTY_TYPE"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="TAX_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="TRANSLATED_NAME"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="URL"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="TCA_CUST_ACCOUNT_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="CUST_ACCOUNT_NUMBER"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="PARTY_SITE_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="PARTY_SITE_NUMBER"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="CUST_ACCT_SITE_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="LOCATION_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="ADDRESS1"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="ADDRESS2"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="CITY"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="POSTAL_CODE"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="STATE"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="COUNTRY"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="SITE_USE_TYPE"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="SITE_USE_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="CONTACT_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="CONTACT_FIRST_NAME"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="CONTACT_LAST_NAME"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="CONTACT_EMAIL"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="CONTACT_PHONE"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="CONTACT_PARTY_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="CONTACT_CUST_ACCT_ROLE_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="CONTACT_CUST_ACCT_SITE_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="IS_PUBLIC_SECTOR"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="IS_CHAIN_CUSTOMER"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="CUSTOMER_CHAIN_TYPE"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="BOM_COMPONENTS" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="MISIMD_SPM_BOM_COMPONENT" maxOccurs="unbounded"
+                                                                minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="INV_PART_NUMBER"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="INV_PART_DESCRIPTION"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="INVENTORY_ITEM_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="PRICE_BAND_ITEM_FLAG"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="PRICING_UOM"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="RATE_CARD_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="SPM_PRODUCT_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="SPM_LINE_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="PRICE_PERIOD"/>
+                                                                <xs:element name="RATE_CARD">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="MISIMD_SPM_RATE_CARD"
+                                                                                        maxOccurs="unbounded"
+                                                                                        minOccurs="0">
+                                                                                <xs:complexType>
+                                                                                    <xs:sequence>
+                                                                                        <xs:element type="xs:string"
+                                                                                                    minOccurs="0"
+                                                                                                    maxOccurs="1"
+                                                                                                    name="FROM_BAND_QUANTITY"/>
+                                                                                        <xs:element type="xs:string"
+                                                                                                    minOccurs="0"
+                                                                                                    maxOccurs="1"
+                                                                                                    name="TO_BAND_QUANTITY"/>
+                                                                                        <xs:element type="xs:string"
+                                                                                                    minOccurs="0"
+                                                                                                    maxOccurs="1"
+                                                                                                    name="UNIT_LIST_PRICE"/>
+                                                                                        <xs:element type="xs:string"
+                                                                                                    minOccurs="0"
+                                                                                                    maxOccurs="1"
+                                                                                                    name="UNIT_SELLING_PRICE"/>
+                                                                                        <xs:element type="xs:string"
+                                                                                                    minOccurs="0"
+                                                                                                    maxOccurs="1"
+                                                                                                    name="UNIT_SELLING_PRICE_UOM"/>
+                                                                                        <xs:element type="xs:string"
+                                                                                                    minOccurs="0"
+                                                                                                    maxOccurs="1"
+                                                                                                    name="OVERAGE_PRICE"/>
+                                                                                        <xs:element type="xs:string"
+                                                                                                    minOccurs="0"
+                                                                                                    maxOccurs="1"
+                                                                                                    name="OVERAGE_PRICE_UOM"/>
+                                                                                        <xs:element type="xs:string"
+                                                                                                    minOccurs="0"
+                                                                                                    maxOccurs="1"
+                                                                                                    name="STANDARD_DISCOUNT_PERCENT"/>
+                                                                                    </xs:sequence>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="ENTITLEMENT_COMPONENTS" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="MISIMD_SPM_ENT_COMPONENT" maxOccurs="unbounded"
+                                                                minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="PARENT_INVENTORY_ITEM_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="PARENT_PART_NUMBER"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="PARENT_PART_DESCRIPTION"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="CHILD_INVENTORY_ITEM_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="CHILD_PART_NUMBER"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="CHILD_PART_DESCRIPTION"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="LINE_NUMBER"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="LICENSE_METRIC"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="IS_COMMITTED_QUANTITY"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="QUANTITY_CONSTRAINT"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="QUANTITY_MULTIPLIER"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="FIRST_PURCHASE"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="SERVICE_PART_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="SERVICE_PART_DESCRIPTION"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="OPTIONAL_TIERS" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="MISIMD_SPM_OPTIONAL_TIERS" maxOccurs="unbounded"
+                                                                minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="INV_PART_NUMBER"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="INV_PART_DESCRIPTION"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="INVENTORY_ITEM_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="OPTIONAL_TIERS_RATE_CARD_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="PRICED_PRICE_LIST_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="QUANTITY"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="UNIT_LIST_PRICE"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="UNIT_SELLING_PRICE"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="PRICING_UOM"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="STANDARD_DISCOUNT_PERCENT"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="MANUAL_DISCOUNT_PERCENT"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="TOTAL_DISCOUNT_PERCENT"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="START_DATE"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="END_DATE"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="SUB_OVERAGE_POLICY_TYPE"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="SUB_OVERAGE_PRICE"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="DISCR_DISCOUNT_PRCNT"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="DISCOUNT_CATEGORY"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="OVERAGE_DISCOUNT_PRCNT"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="SALES_CREDIT" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="MISIMD_SPM_SALES_CREDIT" maxOccurs="unbounded"
+                                                                minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="SALESREP_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="SALESREP_NUMBER"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="SALESREP_NAME"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="SALESREP_EMAIL"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="PERCENT"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="SALES_CREDIT_TYPE_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="SPM_SALESREP_ID"/>
+                                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                                            name="SPM_AD_USER_ID"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="MISIMD_SPM_SUBSCRIPTION_Type">
+        <xs:sequence>
+            <xs:element name="MISIMD_SPM_SUBSCRIPTION">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ORDER_HEADER_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ORGANIZATION_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ORGANIZATION_NAME"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ORDER_NUMBER"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ORDER_DATE"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ORDER_TYPE"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ORDER_TYPE_COMPLEX"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="OPERATIONTYPE"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="USAGE_BILLING"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="START_DATE"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="END_DATE"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="DURATION"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="DURATION_UOM"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SALES_REPS"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PRIMARY_SALESREP_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SALESREP_NUMBER"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SALESREP_NAME"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SALESREP_EMAIL"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SALES_CHANNEL"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="IS_AUTO_RENEWED"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ORDER_CREATED_BY_AUTO_RENEWAL"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ORDER_SOURCE"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PAYMENT_TERMS"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PAYMENT_TERMS_DAYS_DUE"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PAYMENT_TERMS_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CURRENCY"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PRICE_LIST"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PAYMENT_METHOD"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="INVOICE_SCHEDULE"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="IS_INDIRECT"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CONTRACT_TYPE"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CC_TOKEN_REF"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CC_EXPIRY_DATE"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CRM_OPTY_NUM"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CRM_TARGET_PARTY_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ISPUBLICSECTOR"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="COST_CENTER"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="COST_CENTER_DESCRIPTION"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SUPERSEDED_PROJECT"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="BUYER_EMAIL_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="RELATED_GROUP_PLAN_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="PLAN_CLASSIFICATION"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="INFLIGHT_ORDER"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="INFLIGHT_SERVICE_START_DATE"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="INFLIGHT_STATUS"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="INFLIGHT_SUBSCRIPTION_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ATTRIBUTE1"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ATTRIBUTE2"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ATTRIBUTE3"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ATTRIBUTE4"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="ATTRIBUTE5"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_ORG_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_PROJECT_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_PLAN_NUMBER"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_PAYMENT_METHOD_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_BUSINESS_PARTNER_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_BUSINESS_PARTNER_LOC_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_CONTACT_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_BP_CATEGORY_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_LANGUAGE_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_COUNTRY_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_REGION_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_PAYMENT_TERM_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_PRIMARY_SALESREP_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_ADUSER_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_CURRENCY_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_PRICE_LIST_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_INVOICE_SCHEDULE_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_CONTRACT_TYPE_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_SHIPTO_BP_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_SHIPTO_BP_LOC_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_SHIPTO_CONTACT_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_SHIPTO_COUNTRY_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_SHIPTO_REGION_ID"/>
+                        <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="SPM_SOLDTO_BP_ID"/>
+                        <xs:element name="CUSTOMERS" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="MISIMD_SPM_CUSTOMER" maxOccurs="unbounded" minOccurs="0">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PARTY_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PARENT_PARTY_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PARTY_NUMBER"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PARTY_NAME"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PARTY_TYPE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="TAX_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="TRANSLATED_NAME"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="URL"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="TCA_CUST_ACCOUNT_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CUST_ACCOUNT_NUMBER"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PARTY_SITE_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PARTY_SITE_NUMBER"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CUST_ACCT_SITE_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="LOCATION_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="ADDRESS1"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="ADDRESS2"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CITY"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="POSTAL_CODE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="STATE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="COUNTRY"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="SITE_USE_TYPE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="SITE_USE_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CONTACT_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CONTACT_FIRST_NAME"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CONTACT_LAST_NAME"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CONTACT_EMAIL"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CONTACT_PHONE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CONTACT_PARTY_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CONTACT_CUST_ACCT_ROLE_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CONTACT_CUST_ACCT_SITE_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="IS_PUBLIC_SECTOR"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="IS_CHAIN_CUSTOMER"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CUSTOMER_CHAIN_TYPE"/>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="LINES" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="MISIMD_SPM_LINES" maxOccurs="unbounded" minOccurs="0">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="ORDER_LINE_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="ORDER_LINE_NUMBER"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="METERED_SUBSCRIPTION"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="CSI"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="GSI_SYSTEM_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="OVERAGE_ENABLED"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="OVERAGE_THRESHOLD"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="OVERAGE_BILLING_TERM"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="OVERAGE_POLICY"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="OVERAGE_PRICE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="SPLIT_ALLOWANCE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="ALLOWANCE_SPLIT_DURATION"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="ALLOWANCE_SPLIT_DURATION_UOM"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="IS_SUBSCRIPTION_ENABLED"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="SUBSCRIPTION_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="OPERATION_TYPE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CLOUD_RENEWAL_FLAG"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CLOUD_RENEWAL_FLAG_MEANING"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="INV_PART_NUMBER"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="INVENTORY_ITEM_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="INV_PART_DESCRIPTION"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="USER_ITEM_DESCRIPTION"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="INV_CATEGORY"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="USAGE_BILLING"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="ITEM_TYPE_CODE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="START_DATE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="END_DATE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="DURATION"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="DURATION_UNIT"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="COMMITTED_QUANTITY"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="LINE_NET_AMOUNT"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="TCLV"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CLOUD_FUTURE_MON_PRICE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CLOUD_DATA_CENTER_REGION"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CLOUD_DATA_CENTER_REGION_M"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CLOUD_ACC_ADMIN_EMAIL"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="SERVICE_LINE_AMOUNT"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="OPC_CUSTOMER_NAME"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="SPMIST4C"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PROVISIONING_STATUS"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PROVISIONING_DATE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PO_EXPIRY_DATE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CAP_TO_PRICELIST"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="SPM_MASTER_LINE_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="SPM_PRODUCT_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="SPM_OLD_LINE_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="ENTITLEMENT_COUNTRYCODE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="ENTITLEMENT_PHONENUMBER"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="BASE_ORDER_LINE_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="HAS_PROMOTION"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="REBALANCE_OPTED"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="FULFILLMENT_SET"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="POOLED_ITEM"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="REPLACE_REASON_CODE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="SUPERSEDE_NOTES"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="REPLACE_SUBSCRIPTION_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="SUPERSEDED_SET_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PARENT_LINE_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="IS_UNIFIED"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="UNIFIED_REVENUE_QUOTA"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="UNIFIED_REVENUE_AMOUNT"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PRICE_PERIOD"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="RENEWAL"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="UPSELL"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CROSSSELL"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="DOWNSELL"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CLOUD_ACCOUNT_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CLOUD_ACCOUNT_NAME"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="ASSOCIATE_SUB_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CONTRACT_TYPE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="ORIGINAL_PROMO_AMT"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PROMOTION_TYPE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PROMOTION_ORDER"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PARTNER_TRANSACTION_TYPE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="IS_CREDIT_ENABLED"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CREDIT_PERCENTAGE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="OVERAGE_BILL_TO"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="RATE_CARD_DIS_PER"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PAYG_POLICY"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="INTENT_TO_PAY"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="DEPLOYMENT_TYPE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="DEPLOYMENT_NAME"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="COMMIT_MODEL"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="ASSC_REV_SUBSC_MAP"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PROVISIONING_SOURCE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PARTNER_CREDIT_VALUE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="COMMIT_SCHEDULE_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="QUOTE_NUMBER"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="COMP_SALES_REP"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CLOUD_PROVISION_SEQ_NUM"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CLOUD_PO_TERM"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CLOUD_PO_TERM_UOM"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CLOUD_BACK_DATED_CONTRACT"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CLOUD_STORE_SSO_USERNAME"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CLOUD_REF_SUBSCRIPTION_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CUSTOMERS_CRM_CHOICE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="ADMIN_FIRST_NAME"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="ADMIN_LAST_NAME"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CUSTOMER_CODE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="LANGUAGE_PACK"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="TALEO_CONSULTING_METHODOLOGY"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="AUTO_CLOSE_FOR_PROVISIONING"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CHANNEL_OPTION"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PARTNER_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="RAVELLO_TOKEN_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CLOUD_BACK_DATED_FLAG"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PILOT_TYPE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="FIXED_DATE_FLAG"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="SPECIAL_HANDLING_FLAG"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="LINE_OF_BUSINESS"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="TEXTURA_TOKEN_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="APIARY_TOKEN_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CUSTOMER_READINESS_DATE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="DEDICATED_COMPUTE_CAPACITY"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="ESTIMATED_PROV_DATE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="COST_CENTER_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="COST_CENTER_DESCRIPTION"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PROGRAM_TYPE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="AGREEMENT_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="START_DATE_TYPE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="AGREEMENT_NAME"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="SALES_SCENARIO"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PROMOTION_TYPE_VAL"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="ORIGINAL_SUB_IDS"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="AGREEMENT_END_DATE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="ULA2PAAS"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="ULAORDER"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CREDIT4_REPUR_SUPP"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="SYNC_START_DATE_OCC"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="ASSET_TRANSFER_FLAG"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CLOUD_OPERATION_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CONVERSION_RATE_DATE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CONVERSION_TYPE_CODE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CONVERSION_RATE"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="IS_VARIABLE_COMMITMENT"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="COS_ORDER_LINEID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CUSTOMER_ORDER_REF"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="PO_NUMBER"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="IS_SELFSERVICE_PROV"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="CONFIG_ID"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="ENFORCED_RATECARD"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="LINEATTRIBUTE1"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="LINEATTRIBUTE2"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="LINEATTRIBUTE3"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="LINEATTRIBUTE4"/>
+                                                <xs:element type="xs:string" minOccurs="0" maxOccurs="1"
+                                                            name="LINEATTRIBUTE5"/>
+                                                <xs:element name="CUSTOMERS" maxOccurs="unbounded" minOccurs="0">
+                                                    <xs:complexType>
+                                                        <xs:sequence>
+                                                            <xs:element name="MISIMD_SPM_CUSTOMER" maxOccurs="unbounded"
+                                                                        minOccurs="0">
+                                                                <xs:complexType>
+                                                                    <xs:sequence>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="PARTY_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="PARENT_PARTY_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="PARTY_NUMBER"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="PARTY_NAME"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="PARTY_TYPE"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="TAX_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="TRANSLATED_NAME"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="URL"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="TCA_CUST_ACCOUNT_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="CUST_ACCOUNT_NUMBER"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="PARTY_SITE_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="PARTY_SITE_NUMBER"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="CUST_ACCT_SITE_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="LOCATION_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="ADDRESS1"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="ADDRESS2"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="CITY"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="POSTAL_CODE"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="STATE"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="COUNTRY"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="SITE_USE_TYPE"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="SITE_USE_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="CONTACT_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="CONTACT_FIRST_NAME"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="CONTACT_LAST_NAME"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="CONTACT_EMAIL"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="CONTACT_PHONE"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="CONTACT_PARTY_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="CONTACT_CUST_ACCT_ROLE_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="CONTACT_CUST_ACCT_SITE_ID"/>
+                                                                    </xs:sequence>
+                                                                </xs:complexType>
+                                                            </xs:element>
+                                                        </xs:sequence>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                                <xs:element name="BOM_COMPONENTS" maxOccurs="unbounded" minOccurs="0">
+                                                    <xs:complexType>
+                                                        <xs:sequence>
+                                                            <xs:element name="MISIMD_SPM_BOM_COMPONENT"
+                                                                        maxOccurs="unbounded" minOccurs="0">
+                                                                <xs:complexType>
+                                                                    <xs:sequence>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="INV_PART_NUMBER"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="INV_PART_DESCRIPTION"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="INVENTORY_ITEM_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="PRICE_BAND_ITEM_FLAG"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="PRICING_UOM"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="RATE_CARD_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="SPM_PRODUCT_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="SPM_LINE_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="PRICE_PERIOD"/>
+                                                                        <xs:element name="RATE_CARD">
+                                                                            <xs:complexType>
+                                                                                <xs:sequence>
+                                                                                    <xs:element name="MISIMD_SPM_RATE_CARD"
+                                                                                                maxOccurs="unbounded"
+                                                                                                minOccurs="0">
+                                                                                        <xs:complexType>
+                                                                                            <xs:sequence>
+                                                                                                <xs:element type="xs:string"
+                                                                                                            minOccurs="0"
+                                                                                                            maxOccurs="1"
+                                                                                                            name="FROM_BAND_QUANTITY"/>
+                                                                                                <xs:element type="xs:string"
+                                                                                                            minOccurs="0"
+                                                                                                            maxOccurs="1"
+                                                                                                            name="TO_BAND_QUANTITY"/>
+                                                                                                <xs:element type="xs:string"
+                                                                                                            minOccurs="0"
+                                                                                                            maxOccurs="1"
+                                                                                                            name="UNIT_LIST_PRICE"/>
+                                                                                                <xs:element type="xs:string"
+                                                                                                            minOccurs="0"
+                                                                                                            maxOccurs="1"
+                                                                                                            name="UNIT_SELLING_PRICE"/>
+                                                                                                <xs:element type="xs:string"
+                                                                                                            minOccurs="0"
+                                                                                                            maxOccurs="1"
+                                                                                                            name="UNIT_SELLING_PRICE_UOM"/>
+                                                                                                <xs:element type="xs:string"
+                                                                                                            minOccurs="0"
+                                                                                                            maxOccurs="1"
+                                                                                                            name="OVERAGE_PRICE"/>
+                                                                                                <xs:element type="xs:string"
+                                                                                                            minOccurs="0"
+                                                                                                            maxOccurs="1"
+                                                                                                            name="OVERAGE_PRICE_UOM"/>
+                                                                                                <xs:element type="xs:string"
+                                                                                                            minOccurs="0"
+                                                                                                            maxOccurs="1"
+                                                                                                            name="STANDARD_DISCOUNT_PERCENT"/>
+                                                                                            </xs:sequence>
+                                                                                        </xs:complexType>
+                                                                                    </xs:element>
+                                                                                </xs:sequence>
+                                                                            </xs:complexType>
+                                                                        </xs:element>
+                                                                    </xs:sequence>
+                                                                </xs:complexType>
+                                                            </xs:element>
+                                                        </xs:sequence>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                                <xs:element name="ENTITLEMENT_COMPONENTS" maxOccurs="unbounded"
+                                                            minOccurs="0">
+                                                    <xs:complexType>
+                                                        <xs:sequence>
+                                                            <xs:element name="MISIMD_SPM_ENT_COMPONENT"
+                                                                        maxOccurs="unbounded" minOccurs="0">
+                                                                <xs:complexType>
+                                                                    <xs:sequence>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="PARENT_INVENTORY_ITEM_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="PARENT_PART_NUMBER"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="PARENT_PART_DESCRIPTION"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="CHILD_INVENTORY_ITEM_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="CHILD_PART_NUMBER"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="CHILD_PART_DESCRIPTION"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="LINE_NUMBER"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="LICENSE_METRIC"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="IS_COMMITTED_QUANTITY"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="QUANTITY_CONSTRAINT"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="QUANTITY_MULTIPLIER"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="FIRST_PURCHASE"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="SERVICE_PART_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="SERVICE_PART_DESCRIPTION"/>
+                                                                    </xs:sequence>
+                                                                </xs:complexType>
+                                                            </xs:element>
+                                                        </xs:sequence>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                                <xs:element name="OPTIONAL_TIERS" maxOccurs="unbounded" minOccurs="0">
+                                                    <xs:complexType>
+                                                        <xs:sequence>
+                                                            <xs:element name="MISIMD_SPM_OPTIONAL_TIERS"
+                                                                        maxOccurs="unbounded" minOccurs="0">
+                                                                <xs:complexType>
+                                                                    <xs:sequence>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="INV_PART_NUMBER"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="INV_PART_DESCRIPTION"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="INVENTORY_ITEM_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="OPTIONAL_TIERS_RATE_CARD_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="PRICED_PRICE_LIST_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="QUANTITY"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="UNIT_LIST_PRICE"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="UNIT_SELLING_PRICE"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="PRICING_UOM"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="STANDARD_DISCOUNT_PERCENT"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="MANUAL_DISCOUNT_PERCENT"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="TOTAL_DISCOUNT_PERCENT"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="START_DATE"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="END_DATE"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="SUB_OVERAGE_POLICY_TYPE"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="SUB_OVERAGE_PRICE"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="DISCR_DISCOUNT_PRCNT"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="DISCOUNT_CATEGORY"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="OVERAGE_DISCOUNT_PRCNT"/>
+                                                                    </xs:sequence>
+                                                                </xs:complexType>
+                                                            </xs:element>
+                                                        </xs:sequence>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                                <xs:element name="SALES_CREDIT" maxOccurs="unbounded" minOccurs="0">
+                                                    <xs:complexType>
+                                                        <xs:sequence>
+                                                            <xs:element name="MISIMD_SPM_SALES_CREDIT"
+                                                                        maxOccurs="unbounded" minOccurs="0">
+                                                                <xs:complexType>
+                                                                    <xs:sequence>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="SALESREP_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="SALESREP_NUMBER"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="SALESREP_NAME"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="SALESREP_EMAIL"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1" name="PERCENT"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="SALES_CREDIT_TYPE_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="SPM_SALESREP_ID"/>
+                                                                        <xs:element type="xs:string" minOccurs="0"
+                                                                                    maxOccurs="1"
+                                                                                    name="SPM_AD_USER_ID"/>
+                                                                    </xs:sequence>
+                                                                </xs:complexType>
+                                                            </xs:element>
+                                                        </xs:sequence>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,5 @@
+COMPOSITE_EXECUTION_SCALE_QUERY,QUERY_RESULT_ROW_SEQUENCE,RESULT_1,RESULT_2,RESULT_3,RESULT_4,RESULT_5,RESULT_6
+"select count(1) from reference_instance where created_time > sysdate-1","1","0",,,,,,
+"select count(1) from reference_instance where created_time > sysdate-2","1","0",,,,,,
+"select count(1) from reference_instance where created_time > sysdate-3","1","0",,,,,,
+"select count(1) from EDN_EVENT_QUEUE_TABLE","1","0",,,,,,

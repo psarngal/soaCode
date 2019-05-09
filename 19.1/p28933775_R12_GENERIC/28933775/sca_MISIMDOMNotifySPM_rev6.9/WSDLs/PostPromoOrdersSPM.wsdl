@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions name="PostPromoOrdersSPM" targetNamespace="http://xmlns.oracle.com/SPM_PROV/MISIMDOMNotifySPM/PostPromoOrdersSPM" xmlns:tns="http://xmlns.oracle.com/SPM_PROV/MISIMDOMNotifySPM/PostPromoOrdersSPM" xmlns:inp1="http://xmlns.oracle.com/oih/oracle_integration_message" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:inp2="http://www.openbravo.com">
+   <plnk:partnerLinkType name="PostPromoOrdersSPM">
+      <plnk:role name="PostPromoOrdersSPMProvider" portType="tns:PostPromoOrdersSPM_ptt"/>
+   </plnk:partnerLinkType>
+   <wsdl:types>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+         <xsd:import namespace="http://xmlns.oracle.com/oih/oracle_integration_message" schemaLocation="../xsd/SPMSubscription.xsd"/>
+      </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+         <xsd:import namespace="http://www.openbravo.com" schemaLocation="../Schemas/OBFault.xsd"/>
+      </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="PostPromoOrderXML_inputMessage">
+      <wsdl:part name="request" element="inp1:ORACLE_INTEGRATION_MESSAGE"/>
+   </wsdl:message>
+   <wsdl:message name="PostPromoOrderXML_outputMessage">
+      <wsdl:part name="reply" element="inp1:ORACLE_INTEGRATION_MESSAGE"/>
+   </wsdl:message>
+   <wsdl:message name="PostPromoOrderXML_SPMUserDefinedExceptionMessage">
+      <wsdl:part name="fault_SPMUserDefinedException" element="inp2:error"/>
+   </wsdl:message>
+   <wsdl:portType name="PostPromoOrdersSPM_ptt">
+      <wsdl:operation name="PostPromoOrderXML">
+         <wsdl:input message="tns:PostPromoOrderXML_inputMessage"/>
+         <wsdl:output message="tns:PostPromoOrderXML_outputMessage"/>
+         <wsdl:fault name="SPMUserDefinedException" message="tns:PostPromoOrderXML_SPMUserDefinedExceptionMessage"/>
+      </wsdl:operation>
+   </wsdl:portType>
+</wsdl:definitions>

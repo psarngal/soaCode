@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/GSICustomerOSR"
+        xmlns="http://www.w3.org/2001/XMLSchema" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/GSICustomerOSR"
+        elementFormDefault="qualified">
+    <element name="InputParameters">
+        <complexType>
+            <sequence>
+                <element name="P_ORIG_SYSTEM" type="string" db:index="1" db:default="true" db:type="VARCHAR2"
+                         minOccurs="0" nillable="true"/>
+                <element name="P_ORIG_SYSTEM_REFERENCE" type="string" db:index="2" db:type="VARCHAR2" minOccurs="0"
+                         nillable="true"/>
+                <element name="P_OWNER_TABLE_NAME" type="string" db:index="3" db:type="VARCHAR2" minOccurs="0"
+                         nillable="true"/>
+                <element name="P_OWNER_TABLE_ID" type="decimal" db:index="4" db:type="NUMBER" minOccurs="0"
+                         nillable="true"/>
+                <element name="P_ORG_ID" type="decimal" db:index="5" db:default="true" db:type="NUMBER" minOccurs="0"
+                         nillable="true"/>
+                <element name="P_CREATED_BY_MODULE" type="string" db:index="6" db:default="true" db:type="VARCHAR2"
+                         minOccurs="0" nillable="true"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

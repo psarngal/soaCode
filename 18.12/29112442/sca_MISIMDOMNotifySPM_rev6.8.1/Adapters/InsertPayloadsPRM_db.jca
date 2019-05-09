@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<adapter-config name="InsertPayloadsPRM" adapter="db" wsdlLocation="../WSDLs/InsertPayloadsPRM.wsdl"
+                xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+    <connection-factory UIConnectionName="MISBPEL_OIHAT" location="eis/DB/SOAXAMISBPEL"/>
+    <endpoint-interaction portType="InsertPayloadsPRM_ptt" operation="InsertPayloadsPRM">
+        <interaction-spec className="oracle.tip.adapter.db.DBStoredProcedureInteractionSpec">
+            <property name="SchemaName" value="MISBPEL"/>
+            <property name="PackageName" value="PRM_UTIL"/>
+            <property name="ProcedureName" value="PRM_OTHER_PAYLOAD_UPDATES"/>
+            <property name="QueryTimeout" value="30"/>
+            <property name="GetActiveUnitOfWork" value="false"/>
+        </interaction-spec>
+    </endpoint-interaction>
+</adapter-config>

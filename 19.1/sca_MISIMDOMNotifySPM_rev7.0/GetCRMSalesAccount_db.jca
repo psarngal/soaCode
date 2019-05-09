@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<adapter-config name="GetCRMSalesAccount" adapter="db" wsdlLocation="GetCRMSalesAccount.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+   <connection-factory location="eis/DB/SOAGSIXAMISBPEL" UIConnectionName="GSIAV_APPS" adapterRef=""/>
+   <endpoint-interaction portType="GetCRMSalesAccount_ptt" operation="GetCRMSalesAccountSelect">
+      <interaction-spec className="oracle.tip.adapter.db.DBReadInteractionSpec">
+         <property name="DescriptorName" value="GetCRMSalesAccount.HzParties"/>
+         <property name="QueryName" value="GetCRMSalesAccountSelect"/>
+         <property name="MappingsMetaDataURL" value="GetCRMSalesAccount-or-mappings.xml"/>
+         <property name="ReturnSingleResultSet" value="true"/>
+         <property name="GetActiveUnitOfWork" value="false"/>
+      </interaction-spec>
+   </endpoint-interaction>
+</adapter-config>

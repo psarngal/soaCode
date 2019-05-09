@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions name="InvokeSPMRestGoFastWS" targetNamespace="http://xmlns.oracle.com/SPMPaaS/MISIMDOMNotifySPM/InvokeSPMRestGoFastWS" xmlns:tns="http://xmlns.oracle.com/SPMPaaS/MISIMDOMNotifySPM/InvokeSPMRestGoFastWS" xmlns:inp1="http://xmlns.oracle.com/oih/oracle_integration_message" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:inp2="http://xmlns.oracle.com/SPMPaaS/MISIMDOMNotifySPM/InvokeSPMRestGoFastWS" xmlns:inp3="http://xmlns.oracle.com/SPMPaaS/MISIMDOMNotifySPM/InvokeSPMRestGoFastWS">
+   <plnk:partnerLinkType name="InvokeSPMRestGoFastWS">
+      <plnk:role name="InvokeSPMRestGoFastWSProvider" portType="tns:InvokeSPMRestGoFastWS_ptt"/>
+   </plnk:partnerLinkType>
+   <wsdl:types>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+         <xsd:import namespace="http://xmlns.oracle.com/oih/oracle_integration_message" schemaLocation="../xsd/SPMSubscription.xsd"/>
+      </xsd:schema>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.oracle.com/SPMPaaS/MISIMDOMNotifySPM/InvokeSPMRestGoFastWS" elementFormDefault="qualified">
+         <element name="empty">
+            <complexType/>
+         </element>
+      </schema>
+   </wsdl:types>
+   <wsdl:message name="PostOrders_inputMessage">
+      <wsdl:part name="request" element="inp1:ORACLE_INTEGRATION_MESSAGE"/>
+   </wsdl:message>
+   <wsdl:message name="PostOrders_outputMessage">
+      <wsdl:part name="reply" element="inp1:ORACLE_INTEGRATION_MESSAGE"/>
+   </wsdl:message>
+   <wsdl:message name="Operation1_inputMessage">
+      <wsdl:part name="request" element="inp1:ORACLE_INTEGRATION_MESSAGE"/>
+   </wsdl:message>
+   <wsdl:message name="PostOrderToSPMPaaS_inputMessage">
+      <wsdl:part name="request" element="inp1:ORACLE_INTEGRATION_MESSAGE"/>
+   </wsdl:message>
+   <wsdl:message name="Rest_EmptyMessage">
+      <wsdl:part name="Empty" element="tns:empty"/>
+   </wsdl:message>
+   <wsdl:portType name="InvokeSPMRestGoFastWS_ptt">
+      <wsdl:operation name="PostOrders">
+         <wsdl:input message="tns:PostOrders_inputMessage"/>
+         <wsdl:output message="tns:PostOrders_outputMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="PostOrderToSPMPaaS">
+         <wsdl:input message="tns:PostOrderToSPMPaaS_inputMessage"/>
+         <wsdl:output message="tns:Rest_EmptyMessage"/>
+      </wsdl:operation>
+   </wsdl:portType>
+</wsdl:definitions>

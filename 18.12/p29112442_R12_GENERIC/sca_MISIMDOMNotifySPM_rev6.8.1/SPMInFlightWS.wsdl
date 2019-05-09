@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions name="SPMInFlightWS"
+                  targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/http/SPM/MISIMDOMNotifySPM/SPMInFlightWS"
+                  xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/http/SPM/MISIMDOMNotifySPM/SPMInFlightWS"
+                  xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+                  xmlns:msg_in_out="http://xmlns.oracle.com/oih/oracle_integration_message"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <plt:partnerLinkType name="Request_Response_plt">
+        <plt:role name="Request-Response_role">
+            <plt:portType name="tns:Request_Response_ptt"/>
+        </plt:role>
+    </plt:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/oih/oracle_integration_message"
+                    schemaLocation="xsd/SPMSubscription.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="ORACLE_INTEGRATION_MESSAGE_msg_in">
+        <wsdl:part name="ORACLE_INTEGRATION_MESSAGE" element="msg_in_out:ORACLE_INTEGRATION_MESSAGE"/>
+    </wsdl:message>
+    <wsdl:message name="ORACLE_INTEGRATION_MESSAGE_msg_out">
+        <wsdl:part name="ORACLE_INTEGRATION_MESSAGE" element="msg_in_out:ORACLE_INTEGRATION_MESSAGE"/>
+    </wsdl:message>
+    <wsdl:portType name="Request_Response_ptt">
+        <wsdl:operation name="Request-Response">
+            <wsdl:input message="tns:ORACLE_INTEGRATION_MESSAGE_msg_in"/>
+            <wsdl:output message="tns:ORACLE_INTEGRATION_MESSAGE_msg_out"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>
